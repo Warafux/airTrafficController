@@ -26,5 +26,12 @@ namespace AirTrafficController.forms
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            map gameMap = game.getMap();
+            airplane airplane = new airplane();
+            gameMap.addAirplane(airplane);
+        }
     }
 }

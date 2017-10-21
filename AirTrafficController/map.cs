@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AirTrafficController
 {
-    class map
+    public class map
     {
         private Game1 game;
         private Point size;

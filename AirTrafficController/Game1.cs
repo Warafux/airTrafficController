@@ -44,7 +44,7 @@ namespace AirTrafficController
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             airplane = new airplane();
-            map = new map(this, 0, 0, GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2);
+            map = new map(this, 0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
             defaultFont = Content.Load<SpriteFont>("defaultFont");
             frameCounter = new FrameCounter();
             notificationsManager = new notificationsManager(this);
@@ -97,6 +97,10 @@ namespace AirTrafficController
         public void setMenu(menuForm menu)
         {
             this.menu = menu;
+        }
+        public map getMap()
+        {
+            return this.map;
         }
     }
 }
