@@ -22,3 +22,6 @@ c:\users\alex\documents\visual studio 2017\Projects\AirTrafficController\AirTraf
 c:\users\alex\documents\visual studio 2017\Projects\AirTrafficController\AirTrafficController\obj\x86\Debug\AirTrafficController.exe.manifest
 c:\users\alex\documents\visual studio 2017\Projects\AirTrafficController\AirTrafficController\obj\x86\Debug\AirTrafficController.application
 C:\Users\Alex\documents\visual studio 2017\Projects\AirTrafficController\AirTrafficController\bin\Windows\x86\Debug\Content\defaultFont.xnb
+C:\Users\Alex\documents\visual studio 2017\Projects\AirTrafficController\AirTrafficController\obj\x86\Debug\AirTrafficController.csprojResolveAssemblyReference.cache
+C:\Users\Alex\documents\visual studio 2017\Projects\AirTrafficController\AirTrafficController\obj\x86\Debug\AirTrafficController.menuForm.resources
+C:\Users\Alex\documents\visual studio 2017\Projects\AirTrafficController\AirTrafficController\obj\x86\Debug\AirTrafficController.csproj.GenerateResource.Cache

@@ -14,7 +14,7 @@ namespace AirTrafficController
         private Point size;
         public Point pos;
 
-        private List<iAirplane> airplanes;
+        private List<iAirplane> airplanes = new List<iAirplane>();
 
         //DRAW PROPERTIES
         private int spaceBetweenXGrid = 2;
@@ -33,7 +33,10 @@ namespace AirTrafficController
         public void Draw(SpriteBatch spriteBatch)
         {
             utilDraw.drawRectangle(spriteBatch, game.lineTexture, new Rectangle(pos, size), Color.Black);
-
+            foreach(iAirplane airplane in airplanes)
+            {
+                airplane.Draw(spriteBatch);
+            }
         }
     }
 }

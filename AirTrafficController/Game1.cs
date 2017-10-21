@@ -15,6 +15,8 @@ namespace AirTrafficController
         private MouseState currentMouseState;
         private MouseState previousMouseState;
 
+        private menuForm menu;
+
         public GameTime gameTime;
 
         private FrameCounter frameCounter;
@@ -87,6 +89,14 @@ namespace AirTrafficController
             //FPS
             spriteBatch.DrawString(defaultFont, Math.Ceiling(frameCounter.CurrentFramesPerSecond).ToString(), Vector2.Zero, Color.Green);
             spriteBatch.End();
+        }
+        public void addNotification(string message)
+        {
+            notificationsManager.addNotification(message);
+        }
+        public void setMenu(menuForm menu)
+        {
+            this.menu = menu;
         }
     }
 }

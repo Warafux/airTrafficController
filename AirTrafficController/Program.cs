@@ -14,8 +14,14 @@ namespace AirTrafficController
         [STAThread]
         static void Main()
         {
-            using (var game = new Game1())
-                game.Run();
+            menuForm menu = new menuForm();
+            Game1 game = new Game1();
+
+            menu.Show();
+            menu.setGame(game);
+
+            game.Run();
+            game.setMenu(menu);
         }
     }
 #endif

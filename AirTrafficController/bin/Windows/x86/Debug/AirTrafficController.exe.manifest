@@ -31,14 +31,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AirTrafficController.exe" size="160728">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AirTrafficController.exe" size="163288">
       <assemblyIdentity name="AirTrafficController" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Cy9NPTe682gA69CnE4oYeh2hmjN5EOPF7xPkVwzLBDU=</dsig:DigestValue>
+        <dsig:DigestValue>jO6f1mFz7EOMx1R4NM8Rd4VvlSkVD1R2WZYoaqmwgvk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
