@@ -73,11 +73,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="airplane.cs" />
-    <Compile Include="menuForm.cs">
+    <Compile Include="forms\menuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="menuForm.Designer.cs">
+    <Compile Include="forms\menuForm.Designer.cs">
       <DependentUpon>menuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\testForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\testForm.Designer.cs">
+      <DependentUpon>testForm.cs</DependentUpon>
     </Compile>
     <Compile Include="notification.cs" />
     <Compile Include="notificationsManager.cs" />
@@ -87,7 +93,7 @@
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="utilDraw.cs" />
+    <Compile Include="util\utilDraw.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -117,7 +123,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="menuForm.resx">
+    <EmbeddedResource Include="forms\menuForm.resx">
       <DependentUpon>menuForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

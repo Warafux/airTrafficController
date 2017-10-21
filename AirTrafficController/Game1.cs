@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
-
+using AirTrafficController.forms;
 namespace AirTrafficController
 {
     public class Game1 : Game

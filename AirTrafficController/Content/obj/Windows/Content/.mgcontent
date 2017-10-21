@@ -4,7 +4,7 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Alex/documents/visual studio 2017/Projects/AirTrafficController/AirTrafficController/Content/cutrepainticon.png</File>
-    <File>C:/Users/Alex/documents/visual studio 2017/Projects/AirTrafficController/AirTrafficController/Content/defaultFont.spritefont</File>
+    <File>C:/Users/Alex/Documents/GitHub/airTrafficController/AirTrafficController/Content/cutrepainticon.png</File>
+    <File>C:/Users/Alex/Documents/GitHub/airTrafficController/AirTrafficController/Content/defaultFont.spritefont</File>
   </SourceFiles>
 </SourceFileCollection>

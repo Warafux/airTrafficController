@@ -10,13 +10,21 @@ namespace AirTrafficController
 {
     class notificationsManager
     {
-        public const int defaultNotificationTime = 2;
+        public const int defaultNotificationTime = 2000;
         private Game1 game;
         private List<notification> notifications = new List<notification>();
         public notificationsManager(Game1 game)
         {
             this.game = game;
         }
+        public void addNotification(notification notification, int notificationTime)
+        {
+            notification.setEndTime(notificationTime + (int)game.gameTime.TotalGameTime.TotalMilliseconds);
+            notifications.Add(notification);
+
+            Console.WriteLine("NOTIFICATION ADDED!");
+        }
+
         public void addNotification(string message)
         {
             addNotification(new notification(game, message), notificationsManager.defaultNotificationTime);
@@ -25,13 +33,7 @@ namespace AirTrafficController
         {
             addNotification(new notification(game, message), notificationTime);
         }
-        public void addNotification(notification notification, int notificationTime)
-        {
-            notification.setEndTime(notificationTime + game.gameTime.TotalGameTime.Seconds);
-            notifications.Add(notification);
-
-            Console.WriteLine("NOTIFICATION ADDED!");
-        }
+        
         public void addNotification(notification notification)
         {
             this.addNotification(notification, notificationsManager.defaultNotificationTime);
@@ -41,7 +43,7 @@ namespace AirTrafficController
             foreach (notification notification in this.notifications)
             {
 
-                if(notification.getEndTime() < game.gameTime.TotalGameTime.Seconds)
+                if(notification.getEndTime() < (int)game.gameTime.TotalGameTime.TotalMilliseconds)
                 {
                     notifications.Remove(notification);
                     break;

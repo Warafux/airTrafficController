@@ -38,7 +38,7 @@ namespace AirTrafficController
             //utilDraw.drawRectangle(spriteBatch, game.lineTexture, new Rectangle(pos.ToPoint(), size.ToPoint()), Color.Red);
             utilDraw.drawRectangle(spriteBatch, game.lineTexture, new Rectangle(pos.ToPoint(), size.ToPoint()), Color.Black);
             spriteBatch.DrawString(game.defaultFont, this.message, pos + new Vector2(10, 10), Color.Black);
-            spriteBatch.DrawString(game.defaultFont, (this.endTime - game.gameTime.TotalGameTime.Seconds).ToString(), pos + new Vector2(-100 + size.X, 0), Color.Black);
+            //spriteBatch.DrawString(game.defaultFont, (this.endTime - (int)game.gameTime.TotalGameTime.TotalMilliseconds).ToString(), pos + new Vector2(-100 + size.X, 0), Color.Black);
         }
         public void setEndTime(int time)
         {
