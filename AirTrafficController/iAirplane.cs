@@ -21,5 +21,6 @@ namespace AirTrafficController
         Vector2 getPos();
         void setPos(Vector2 pos);
         string getId();
+        void click();
     }
 }

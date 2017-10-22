@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using AirTrafficController.forms;
+using System.Collections.Generic;
+
 namespace AirTrafficController
 {
     public class Game1 : Game
@@ -80,11 +82,14 @@ namespace AirTrafficController
             //FRAMECOUNTER
             frameCounter.Update(float.Parse(gameTime.ElapsedGameTime.TotalSeconds.ToString()));
 
-            // Recognize a single click of the left mouse button
+            //Click on an airplane
             if (previousMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
             {
-                //ADD NOTIFICATION
-                //notificationsManager.addNotification(new notification(this, "HEY xD"));
+                List<iAirplane> airplanes = this.map.getAirplanes();
+                foreach(iAirplane airplane in airplanes)
+                {
+
+                }
             }
         }
         private void updateByOneSecond()

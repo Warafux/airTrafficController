@@ -105,5 +105,9 @@ namespace AirTrafficController
         {
             this.drawInfo = !this.drawInfo;
         }
+        public void click()
+        {
+
+        }
     }
 }
