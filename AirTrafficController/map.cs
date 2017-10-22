@@ -17,8 +17,6 @@ namespace AirTrafficController
 
         private List<iAirplane> airplanes = new List<iAirplane>();
         //DRAW PROPERTIES
-        private int spaceBetweenXGrid = 2;
-        private int spaceBetweenYGrid = 10;
 
         public map(Game1 game, Vector2 pos, Vector2 size)
         {
@@ -34,8 +32,10 @@ namespace AirTrafficController
         {
             foreach (iAirplane airplane in airplanes)
             {
-                if (isValidAirplanePos(airplane))
+                airplane.Update();
+                if (!isValidAirplanePos(airplane))
                 {
+                    Console.WriteLine("INVALID POS, REMOVING");
                     airplanes.Remove(airplane);
                     break;
                 }

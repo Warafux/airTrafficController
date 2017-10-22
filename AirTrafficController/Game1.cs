@@ -17,6 +17,7 @@ namespace AirTrafficController
         private menuForm menu;
 
         public GameTime gameTime;
+        private double lastSecond;
 
         private int maxAirplanes = 5;
 
@@ -34,6 +35,7 @@ namespace AirTrafficController
             graphics.PreferredBackBufferHeight = 600;
             Content.RootDirectory = "Content";
             mapSize = new Vector2(1000, 1000);
+            this.lastSecond = 0;
         }
         protected override void Initialize()
         {
@@ -63,6 +65,13 @@ namespace AirTrafficController
             notificationsManager.Update();
             previousKeyboardState = currentKeyboardState;
             previousMouseState = currentMouseState;
+            
+            //1 second delay event call
+            if(this.lastSecond != gameTime.TotalGameTime.Seconds)
+            {
+                updateByOneSecond();
+            }
+            this.lastSecond = gameTime.TotalGameTime.Seconds;
 
             //UPDATE KEYBOARD & MOUSE STATES
             currentKeyboardState = Keyboard.GetState();
@@ -77,6 +86,10 @@ namespace AirTrafficController
                 //ADD NOTIFICATION
                 //notificationsManager.addNotification(new notification(this, "HEY xD"));
             }
+        }
+        private void updateByOneSecond()
+        {
+            map.Update(this.gameTime);
         }
         protected override void Draw(GameTime gameTime)
         {
