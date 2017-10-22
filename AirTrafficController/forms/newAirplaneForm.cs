@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AirTrafficController.airplanePresets;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,11 @@ namespace AirTrafficController.forms
     public partial class newAirplaneForm : Form
     {
         Game1 game;
+        static List<iAirplanePreset> airplanePresets = new List<iAirplanePreset>(
+            new iAirplanePreset[] {
+                new AirbusA380()
+            });
+
         public newAirplaneForm()
         {
         }
@@ -27,6 +33,8 @@ namespace AirTrafficController.forms
             this.game = game;
             numericUpDown_airplaneCoordinateX.Maximum = (Decimal)game.getMapSize().X;
             numericUpDown_airplaneCoordinateY.Maximum = (Decimal)game.getMapSize().Y;
+
+            loadAirplanePresets();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -80,14 +88,44 @@ namespace AirTrafficController.forms
             textBox.BackColor = System.Drawing.Color.Red;
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        private void button_randomNumbers_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void loadAirplanePresets()
         {
+            DataTable tmp_dt = new DataTable();
+            tmp_dt.Clear();
+            tmp_dt.Columns.Add("name", typeof(String));
+            tmp_dt.Columns.Add("airplanePreset", typeof(iAirplanePreset));
 
+            foreach (iAirplanePreset airplanePreset in newAirplaneForm.airplanePresets)
+            {
+                DataRow hashTypeRow = tmp_dt.NewRow();
+                hashTypeRow["name"] = airplanePreset.getVendor() + " - " + airplanePreset.getModel();
+                hashTypeRow["airplanePreset"] = airplanePreset;
+                tmp_dt.Rows.Add(hashTypeRow);
+            }
+
+
+            //Reset items from combobox
+            comboBox_airplanePresets.Items.Clear();
+
+            comboBox_airplanePresets.ValueMember = "airplanePreset";
+            comboBox_airplanePresets.DisplayMember = "name";
+            comboBox_airplanePresets.DataSource = tmp_dt;
+        }
+
+        private void comboBox_airplanePresets_SelectedValueChanged(object sender, EventArgs e)
+        {
+            //Load preset into form
+            DataRowView selectedValueRow = (DataRowView)comboBox_airplanePresets.SelectedItem;
+            if(selectedValueRow == null) { return; }
+            iAirplanePreset airplanePreset = (iAirplanePreset)selectedValueRow[1];
+            textBox_airplaneVendor.Text = airplanePreset.getVendor();
+            textBox_airplaneModel.Text = airplanePreset.getModel();
+            numericUpDown_airplaneCapacity.Value = (decimal)airplanePreset.getCapacity();
         }
     }
 }

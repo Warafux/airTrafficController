@@ -73,6 +73,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="airplane.cs" />
+    <Compile Include="airplanePresets\AirbusA380.cs" />
     <Compile Include="forms\menuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +92,7 @@
     <Compile Include="forms\testForm.Designer.cs">
       <DependentUpon>testForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="iAirplanePreset.cs" />
     <Compile Include="notification.cs" />
     <Compile Include="notificationsManager.cs" />
     <Compile Include="FrameCounter.cs" />

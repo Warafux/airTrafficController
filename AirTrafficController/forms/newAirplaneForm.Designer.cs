@@ -48,6 +48,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.numericUpDown_altitude = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.comboBox_airplanePresets = new System.Windows.Forms.ComboBox();
+            this.button_randomNumbers = new System.Windows.Forms.Button();
+            this.button_randomAirplaneId = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_airplaneCapacity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_airplaneCoordinateX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_airplaneCoordinateY)).BeginInit();
@@ -58,7 +62,7 @@
             // 
             // textBox_airplaneModel
             // 
-            this.textBox_airplaneModel.Location = new System.Drawing.Point(18, 143);
+            this.textBox_airplaneModel.Location = new System.Drawing.Point(18, 168);
             this.textBox_airplaneModel.Name = "textBox_airplaneModel";
             this.textBox_airplaneModel.Size = new System.Drawing.Size(232, 20);
             this.textBox_airplaneModel.TabIndex = 0;
@@ -66,7 +70,7 @@
             // 
             // textBox_airplaneVendor
             // 
-            this.textBox_airplaneVendor.Location = new System.Drawing.Point(18, 182);
+            this.textBox_airplaneVendor.Location = new System.Drawing.Point(18, 207);
             this.textBox_airplaneVendor.Name = "textBox_airplaneVendor";
             this.textBox_airplaneVendor.Size = new System.Drawing.Size(232, 20);
             this.textBox_airplaneVendor.TabIndex = 1;
@@ -74,7 +78,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 127);
+            this.label1.Location = new System.Drawing.Point(15, 152);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 3;
@@ -83,7 +87,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 166);
+            this.label2.Location = new System.Drawing.Point(15, 191);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 4;
@@ -92,7 +96,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 205);
+            this.label3.Location = new System.Drawing.Point(15, 230);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 5;
@@ -111,14 +115,14 @@
             // textBox_airplaneId
             // 
             this.textBox_airplaneId.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox_airplaneId.Location = new System.Drawing.Point(18, 104);
+            this.textBox_airplaneId.Location = new System.Drawing.Point(18, 129);
             this.textBox_airplaneId.Name = "textBox_airplaneId";
-            this.textBox_airplaneId.Size = new System.Drawing.Size(232, 20);
+            this.textBox_airplaneId.Size = new System.Drawing.Size(141, 20);
             this.textBox_airplaneId.TabIndex = 7;
             // 
             // numericUpDown_airplaneCapacity
             // 
-            this.numericUpDown_airplaneCapacity.Location = new System.Drawing.Point(18, 221);
+            this.numericUpDown_airplaneCapacity.Location = new System.Drawing.Point(18, 246);
             this.numericUpDown_airplaneCapacity.Maximum = new decimal(new int[] {
             500,
             0,
@@ -140,7 +144,7 @@
             // 
             // numericUpDown_airplaneCoordinateX
             // 
-            this.numericUpDown_airplaneCoordinateX.Location = new System.Drawing.Point(18, 294);
+            this.numericUpDown_airplaneCoordinateX.Location = new System.Drawing.Point(18, 319);
             this.numericUpDown_airplaneCoordinateX.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -162,7 +166,7 @@
             // 
             // numericUpDown_airplaneCoordinateY
             // 
-            this.numericUpDown_airplaneCoordinateY.Location = new System.Drawing.Point(148, 294);
+            this.numericUpDown_airplaneCoordinateY.Location = new System.Drawing.Point(148, 319);
             this.numericUpDown_airplaneCoordinateY.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -195,7 +199,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 88);
+            this.label5.Location = new System.Drawing.Point(15, 113);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(18, 13);
             this.label5.TabIndex = 14;
@@ -204,26 +208,24 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(19, 278);
+            this.label6.Location = new System.Drawing.Point(19, 303);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(14, 13);
             this.label6.TabIndex = 15;
             this.label6.Text = "X";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(145, 278);
+            this.label7.Location = new System.Drawing.Point(145, 303);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(14, 13);
             this.label7.TabIndex = 16;
             this.label7.Text = "Y";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // numericUpDown_airplaneAcceleration
             // 
-            this.numericUpDown_airplaneAcceleration.Location = new System.Drawing.Point(148, 343);
+            this.numericUpDown_airplaneAcceleration.Location = new System.Drawing.Point(148, 368);
             this.numericUpDown_airplaneAcceleration.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -245,7 +247,7 @@
             // 
             // numericUpDown_airplaneSpeed
             // 
-            this.numericUpDown_airplaneSpeed.Location = new System.Drawing.Point(18, 343);
+            this.numericUpDown_airplaneSpeed.Location = new System.Drawing.Point(18, 368);
             this.numericUpDown_airplaneSpeed.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -268,7 +270,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(145, 327);
+            this.label8.Location = new System.Drawing.Point(145, 352);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(66, 13);
             this.label8.TabIndex = 20;
@@ -277,7 +279,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(15, 327);
+            this.label9.Location = new System.Drawing.Point(15, 352);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(38, 13);
             this.label9.TabIndex = 19;
@@ -285,7 +287,7 @@
             // 
             // numericUpDown_altitude
             // 
-            this.numericUpDown_altitude.Location = new System.Drawing.Point(18, 382);
+            this.numericUpDown_altitude.Location = new System.Drawing.Point(18, 407);
             this.numericUpDown_altitude.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -309,17 +311,59 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.SystemColors.Control;
-            this.label10.Location = new System.Drawing.Point(19, 366);
+            this.label10.Location = new System.Drawing.Point(19, 391);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(42, 13);
             this.label10.TabIndex = 22;
             this.label10.Text = "Altitude";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(15, 56);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(82, 13);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "Airplane presets";
+            // 
+            // comboBox_airplanePresets
+            // 
+            this.comboBox_airplanePresets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_airplanePresets.FormattingEnabled = true;
+            this.comboBox_airplanePresets.Location = new System.Drawing.Point(18, 72);
+            this.comboBox_airplanePresets.Name = "comboBox_airplanePresets";
+            this.comboBox_airplanePresets.Size = new System.Drawing.Size(232, 21);
+            this.comboBox_airplanePresets.TabIndex = 24;
+            this.comboBox_airplanePresets.SelectedValueChanged += new System.EventHandler(this.comboBox_airplanePresets_SelectedValueChanged);
+            // 
+            // button_randomNumbers
+            // 
+            this.button_randomNumbers.Location = new System.Drawing.Point(148, 407);
+            this.button_randomNumbers.Name = "button_randomNumbers";
+            this.button_randomNumbers.Size = new System.Drawing.Size(111, 20);
+            this.button_randomNumbers.TabIndex = 25;
+            this.button_randomNumbers.Text = "Random";
+            this.button_randomNumbers.UseVisualStyleBackColor = true;
+            this.button_randomNumbers.Click += new System.EventHandler(this.button_randomNumbers_Click);
+            // 
+            // button_randomAirplaneId
+            // 
+            this.button_randomAirplaneId.Location = new System.Drawing.Point(165, 129);
+            this.button_randomAirplaneId.Name = "button_randomAirplaneId";
+            this.button_randomAirplaneId.Size = new System.Drawing.Size(85, 20);
+            this.button_randomAirplaneId.TabIndex = 26;
+            this.button_randomAirplaneId.Text = "Random ID";
+            this.button_randomAirplaneId.UseVisualStyleBackColor = true;
             // 
             // newAirplaneForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 577);
+            this.Controls.Add(this.button_randomAirplaneId);
+            this.Controls.Add(this.button_randomNumbers);
+            this.Controls.Add(this.comboBox_airplanePresets);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.numericUpDown_altitude);
             this.Controls.Add(this.label8);
@@ -375,5 +419,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown numericUpDown_altitude;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox comboBox_airplanePresets;
+        private System.Windows.Forms.Button button_randomNumbers;
+        private System.Windows.Forms.Button button_randomAirplaneId;
     }
 }
