@@ -11,6 +11,7 @@ namespace AirTrafficController.airplanePresets
         private string vendor = "Airbus";
         private string model = "A380";
         private int capacity = 200;
+        private int maxSpeed = 1020;
         public string getVendor()
         {
             return this.vendor;
@@ -22,6 +23,10 @@ namespace AirTrafficController.airplanePresets
         public int getCapacity()
         {
             return this.capacity;
+        }
+        public int getMaxSpeed()
+        {
+            return this.maxSpeed;
         }
     }
 }

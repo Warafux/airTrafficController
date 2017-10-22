@@ -11,5 +11,6 @@ namespace AirTrafficController
         string getVendor();
         string getModel();
         int getCapacity();
+        int getMaxSpeed();
     }
 }

@@ -23,5 +23,13 @@ namespace AirTrafficController
             double scale = (double)(newEnd - newStart) / (originalEnd - originalStart);
             return (int)(newStart + ((value - originalStart) * scale));
         }
+        public static Vector2 whereToDrawAirplaneInfo(Vector2 mapSize, Vector2 drawPos)
+        {
+            Vector2 drawAirplaneInfoPos = new Vector2(
+                drawPos.X,
+                drawPos.Y - 15
+                );
+            return drawAirplaneInfoPos;
+        }
     }
 }

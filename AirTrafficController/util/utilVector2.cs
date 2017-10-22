@@ -38,10 +38,10 @@ namespace AirTrafficController.util
                 case "Right":
                     ret = new Vector2(1, 0);
                     break;
-                case "Down":
+                case "Up":
                     ret = new Vector2(0, -1);
                     break;
-                case "Up":
+                case "Down":
                     ret = new Vector2(0, 1);
                     break;
                 case "Random Direction":

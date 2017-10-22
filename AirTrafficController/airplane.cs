@@ -18,6 +18,7 @@ namespace AirTrafficController
         private Vector2 pos;
         private int altitude = 0;
         private int speed;
+        private int maxSpeed;
         private int acceleration;
         private Vector2 direction;
         private map map;
@@ -40,7 +41,7 @@ namespace AirTrafficController
             //Console.WriteLine("MAP SIZE: " + map.getSize().ToString());
             //Console.WriteLine("WINDOW SIZE: " + map.getGame().GraphicsDevice.Viewport.Width + " , " + map.getGame().GraphicsDevice.Viewport.Height);
         }
-        public void Initialize(string id, string vendor, string model, Vector2 pos, Vector2 direction, int altitude, int speed, int acceleration)
+        public void Initialize(string id, string vendor, string model, Vector2 pos, Vector2 direction, int altitude, int speed, int maxSpeed, int acceleration)
         {
             this.id = id;
             this.vendor = vendor;
@@ -50,11 +51,24 @@ namespace AirTrafficController
             this.altitude = altitude;
             this.speed = speed;
             this.acceleration = acceleration;
+            this.maxSpeed = maxSpeed;
         }
         public void Update()
         {
             //Calculate new pos with speed and acceleration
-            int newSpeed = this.speed * this.acceleration;
+            if (this.speed < this.maxSpeed)
+            {
+                this.speed = this.speed * this.acceleration / 10 + this.speed;
+            }
+            else if(this.speed > this.maxSpeed)
+            {
+                this.speed = this.maxSpeed;
+            }
+            else
+            {
+                //This will make speed unestable (not linear)
+                this.speed = this.speed - this.speed * this.acceleration / 100;
+            }
             Vector2 newPos = new Vector2(
                 this.direction.X * this.speed + this.pos.X,
                 this.direction.Y * this.speed + this.pos.Y
@@ -72,7 +86,7 @@ namespace AirTrafficController
             spriteBatch.DrawString(this.map.getGame().defaultFont, "XD", drawPos, Color.Black);
             if (drawInfo)
             {
-                spriteBatch.DrawString(this.map.getGame().defaultFont, this.speed.ToString(), drawPos, Color.Black);
+                spriteBatch.DrawString(this.map.getGame().defaultFont, this.speed.ToString(), utilDraw.whereToDrawAirplaneInfo(map.getSize(), drawPos), Color.Black);
             }
         }
         public Vector2 getPos()

@@ -60,6 +60,7 @@ namespace AirTrafficController.forms
                 chosenDirection,
                 (int)numericUpDown_airplaneAltitude.Value,
                 (int)numericUpDown_airplaneSpeed.Value,
+                (int)numericUpDown_airplaneMaxSpeed.Value,
                 (int)numericUpDown_airplaneAcceleration.Value
             );
 
@@ -113,7 +114,7 @@ namespace AirTrafficController.forms
             numericUpDown_airplaneCoordinateX.Value = (decimal)random.Next(1, (int)game.getMapSize().X);
             numericUpDown_airplaneCoordinateY.Value = (decimal)random.Next(1, (int)game.getMapSize().Y);
             numericUpDown_airplaneSpeed.Value = (decimal)random.Next(1, 50);
-            numericUpDown_airplaneAcceleration.Value = (decimal)random.Next(1, 50);
+            numericUpDown_airplaneAcceleration.Value = (decimal)random.Next(1, 5);
             numericUpDown_airplaneAltitude.Value = (decimal)random.Next(1, 10000);
         }
 
@@ -150,6 +151,7 @@ namespace AirTrafficController.forms
             textBox_airplaneVendor.Text = airplanePreset.getVendor();
             textBox_airplaneModel.Text = airplanePreset.getModel();
             numericUpDown_airplaneCapacity.Value = (decimal)airplanePreset.getCapacity();
+            numericUpDown_airplaneMaxSpeed.Value = (decimal)airplanePreset.getMaxSpeed();
         }
 
         private void button_randomAirplaneId_Click(object sender, EventArgs e)

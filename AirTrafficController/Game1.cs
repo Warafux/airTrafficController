@@ -34,7 +34,7 @@ namespace AirTrafficController
             graphics.PreferredBackBufferWidth = 600;
             graphics.PreferredBackBufferHeight = 600;
             Content.RootDirectory = "Content";
-            mapSize = new Vector2(1000, 1000);
+            mapSize = new Vector2(100000, 100000);
             this.lastSecond = 0;
         }
         protected override void Initialize()
