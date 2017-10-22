@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using AirTrafficController.forms;
 using System.Collections.Generic;
+using C3.XNA;
 
 namespace AirTrafficController
 {
@@ -83,12 +84,17 @@ namespace AirTrafficController
             frameCounter.Update(float.Parse(gameTime.ElapsedGameTime.TotalSeconds.ToString()));
 
             //Click on an airplane
-            if (previousMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
+           
+            List<iAirplane> airplanes = this.map.getAirplanes();
+            foreach (iAirplane airplane in airplanes)
             {
-                List<iAirplane> airplanes = this.map.getAirplanes();
-                foreach(iAirplane airplane in airplanes)
+                //Primitives2D.DrawLine(spriteBatch, currentMouseState.Position.ToVector2(), airplane.getDrawPos(), Color.Black);
+                if (Vector2.Distance(currentMouseState.Position.ToVector2(), airplane.getDrawPos()) < 30)
                 {
-
+                    if (previousMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
+                    {
+                        airplane.switchDrawInfo();
+                    }
                 }
             }
         }
@@ -106,6 +112,7 @@ namespace AirTrafficController
             notificationsManager.Draw(spriteBatch);
             //FPS
             spriteBatch.DrawString(defaultFont, Math.Ceiling(frameCounter.CurrentFramesPerSecond).ToString(), Vector2.Zero, Color.Green);
+
             spriteBatch.End();
         }
         public void addNotification(string message)

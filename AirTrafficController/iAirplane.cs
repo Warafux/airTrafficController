@@ -19,7 +19,10 @@ namespace AirTrafficController
 
         //Getters
         Vector2 getPos();
+        Vector2 getDrawPos();
         void setPos(Vector2 pos);
+        void setDrawInfo(bool drawInfo);
+        void switchDrawInfo();
         string getId();
         void click();
     }

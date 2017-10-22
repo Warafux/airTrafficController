@@ -1,4 +1,5 @@
 ﻿using AirTrafficController.util;
+using C3.XNA;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -16,6 +17,7 @@ namespace AirTrafficController
         private string model = "";
         private string id = "";
         private Vector2 pos;
+        private Vector2 drawPos;
         private int altitude = 0;
         private int speed;
         private int maxSpeed;
@@ -78,15 +80,18 @@ namespace AirTrafficController
         public void Draw(SpriteBatch spriteBatch)
         {
             //Calculate pos to draw inside the map
-            Vector2 drawPos = new Vector2(
+            this.drawPos = new Vector2(
                 utilDraw.convertRange(0, (int)this.map.getSize().X, 0, this.map.getGame().GraphicsDevice.Viewport.Width, (int)this.pos.X),
                 utilDraw.convertRange(0, (int)this.map.getSize().Y, 0, this.map.getGame().GraphicsDevice.Viewport.Height, (int)this.pos.Y)
                 );
+            Primitives2D.DrawCircle(spriteBatch, this.drawPos, 100, 100, Color.Red);
             //spriteBatch.Draw(this.map.getGame().lineTexture, drawPos, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-            spriteBatch.DrawString(this.map.getGame().defaultFont, "XD", drawPos, Color.Black);
+            spriteBatch.DrawString(this.map.getGame().defaultFont, "XD", this.drawPos, Color.Black);
             if (drawInfo)
             {
-                spriteBatch.DrawString(this.map.getGame().defaultFont, this.speed.ToString(), utilDraw.whereToDrawAirplaneInfo(map.getSize(), drawPos), Color.Black);
+                spriteBatch.DrawString(this.map.getGame().defaultFont, "SPEED: " + this.speed.ToString() + " u/s", drawPos + new Vector2(0, -20), Color.Black);
+                spriteBatch.DrawString(this.map.getGame().defaultFont, "COORDINATES: " + this.pos.X + ", " + this.pos.Y, drawPos + new Vector2(0, -40), Color.Black);
+                spriteBatch.DrawString(this.map.getGame().defaultFont, this.vendor + " " + this.model + " - " + this.id, drawPos + new Vector2(0, -60), Color.Black);
             }
         }
         public Vector2 getPos()
@@ -105,9 +110,17 @@ namespace AirTrafficController
         {
             this.drawInfo = !this.drawInfo;
         }
+        public void setDrawInfo(bool drawInfo)
+        {
+            this.drawInfo = drawInfo;
+        }
         public void click()
         {
 
+        }
+        public Vector2 getDrawPos()
+        {
+            return this.drawPos;
         }
     }
 }
