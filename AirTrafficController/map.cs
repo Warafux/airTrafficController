@@ -26,7 +26,10 @@ namespace AirTrafficController
         }
         public void addAirplane(iAirplane airplane)
         {
-            airplanes.Add(airplane);
+            if (!existIdInMap(airplane.getId()))
+            {
+                airplanes.Add(airplane);
+            }
         }
         public void Update(GameTime gameTime)
         {
@@ -68,6 +71,17 @@ namespace AirTrafficController
         public List<iAirplane> getAirplanes()
         {
             return airplanes;
+        }
+        public bool existIdInMap(string id)
+        {
+            foreach (iAirplane airplane in airplanes)
+            {
+                if(airplane.getId() == id)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

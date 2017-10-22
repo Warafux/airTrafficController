@@ -29,5 +29,28 @@ namespace AirTrafficController.util
             }
             return ret;
         }
+
+        public static Vector2 getDirectionFromString(string directionString)
+        {
+            Vector2 ret = new Vector2(-1, 0);
+            switch (directionString)
+            {
+                case "Right":
+                    ret = new Vector2(1, 0);
+                    break;
+                case "Down":
+                    ret = new Vector2(0, -1);
+                    break;
+                case "Up":
+                    ret = new Vector2(0, 1);
+                    break;
+                case "Random Direction":
+                    ret = utilVector2.getRandomDirection();
+                    break;
+                default:
+                    break;
+            }
+            return ret;
+        }
     }
 }

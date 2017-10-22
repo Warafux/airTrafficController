@@ -130,5 +130,23 @@ namespace AirTrafficController
                 notificationsManager.addNotification($"Adding airplane {airplane.getId()} to the map.");
             }
         }
+        public string generateRandomId()
+        {
+            Random random = new Random();
+            string randomGeneratedId = random.Next(0, 9999).ToString();
+            while (map.existIdInMap(randomGeneratedId))
+            {
+                //Checks if the id already exists
+                randomGeneratedId = random.Next(0, 9999).ToString();
+            }
+
+            //Adds 0 at the beggining if the number is under 1000
+            int idLenght = randomGeneratedId.Length;
+            for (int i = 0; i < (4 - idLenght); i++)
+            {
+                randomGeneratedId = "0" + randomGeneratedId;
+            }
+            return randomGeneratedId;
+        }
     }
 }

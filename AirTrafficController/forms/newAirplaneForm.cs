@@ -1,4 +1,5 @@
 ﻿using AirTrafficController.airplanePresets;
+using AirTrafficController.util;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,8 @@ namespace AirTrafficController.forms
         {
             InitializeComponent();
             this.game = game;
+
+            //Numeric updown maximum number depending on the map size
             numericUpDown_airplaneCoordinateX.Maximum = (Decimal)game.getMapSize().X;
             numericUpDown_airplaneCoordinateY.Maximum = (Decimal)game.getMapSize().Y;
 
@@ -48,19 +51,35 @@ namespace AirTrafficController.forms
             map gameMap = game.getMap();
             airplane airplane = new airplane(gameMap);
 
+            Vector2 chosenDirection = utilVector2.getDirectionFromString(checkedRadioButtonDirection().Text);
             airplane.Initialize(
                 textBox_airplaneId.Text,
                 textBox_airplaneVendor.Text,
                 textBox_airplaneModel.Text,
                 new Vector2((float)numericUpDown_airplaneCoordinateX.Value, (float)numericUpDown_airplaneCoordinateY.Value),
-                Vector2.Zero,
-                (int)numericUpDown_altitude.Value,
+                chosenDirection,
+                (int)numericUpDown_airplaneAltitude.Value,
                 (int)numericUpDown_airplaneSpeed.Value,
                 (int)numericUpDown_airplaneAcceleration.Value
             );
 
             gameMap.addAirplane(airplane);
             this.Close();
+        }
+        private RadioButton checkedRadioButtonDirection()
+        {
+            //SOURCE: https://stackoverflow.com/a/1798011/6832219
+            foreach (var control in this.Controls)
+            {
+                RadioButton radio = control as RadioButton;
+
+                if (radio != null && radio.Checked)
+                {
+                    return radio;
+                }
+            }
+
+            return null;
         }
         private Boolean checkFields()
         {
@@ -90,7 +109,12 @@ namespace AirTrafficController.forms
 
         private void button_randomNumbers_Click(object sender, EventArgs e)
         {
-
+            Random random = new Random();
+            numericUpDown_airplaneCoordinateX.Value = (decimal)random.Next(1, (int)game.getMapSize().X);
+            numericUpDown_airplaneCoordinateY.Value = (decimal)random.Next(1, (int)game.getMapSize().Y);
+            numericUpDown_airplaneSpeed.Value = (decimal)random.Next(1, 50);
+            numericUpDown_airplaneAcceleration.Value = (decimal)random.Next(1, 50);
+            numericUpDown_airplaneAltitude.Value = (decimal)random.Next(1, 10000);
         }
 
         private void loadAirplanePresets()
@@ -126,6 +150,11 @@ namespace AirTrafficController.forms
             textBox_airplaneVendor.Text = airplanePreset.getVendor();
             textBox_airplaneModel.Text = airplanePreset.getModel();
             numericUpDown_airplaneCapacity.Value = (decimal)airplanePreset.getCapacity();
+        }
+
+        private void button_randomAirplaneId_Click(object sender, EventArgs e)
+        {
+            textBox_airplaneId.Text = game.generateRandomId();
         }
     }
 }

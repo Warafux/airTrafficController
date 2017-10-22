@@ -46,7 +46,7 @@ namespace AirTrafficController
             this.vendor = vendor;
             this.model = model;
             this.pos = pos;
-            this.direction = direction == Vector2.Zero ? utilVector2.getRandomDirection() : direction;
+            this.direction = direction;
             this.altitude = altitude;
             this.speed = speed;
             this.acceleration = acceleration;
