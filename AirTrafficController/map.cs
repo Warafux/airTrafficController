@@ -33,6 +33,7 @@ namespace AirTrafficController
             foreach (iAirplane airplane in airplanes)
             {
                 airplane.Update();
+
                 if (!isValidAirplanePos(airplane))
                 {
                     Console.WriteLine("INVALID POS, REMOVING");

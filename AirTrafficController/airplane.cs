@@ -21,6 +21,9 @@ namespace AirTrafficController
         private int acceleration;
         private Vector2 direction;
         private map map;
+
+        private bool drawInfo = true;
+
         public airplane(map map)
         {
             /*Random random = new Random();
@@ -65,8 +68,12 @@ namespace AirTrafficController
                 utilDraw.convertRange(0, (int)this.map.getSize().X, 0, this.map.getGame().GraphicsDevice.Viewport.Width, (int)this.pos.X),
                 utilDraw.convertRange(0, (int)this.map.getSize().Y, 0, this.map.getGame().GraphicsDevice.Viewport.Height, (int)this.pos.Y)
                 );
-            spriteBatch.Draw(this.map.getGame().lineTexture, drawPos, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            //spriteBatch.Draw(this.map.getGame().lineTexture, drawPos, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
             spriteBatch.DrawString(this.map.getGame().defaultFont, "XD", drawPos, Color.Black);
+            if (drawInfo)
+            {
+                spriteBatch.DrawString(this.map.getGame().defaultFont, this.speed.ToString(), drawPos, Color.Black);
+            }
         }
         public Vector2 getPos()
         {
@@ -79,6 +86,10 @@ namespace AirTrafficController
         public string getId()
         {
             return this.id; 
+        }
+        public void switchDrawInfo()
+        {
+            this.drawInfo = !this.drawInfo;
         }
     }
 }
