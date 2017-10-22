@@ -12,16 +12,23 @@ namespace AirTrafficController
     {
         public Texture2D texture;
 
-        private string brand = "";
+        private string vendor = "";
         private string model = "";
         private string id = "";
         private Vector2 pos;
         private int altitude = 0;
 
-        public airplane()
+        public airplane(map map)
         {
             Random random = new Random();
             this.pos = new Vector2(random.Next(1, 999), random.Next(1, 999));
+            Vector2 drawPos = new Vector2(
+                utilDraw.convertRange(0, (int)map.getSize().X, 0, map.getGame().GraphicsDevice.Viewport.Width, (int)this.pos.X),
+                utilDraw.convertRange(0, (int)map.getSize().Y, 0, map.getGame().GraphicsDevice.Viewport.Height, (int)this.pos.Y)
+                );
+           // Console.WriteLine(drawPos.ToString());
+            Console.WriteLine("MAP SIZE: " + map.getSize().ToString());
+            Console.WriteLine("WINDOW SIZE: " + map.getGame().GraphicsDevice.Viewport.Width + " , " + map.getGame().GraphicsDevice.Viewport.Height);
         }
         public void Initialize(Texture2D texture, Vector2 pos)
         {
@@ -32,9 +39,15 @@ namespace AirTrafficController
         {
             
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, map map)
         {
-            spriteBatch.Draw(this.texture, this.pos, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            //Calculate pos to draw inside the map
+            Vector2 drawPos = new Vector2(
+                utilDraw.convertRange(0, (int)map.getSize().X, 0, map.getGame().GraphicsDevice.Viewport.Width, (int)this.pos.X),
+                utilDraw.convertRange(0, (int)map.getSize().Y, 0, map.getGame().GraphicsDevice.Viewport.Height, (int)this.pos.Y)
+                );
+            spriteBatch.Draw(map.getGame().lineTexture, drawPos, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            spriteBatch.DrawString(map.getGame().defaultFont, "XD", drawPos, Color.Black);
         }
         public Vector2 getPos()
         {
@@ -43,6 +56,10 @@ namespace AirTrafficController
         public void setPos(Vector2 pos)
         {
             this.pos = pos;
+        }
+        public string getId()
+        {
+            return this.id; 
         }
     }
 }

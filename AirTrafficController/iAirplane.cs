@@ -15,8 +15,11 @@ namespace AirTrafficController
         //Methods
         void Initialize(Texture2D texture, Vector2 pos);
         void Update();
-        void Draw(SpriteBatch spriteBatch);
+        void Draw(SpriteBatch spriteBatch, map map);
+        
+        //Getters
         Vector2 getPos();
         void setPos(Vector2 pos);
+        string getId();
     }
 }

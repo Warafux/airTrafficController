@@ -13,9 +13,12 @@ namespace AirTrafficController.forms
     public partial class menuForm : Form
     {
         Game1 game;
+        //Secondary forms:
+        newAirplaneForm newAirplaneForm;
         public menuForm()
         {
             InitializeComponent();
+            newAirplaneForm = new newAirplaneForm();
         }
         public void setGame(Game1 game)
         {
@@ -30,8 +33,17 @@ namespace AirTrafficController.forms
         private void button1_Click(object sender, EventArgs e)
         {
             map gameMap = game.getMap();
-            airplane airplane = new airplane();
+
+            airplane airplane = new airplane(gameMap);
             gameMap.addAirplane(airplane);
+            /*
+            newAirplaneForm.Dispose();
+            newAirplaneForm = new newAirplaneForm(game);
+            newAirplaneForm.Show();*/
+        }
+        public void updateAll()
+        {
+
         }
     }
 }

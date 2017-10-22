@@ -7,9 +7,8 @@ namespace AirTrafficController
 {
     public class Game1 : Game
     {
-        private GraphicsDeviceManager graphics;
+        public GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
-        private airplane airplane;
         private KeyboardState currentKeyboardState;
         private KeyboardState previousKeyboardState;
         private MouseState currentMouseState;
@@ -19,9 +18,12 @@ namespace AirTrafficController
 
         public GameTime gameTime;
 
+        private int maxAirplanes = 5;
+
         private FrameCounter frameCounter;
         private notificationsManager notificationsManager;
-        
+        private Vector2 mapSize;
+
         public Texture2D lineTexture;
         public SpriteFont defaultFont;
         private map map;
@@ -31,20 +33,18 @@ namespace AirTrafficController
             graphics.PreferredBackBufferWidth = 600;
             graphics.PreferredBackBufferHeight = 600;
             Content.RootDirectory = "Content";
+            mapSize = new Vector2(1000, 1000);
         }
         protected override void Initialize()
         {
             base.Initialize();
             Vector2 playerPosition = new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X, GraphicsDevice.Viewport.TitleSafeArea.Y + GraphicsDevice.Viewport.TitleSafeArea.Height / 2);
-
-            airplane.Initialize(Content.Load<Texture2D>("cutrepainticon"), playerPosition);
             this.IsMouseVisible = true;
         }
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            airplane = new airplane();
-            map = new map(this, 0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
+            map = new map(this, Vector2.Zero, mapSize);
             defaultFont = Content.Load<SpriteFont>("defaultFont");
             frameCounter = new FrameCounter();
             notificationsManager = new notificationsManager(this);
@@ -101,6 +101,21 @@ namespace AirTrafficController
         public map getMap()
         {
             return this.map;
+        }
+        public Vector2 getMapSize()
+        {
+            return this.mapSize;
+        }
+        public void addAirplaneToMap(iAirplane airplane)
+        {
+            if(map.getAirplanes().Count >= this.maxAirplanes)
+            {
+                notificationsManager.addNotification($"Max airplanes reached {map.getAirplanes().Count}/{this.maxAirplanes}");
+            }
+            else
+            {
+                notificationsManager.addNotification($"Adding airplane {airplane.getId()} to the map.");
+            }
         }
     }
 }

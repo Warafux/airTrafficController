@@ -79,6 +79,12 @@
     <Compile Include="forms\menuForm.Designer.cs">
       <DependentUpon>menuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\newAirplaneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\newAirplaneForm.Designer.cs">
+      <DependentUpon>newAirplaneForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\testForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,9 @@
   <ItemGroup>
     <EmbeddedResource Include="forms\menuForm.resx">
       <DependentUpon>menuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\newAirplaneForm.resx">
+      <DependentUpon>newAirplaneForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -17,5 +17,11 @@ namespace AirTrafficController
             spriteBatch.Draw(rectangleTexture, new Rectangle(rectangle.Left, rectangle.Top, 1, rectangle.Height), color);
             spriteBatch.Draw(rectangleTexture, new Rectangle(rectangle.Right, rectangle.Top, 1, rectangle.Height + 1), color);
         }
+        public static int convertRange(int originalStart, int originalEnd, int newStart, int newEnd, int value)
+        {
+            //SOURCE: https://stackoverflow.com/a/4229711/6832219
+            double scale = (double)(newEnd - newStart) / (originalEnd - originalStart);
+            return (int)(newStart + ((value - originalStart) * scale));
+        }
     }
 }

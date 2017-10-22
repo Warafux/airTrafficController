@@ -52,3 +52,4 @@ C:\Users\Alex\Documents\GitHub\airTrafficController\AirTrafficController\obj\x86
 C:\Users\Alex\Documents\GitHub\airTrafficController\AirTrafficController\obj\x86\Debug\AirTrafficController.exe
 C:\Users\Alex\Documents\GitHub\airTrafficController\AirTrafficController\obj\x86\Debug\AirTrafficController.pdb
 C:\Users\Alex\Documents\GitHub\airTrafficController\AirTrafficController\obj\x86\Debug\AirTrafficController.forms.menuForm.resources
+C:\Users\Alex\Documents\GitHub\airTrafficController\AirTrafficController\obj\x86\Debug\AirTrafficController.forms.newAirplaneForm.resources
