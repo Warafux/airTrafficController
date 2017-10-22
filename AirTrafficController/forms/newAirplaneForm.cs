@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,9 +38,20 @@ namespace AirTrafficController.forms
         {
             if (!checkFields()) { return; }
             map gameMap = game.getMap();
+            airplane airplane = new airplane(gameMap);
 
-            /*airplane airplane = new airplane();
-            gameMap.addAirplane(airplane);*/
+            airplane.Initialize(
+                textBox_airplaneId.Text,
+                textBox_airplaneVendor.Text,
+                textBox_airplaneModel.Text,
+                new Vector2((float)numericUpDown_airplaneCoordinateX.Value, (float)numericUpDown_airplaneCoordinateY.Value),
+                Vector2.Zero,
+                (int)numericUpDown_altitude.Value,
+                (int)numericUpDown_airplaneSpeed.Value,
+                (int)numericUpDown_airplaneAcceleration.Value
+            );
+
+            gameMap.addAirplane(airplane);
             this.Close();
         }
         private Boolean checkFields()
@@ -65,7 +77,17 @@ namespace AirTrafficController.forms
         }
         private void highlightWrongField(TextBox textBox)
         {
-            textBox.BackColor = Color.Red;
+            textBox.BackColor = System.Drawing.Color.Red;
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

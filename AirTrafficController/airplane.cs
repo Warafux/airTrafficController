@@ -12,7 +12,6 @@ namespace AirTrafficController
     public class airplane : iAirplane
     {
         public Texture2D texture;
-
         private string vendor = "";
         private string model = "";
         private string id = "";
@@ -21,14 +20,14 @@ namespace AirTrafficController
         private int speed;
         private int acceleration;
         private Vector2 direction;
+        private map map;
         public airplane(map map)
         {
-            Random random = new Random();
+            /*Random random = new Random();
             this.pos = new Vector2(random.Next(1, 999), random.Next(1, 999));
             this.speed = random.Next(1, 20);
-            this.acceleration = random.Next(1, 5);
-
-            this.direction = utilVector2.getRandomDirection();
+            this.acceleration = random.Next(1, 5);*/
+            this.map = map;
 
             Vector2 drawPos = new Vector2(
                 utilDraw.convertRange(0, (int)map.getSize().X, 0, map.getGame().GraphicsDevice.Viewport.Width, (int)this.pos.X),
@@ -38,10 +37,16 @@ namespace AirTrafficController
             //Console.WriteLine("MAP SIZE: " + map.getSize().ToString());
             //Console.WriteLine("WINDOW SIZE: " + map.getGame().GraphicsDevice.Viewport.Width + " , " + map.getGame().GraphicsDevice.Viewport.Height);
         }
-        public void Initialize(Texture2D texture, Vector2 pos)
+        public void Initialize(string id, string vendor, string model, Vector2 pos, Vector2 direction, int altitude, int speed, int acceleration)
         {
-            this.texture = texture;
+            this.id = id;
+            this.vendor = vendor;
+            this.model = model;
             this.pos = pos;
+            this.direction = direction == Vector2.Zero ? utilVector2.getRandomDirection() : direction;
+            this.altitude = altitude;
+            this.speed = speed;
+            this.acceleration = acceleration;
         }
         public void Update()
         {
@@ -53,15 +58,15 @@ namespace AirTrafficController
                 );
             this.pos = newPos;
         }
-        public void Draw(SpriteBatch spriteBatch, map map)
+        public void Draw(SpriteBatch spriteBatch)
         {
             //Calculate pos to draw inside the map
             Vector2 drawPos = new Vector2(
-                utilDraw.convertRange(0, (int)map.getSize().X, 0, map.getGame().GraphicsDevice.Viewport.Width, (int)this.pos.X),
-                utilDraw.convertRange(0, (int)map.getSize().Y, 0, map.getGame().GraphicsDevice.Viewport.Height, (int)this.pos.Y)
+                utilDraw.convertRange(0, (int)this.map.getSize().X, 0, this.map.getGame().GraphicsDevice.Viewport.Width, (int)this.pos.X),
+                utilDraw.convertRange(0, (int)this.map.getSize().Y, 0, this.map.getGame().GraphicsDevice.Viewport.Height, (int)this.pos.Y)
                 );
-            spriteBatch.Draw(map.getGame().lineTexture, drawPos, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-            spriteBatch.DrawString(map.getGame().defaultFont, "XD", drawPos, Color.Black);
+            spriteBatch.Draw(this.map.getGame().lineTexture, drawPos, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            spriteBatch.DrawString(this.map.getGame().defaultFont, "XD", drawPos, Color.Black);
         }
         public Vector2 getPos()
         {

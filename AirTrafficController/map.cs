@@ -53,7 +53,7 @@ namespace AirTrafficController
             utilDraw.drawRectangle(spriteBatch, game.lineTexture, new Rectangle(pos.ToPoint(), drawSize.ToPoint()), Color.Black);
             foreach(iAirplane airplane in airplanes)
             {
-                airplane.Draw(spriteBatch, this);
+                airplane.Draw(spriteBatch);
             }
         }
         public Vector2 getSize()
