@@ -3,8 +3,13 @@
 *.manifest
 *.pdb
 *.application
-*.suo
+.vs/AirTrafficController/v15/.suo
 *.cache
 *.resources
+*.xnb
+*.mgcontent
+*.suo
+*.ide
 AirTrafficController/bin
 AirTrafficController/obj
+
