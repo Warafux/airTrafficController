@@ -12,7 +12,7 @@ namespace AirTrafficController
 {
     public class airplane : iAirplane
     {
-        public Texture2D texture;
+        public Texture2D icon;
         private string vendor = "";
         private string model = "";
         private string id = "";
@@ -24,7 +24,7 @@ namespace AirTrafficController
         private int acceleration;
         private Vector2 direction;
         private map map;
-
+        private Game1 game;
         private bool drawInfo = true;
 
         public airplane(map map)
@@ -54,6 +54,8 @@ namespace AirTrafficController
             this.speed = speed;
             this.acceleration = acceleration;
             this.maxSpeed = maxSpeed;
+            this.game = this.map.getGame();
+            this.icon = this.game.icons["AirbusA380"];
         }
         public void Update()
         {
@@ -81,12 +83,21 @@ namespace AirTrafficController
         {
             //Calculate pos to draw inside the map
             this.drawPos = new Vector2(
-                utilDraw.convertRange(0, (int)this.map.getSize().X, 0, this.map.getGame().GraphicsDevice.Viewport.Width, (int)this.pos.X),
-                utilDraw.convertRange(0, (int)this.map.getSize().Y, 0, this.map.getGame().GraphicsDevice.Viewport.Height, (int)this.pos.Y)
+                utilDraw.convertRange(0, (int)this.map.getSize().X, 0, this.map.getGame().GraphicsDevice.Viewport.Width, (int)(this.pos.X)),
+                utilDraw.convertRange(0, (int)this.map.getSize().Y, 0, this.map.getGame().GraphicsDevice.Viewport.Height, (int)(this.pos.Y))
                 );
             Primitives2D.DrawCircle(spriteBatch, this.drawPos, 100, 100, Color.Red);
-            //spriteBatch.Draw(this.map.getGame().lineTexture, drawPos, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-            spriteBatch.DrawString(this.map.getGame().defaultFont, "XD", this.drawPos, Color.Black);
+            spriteBatch.Draw(
+                this.icon,
+                drawPos,
+                null,
+                Color.White,
+                (MathHelper.ToRadians(utilVector2.angleOfDirection(this.direction)) % (MathHelper.Pi * 2)), //CALCULATE ROTATION
+                new Vector2(this.icon.Width / 2, this.icon.Height / 2), // CALCULATE ORIGIN OF THE SPRITE
+                this.game.iconScale,
+                SpriteEffects.None,
+                0f);
+            //spriteBatch.DrawString(this.map.getGame().defaultFont, "XD", this.drawPos, Color.Black);
             if (drawInfo)
             {
                 spriteBatch.DrawString(this.map.getGame().defaultFont, "SPEED: " + this.speed.ToString() + " u/s", drawPos + new Vector2(0, -20), Color.Black);

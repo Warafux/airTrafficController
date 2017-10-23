@@ -5,6 +5,7 @@ using System;
 using AirTrafficController.forms;
 using System.Collections.Generic;
 using C3.XNA;
+using AirTrafficController.util;
 
 namespace AirTrafficController
 {
@@ -28,6 +29,12 @@ namespace AirTrafficController
         private notificationsManager notificationsManager;
         private Vector2 mapSize;
 
+        //ICONS
+        // http://www.iconsplace.com/white-icons/
+        public Dictionary<string, Texture2D> icons;
+        public float iconScale = 0.1f;
+
+
         public Texture2D lineTexture;
         public SpriteFont defaultFont;
         private map map;
@@ -39,6 +46,7 @@ namespace AirTrafficController
             Content.RootDirectory = "Content";
             mapSize = new Vector2(100000, 100000);
             this.lastSecond = 0;
+            this.icons = new Dictionary<string, Texture2D>();
         }
         protected override void Initialize()
         {
@@ -51,6 +59,8 @@ namespace AirTrafficController
             spriteBatch = new SpriteBatch(GraphicsDevice);
             map = new map(this, Vector2.Zero, mapSize);
             defaultFont = Content.Load<SpriteFont>("defaultFont");
+            this.icons.Add("AirbusA380", Content.Load<Texture2D>("AirbusA380"));
+            this.icons.Add("Boeing737", Content.Load<Texture2D>("Boeing737"));
             frameCounter = new FrameCounter();
             notificationsManager = new notificationsManager(this);
             lineTexture = new Texture2D(GraphicsDevice, 1, 1);

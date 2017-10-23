@@ -52,5 +52,9 @@ namespace AirTrafficController.util
             }
             return ret;
         }
+        public static float angleOfDirection(Vector2 direction)
+        {
+            return MathHelper.ToDegrees((float)Math.Atan2((double)direction.X, (double)direction.Y));
+        }
     }
 }

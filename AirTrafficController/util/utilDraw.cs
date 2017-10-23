@@ -31,5 +31,22 @@ namespace AirTrafficController
                 );
             return drawAirplaneInfoPos;
         }
+        public int getAngleByString(string angleString)
+        {
+            int ret = 0;
+            switch (angleString)
+            {
+                case "Left":
+                    ret = 90;
+                    break;
+                case "Down":
+                    ret = 180;
+                    break;
+                case "Right":
+                    ret = 270;
+                    break;
+            }
+            return ret;
+        }
     }
 }
