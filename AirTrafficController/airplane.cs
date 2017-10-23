@@ -26,6 +26,7 @@ namespace AirTrafficController
         private map map;
         private Game1 game;
         private bool drawInfo = true;
+        private bool hovering = false;
 
         public airplane(map map)
         {
@@ -86,13 +87,15 @@ namespace AirTrafficController
                 utilDraw.convertRange(0, (int)this.map.getSize().X, 0, this.map.getGame().GraphicsDevice.Viewport.Width, (int)(this.pos.X)),
                 utilDraw.convertRange(0, (int)this.map.getSize().Y, 0, this.map.getGame().GraphicsDevice.Viewport.Height, (int)(this.pos.Y))
                 );
-            Primitives2D.DrawCircle(spriteBatch, this.drawPos, 100, 100, Color.Red);
+            if(this.hovering)
+            Primitives2D.DrawCircle(spriteBatch, this.drawPos, 50, 100, Color.Red);
+
             spriteBatch.Draw(
                 this.icon,
                 drawPos,
                 null,
-                Color.White,
-                (MathHelper.ToRadians(utilVector2.angleOfDirection(this.direction)) % (MathHelper.Pi * 2)), //CALCULATE ROTATION
+                Color.Red,
+                -(MathHelper.ToRadians(utilVector2.angleOfDirection(this.direction)) % (MathHelper.Pi * 2)), //CALCULATE ROTATION
                 new Vector2(this.icon.Width / 2, this.icon.Height / 2), // CALCULATE ORIGIN OF THE SPRITE
                 this.game.iconScale,
                 SpriteEffects.None,
@@ -128,6 +131,10 @@ namespace AirTrafficController
         public void click()
         {
 
+        }
+        public void hover(bool isHovering)
+        {
+            this.hovering = isHovering;
         }
         public Vector2 getDrawPos()
         {

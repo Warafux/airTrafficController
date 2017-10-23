@@ -99,12 +99,17 @@ namespace AirTrafficController
             foreach (iAirplane airplane in airplanes)
             {
                 //Primitives2D.DrawLine(spriteBatch, currentMouseState.Position.ToVector2(), airplane.getDrawPos(), Color.Black);
-                if (Vector2.Distance(currentMouseState.Position.ToVector2(), airplane.getDrawPos()) < 30)
+                if (Vector2.Distance(currentMouseState.Position.ToVector2(), airplane.getDrawPos()) < 50)
                 {
+                    airplane.hover(true);
                     if (previousMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
                     {
                         airplane.switchDrawInfo();
                     }
+                }
+                else
+                {
+                    airplane.hover(false);
                 }
             }
         }

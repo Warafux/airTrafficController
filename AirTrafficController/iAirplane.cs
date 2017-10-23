@@ -25,5 +25,6 @@ namespace AirTrafficController
         void switchDrawInfo();
         string getId();
         void click();
+        void hover(bool isHovering);
     }
 }
