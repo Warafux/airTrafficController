@@ -1,5 +1,8 @@
 *.application
-AirTrafficController/bin/Windows/x86/Debug/AirTrafficController.exe
+*.exe
 *.manifest
-AirTrafficController/bin/Windows/x86/Debug/AirTrafficController.pdb
+*.pdb
 *.application
+*.suo
+*.cache
+*.resources
