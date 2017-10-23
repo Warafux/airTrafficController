@@ -6,3 +6,5 @@
 *.suo
 *.cache
 *.resources
+AirTrafficController/bin
+AirTrafficController/obj
