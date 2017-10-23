@@ -7,14 +7,14 @@
     <framework targetVersion="4.5" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="AirTrafficController.exe.manifest" size="10345">
+    <dependentAssembly dependencyType="install" codebase="AirTrafficController.exe.manifest" size="10748">
       <assemblyIdentity name="AirTrafficController.exe" version="1.0.0.13" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>dZ7criyWTgz/KFqIfPByngBI3Q2wJKT4Vw34JP144gY=</dsig:DigestValue>
+        <dsig:DigestValue>vZWzVLIpQuten0bYGDVXHVj+hSJZaWNpdIOWReKsDfc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

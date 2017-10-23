@@ -31,14 +31,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AirTrafficController.exe" size="183768">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AirTrafficController.exe" size="184280">
       <assemblyIdentity name="AirTrafficController" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>6JREJ3iLz19oR6yjHvI2wfsiOCSpAKkGChxv6kxI6eg=</dsig:DigestValue>
+        <dsig:DigestValue>qj3zronuzfXKFEKtPcbe7Gj1I2N4Yo7Y2q0m8Xg/+JE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -138,6 +138,15 @@
       </hash>
     </dependentAssembly>
   </dependency>
+  <file name="Content\AirbusA380.xnb" size="1048661">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>YbbD3MAgmeFtds3OhbYo5gL7bqorHYjmJ3zwMUkYoTg=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Content\cutrepainticon.xnb" size="160085">
     <hash>
       <dsig:Transforms>
