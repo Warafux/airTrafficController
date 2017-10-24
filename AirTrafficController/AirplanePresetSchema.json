@@ -1,0 +1,32 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "vendor": {
+      "default": "UNDEFINED",
+      "description": "Vendor of the airplane, main brand.",
+      "id": "/properties/vendor",
+      "type": "string"
+    },
+    "model": {
+      "default": "UNDEFINED",
+      "description": "Model of the airplane.",
+      "id": "/properties/model",
+      "type": "string"
+    },
+    "capacity": {
+      "default": 0,
+      "description": "Capicity of the airplane.",
+      "id": "/properties/capacity",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "maxSpeed": {
+      "default": 500,
+      "description": "Max speed of the airplane.",
+      "id": "/properties/maxSpeed",
+      "minimum": 0,
+      "type": "integer"
+    }
+  }
+}

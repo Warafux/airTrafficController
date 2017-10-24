@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace AirTrafficController
 {
-    interface iAirplanePreset
+    public interface iAirplanePreset
     {
         string getVendor();
         string getModel();
         int getCapacity();
         int getMaxSpeed();
+        void Initialize(string vendor, string model, int capacity, int maxSpeed);
     }
 }

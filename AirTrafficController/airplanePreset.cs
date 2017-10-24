@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AirTrafficController.airplanePresets
+namespace AirTrafficController
 {
-    class AirbusA380 : iAirplanePreset
+    public class airplanePreset : iAirplanePreset
     {
-        private string vendor = "Airbus";
-        private string model = "A380";
-        private int capacity = 200;
-        private int maxSpeed = 1020;
+        private string vendor = "";
+        private string model = "";
+        private int capacity = 0;
+        private int maxSpeed = 0;
         public string getVendor()
         {
             return this.vendor;
@@ -27,6 +27,13 @@ namespace AirTrafficController.airplanePresets
         public int getMaxSpeed()
         {
             return this.maxSpeed;
+        }
+        public void Initialize(string vendor, string model, int capacity, int maxSpeed)
+        {
+            this.vendor = vendor;
+            this.model = model;
+            this.capacity = capacity;
+            this.maxSpeed = maxSpeed;
         }
     }
 }

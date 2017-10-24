@@ -6,6 +6,10 @@ using AirTrafficController.forms;
 using System.Collections.Generic;
 using C3.XNA;
 using AirTrafficController.util;
+using System.IO;
+using Newtonsoft.Json.Schema;
+using Newtonsoft.Json.Linq;
+using System.Reflection;
 
 namespace AirTrafficController
 {
@@ -34,6 +38,7 @@ namespace AirTrafficController
         public Dictionary<string, Texture2D> icons;
         public float iconScale = 0.1f;
 
+        public List<iAirplanePreset> airplanePresets;
 
         public Texture2D lineTexture;
         public SpriteFont defaultFont;
@@ -65,8 +70,47 @@ namespace AirTrafficController
             notificationsManager = new notificationsManager(this);
             lineTexture = new Texture2D(GraphicsDevice, 1, 1);
             lineTexture.SetData(new Color[] { Color.White });
+            airplanePresets = loadAirplanePresets();
 
         }
+
+        private List<iAirplanePreset> loadAirplanePresets()
+        {
+            //Create a new list
+            List<iAirplanePreset> airplanePresets = new List<iAirplanePreset>();
+
+            //Load schema
+            
+            //string jsonSchema = File.ReadAllText("airplanePresets/AirplanePresetSchema.json");
+            string jsonSchema = File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"AirplanePresetSchema.json"));
+            JSchema schema = JSchema.Parse(jsonSchema);
+
+            string[] jsonFiles = Directory.GetFiles("airplanePresets", "*.json");
+            //Get filespath in directory
+            foreach(string jsonFilePath in jsonFiles)
+            {
+                if (File.Exists(jsonFilePath))
+                {
+                    //If the file exists, try to parse it
+                    //First read it
+                    string jsonFileContent = File.ReadAllText(jsonFilePath);
+                    JObject jsonObject = JObject.Parse(jsonFileContent);
+                    if (jsonObject.IsValid(schema))
+                    {
+                        iAirplanePreset airplanePreset = new airplanePreset();
+                        airplanePreset.Initialize(
+                            jsonObject.GetValue("vendor").ToString(),
+                            jsonObject.GetValue("model").ToString(),
+                            (int)jsonObject.GetValue("capacity"),
+                            (int)jsonObject.GetValue("maxSpeed")
+                            );
+                        airplanePresets.Add(airplanePreset);
+                    }
+                }
+            }
+            return airplanePresets;
+        }
+
         protected override void UnloadContent()
         {
         }

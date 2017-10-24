@@ -1,0 +1,6 @@
+﻿{
+  "vendor": "Airbus",
+  "model": "A380",
+  "capacity": 200,
+  "maxSpeed": 1020
+}

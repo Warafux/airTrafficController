@@ -13,3 +13,6 @@
 AirTrafficController/bin
 AirTrafficController/obj
 
+*.ide-shm
+*.lock
+*.ide-wal

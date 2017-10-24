@@ -1,5 +1,4 @@
-﻿using AirTrafficController.airplanePresets;
-using AirTrafficController.util;
+﻿using AirTrafficController.util;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -20,10 +19,7 @@ namespace AirTrafficController.forms
     public partial class newAirplaneForm : Form
     {
         Game1 game;
-        static List<iAirplanePreset> airplanePresets = new List<iAirplanePreset>(
-            new iAirplanePreset[] {
-                new AirbusA380()
-            });
+        static List<iAirplanePreset> airplanePresets = new List<iAirplanePreset>();
 
         public newAirplaneForm()
         {
@@ -120,6 +116,10 @@ namespace AirTrafficController.forms
 
         private void loadAirplanePresets()
         {
+            //Take presets from game main class
+            airplanePresets.Clear();
+            airplanePresets = game.airplanePresets;
+
             DataTable tmp_dt = new DataTable();
             tmp_dt.Clear();
             tmp_dt.Columns.Add("name", typeof(String));
