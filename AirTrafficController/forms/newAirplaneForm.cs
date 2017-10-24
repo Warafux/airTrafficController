@@ -19,7 +19,7 @@ namespace AirTrafficController.forms
     public partial class newAirplaneForm : Form
     {
         Game1 game;
-        static List<iAirplanePreset> airplanePresets = new List<iAirplanePreset>();
+        private List<iAirplanePreset> airplanePresets = new List<iAirplanePreset>();
 
         public newAirplaneForm()
         {
@@ -125,7 +125,7 @@ namespace AirTrafficController.forms
             tmp_dt.Columns.Add("name", typeof(String));
             tmp_dt.Columns.Add("airplanePreset", typeof(iAirplanePreset));
 
-            foreach (iAirplanePreset airplanePreset in newAirplaneForm.airplanePresets)
+            foreach (iAirplanePreset airplanePreset in this.airplanePresets)
             {
                 DataRow hashTypeRow = tmp_dt.NewRow();
                 hashTypeRow["name"] = airplanePreset.getVendor() + " - " + airplanePreset.getModel();

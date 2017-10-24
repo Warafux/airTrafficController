@@ -83,5 +83,18 @@ namespace AirTrafficController
             }
             return false;
         }
+        public void checkProximityDanger()
+        {
+            foreach(iAirplane airplane1 in airplanes)
+            {
+                foreach (iAirplane airplane2 in airplanes)
+                {
+                    //Same airplane, stop
+                    if(airplane1.getId() == airplane2.getId()) { return; }
+
+
+                }
+            }
+        }
     }
 }

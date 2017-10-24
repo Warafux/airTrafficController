@@ -26,5 +26,6 @@ namespace AirTrafficController
         string getId();
         void click();
         void hover(bool isHovering);
+        void setCollisionDanger(bool collisionDanger);
     }
 }
