@@ -32,7 +32,7 @@ namespace AirTrafficController
         void setDrawInfo(bool drawInfo);
         void switchDrawInfo();
         void setCollisionDanger(bool collisionDanger);
-        void setCollisionDangerWith(iAirplane airplane);
+        void addCollisionDangerWith(iAirplane airplane);
         
         //Other
         void click();

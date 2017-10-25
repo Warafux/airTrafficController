@@ -28,10 +28,9 @@ namespace AirTrafficController
         private Game1 game;
         private bool drawInfo = true;
         private bool hovering = false;
-
         //Dangers
         private bool collisionDanger = false;
-        private iAirplane collisionDangerWith;
+        private List<iAirplane> collisionDangerWith;
         public airplane(map map)
         {
             this.map = map;
@@ -72,6 +71,8 @@ namespace AirTrafficController
                 this.direction.Y * this.speed + this.pos.Y
                 );
             this.pos = newPos;
+
+            //Check if 
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -105,7 +106,10 @@ namespace AirTrafficController
             if (this.collisionDanger)
             {
                 spriteBatch.DrawString(this.map.getGame().defaultFont, "COLLISION DANGER!!!", drawPos + new Vector2(0, 20), Color.Red);
-                Primitives2D.DrawLine(spriteBatch, this.drawPos, this.collisionDangerWith.getDrawPos(), Color.Red);
+                foreach(iAirplane collisionDangerAirplane in collisionDangerWith)
+                {
+                    Primitives2D.DrawLine(spriteBatch, this.drawPos, collisionDangerAirplane.getDrawPos(), Color.Red);
+                }
             }
         }
         public Vector2 getPos()
@@ -163,9 +167,25 @@ namespace AirTrafficController
         {
             return this.collisionDanger;
         }
-        public void setCollisionDangerWith(iAirplane airplane)
+        public void addCollisionDangerWith(iAirplane airplane)
         {
-            this.collisionDangerWith = airplane;
+            if (!this.collisionDangerWith.Contains(airplane))
+            {
+                this.collisionDangerWith.Add(airplane);
+            }
+        }
+        public void removeCollisionDangerWith(iAirplane airplane)
+        {
+            this.collisionDangerWith.Remove(airplane);
+        }
+        private void checkCollisionDanger(iAirplane airplane)
+        {
+            //Calculate distance between 2 airplanes
+            double distance = Vector2.Distance(this.getPos(), airplane.getPos());
+            if (distance < this.map.getDistanceCollisionDanger())
+            {
+            
+            }
         }
     }
 }

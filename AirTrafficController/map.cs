@@ -14,7 +14,6 @@ namespace AirTrafficController
         private Game1 game;
         private Vector2 size;
         public Vector2 pos;
-
         private int distanceCollisionDanger = 2000;
         private int distanceCrash = 500;
 
@@ -104,30 +103,27 @@ namespace AirTrafficController
             foreach (iAirplane airplane2 in airplanes)
             {
                 //Same airplane, stop
-                if(airplane1.getId() == airplane2.getId()) { return; }
+                if (airplane1.getId() == airplane2.getId()) { break; }
 
                 //Calculate distance between 2 airplanes
                 double distance = Vector2.Distance(airplane1.getPos(), airplane2.getPos());
-                bool collisionDanger = airplane1.getCollisionDanger();
-                airplane1.setCollisionDanger(false);
-                if (distance < this.distanceCollisionDanger)
+                if (distance < this.distanceCrash)
                 {
-                    if (!collisionDanger)
-                    {
-                        //First notification
-                        this.game.addNotification("COLLISION DANGER!!! " + airplane1.getId());
-                    }
-                    airplane1.setCollisionDanger(true);
-                    airplane1.setCollisionDangerWith(airplane2);
+                    this.game.addNotification($"Airplane {airplane1.getId()} and airplane {airplane2.getId()} have crashed. {airplane1.getCapacity() + airplane2.getCapacity()} people have died. Congratulations.", 6000);
+                    airplane1.addCollisionDangerWith(airplane2);
+                    airplane2.addCollisionDangerWith(airplane1);
+
+                    break;
                 }
-            } 
+            }
         }
         public bool checkCrash(iAirplane airplane1)
         {
+            bool crashed = false;
             foreach (iAirplane airplane2 in airplanes)
             {
                 //Same airplane, stop
-                if (airplane1.getId() == airplane2.getId()) { return false; }
+                if (airplane1.getId() == airplane2.getId()) { break; }
 
                 //Calculate distance between 2 airplanes
                 double distance = Vector2.Distance(airplane1.getPos(), airplane2.getPos());
@@ -137,14 +133,20 @@ namespace AirTrafficController
 
                     //Delete the airplane2
                     airplanes.Remove(airplane2);
-                    return true;
+
+                    crashed = true;
+                    break;
                 }
             }
-            return false;
+            return crashed;
         }
         public void clearMap()
         {
             this.airplanes = new List<iAirplane>();
+        }
+        public int getDistanceCollisionDanger()
+        {
+            return this.distanceCollisionDanger;
         }
     }
 }
