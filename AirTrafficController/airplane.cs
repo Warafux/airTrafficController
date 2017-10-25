@@ -34,19 +34,7 @@ namespace AirTrafficController
         private iAirplane collisionDangerWith;
         public airplane(map map)
         {
-            /*Random random = new Random();
-            this.pos = new Vector2(random.Next(1, 999), random.Next(1, 999));
-            this.speed = random.Next(1, 20);
-            this.acceleration = random.Next(1, 5);*/
             this.map = map;
-
-            Vector2 drawPos = new Vector2(
-                utilDraw.convertRange(0, (int)map.getSize().X, 0, map.getGame().GraphicsDevice.Viewport.Width, (int)this.pos.X),
-                utilDraw.convertRange(0, (int)map.getSize().Y, 0, map.getGame().GraphicsDevice.Viewport.Height, (int)this.pos.Y)
-                );
-           // Console.WriteLine(drawPos.ToString());
-            //Console.WriteLine("MAP SIZE: " + map.getSize().ToString());
-            //Console.WriteLine("WINDOW SIZE: " + map.getGame().GraphicsDevice.Viewport.Width + " , " + map.getGame().GraphicsDevice.Viewport.Height);
         }
         public void Initialize(string id, string vendor, string model, Vector2 pos, Vector2 direction, int altitude, int speed, int maxSpeed, int acceleration, int capacity)
         {
@@ -108,9 +96,11 @@ namespace AirTrafficController
             //spriteBatch.DrawString(this.map.getGame().defaultFont, "XD", this.drawPos, Color.Black);
             if (this.drawInfo)
             {
-                spriteBatch.DrawString(this.map.getGame().defaultFont, "SPEED: " + this.speed.ToString() + " u/s", drawPos + new Vector2(0, -20), Color.Black);
-                spriteBatch.DrawString(this.map.getGame().defaultFont, "COORDINATES: " + this.pos.X + ", " + this.pos.Y, drawPos + new Vector2(0, -40), Color.Black);
-                spriteBatch.DrawString(this.map.getGame().defaultFont, this.vendor + " " + this.model + " - " + this.id, drawPos + new Vector2(0, -60), Color.Black);
+                Vector2 stringOffset = this.map.getGame().defaultFont.MeasureString(this.vendor + " " + this.model + " - " + this.id);
+                spriteBatch.DrawString(this.map.getGame().defaultFont, this.vendor + " " + this.model + " - " + this.id, drawPos + new Vector2(-(stringOffset.X) / 2, -70), Color.Black);
+
+                spriteBatch.DrawString(this.map.getGame().defaultFont, drawPos.ToString(), drawPos + new Vector2(20, -40), Color.Black);
+                spriteBatch.DrawString(this.map.getGame().defaultFont, this.speed.ToString() + " u/s", drawPos + new Vector2(20, -20), Color.Black);
             }
             if (this.collisionDanger)
             {
