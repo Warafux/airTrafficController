@@ -63,7 +63,7 @@ namespace AirTrafficController
             //Calculate new pos with speed and acceleration
             if (this.speed < this.maxSpeed)
             {
-                this.speed = this.speed * this.acceleration / 10 + this.speed;
+                this.speed = this.speed + this.acceleration;
             }
             else if(this.speed > this.maxSpeed)
             {
