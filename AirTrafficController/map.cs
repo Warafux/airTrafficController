@@ -15,7 +15,11 @@ namespace AirTrafficController
         private Vector2 size;
         public Vector2 pos;
 
+        private int distanceCollisionDanger = 2000;
+        private int distanceCrash = 500;
+
         private List<iAirplane> airplanes = new List<iAirplane>();
+
         //DRAW PROPERTIES
 
         public map(Game1 game, Vector2 pos, Vector2 size)
@@ -33,10 +37,22 @@ namespace AirTrafficController
         }
         public void Update(GameTime gameTime)
         {
+            //First update ALL AIRPLANES
             foreach (iAirplane airplane in airplanes)
             {
                 airplane.Update();
+            }
 
+            //Then check for problems
+            foreach (iAirplane airplane in airplanes)
+            {
+                checkCollisionDanger(airplane);
+                if (checkCrash(airplane))
+                {
+                    //Airplanes have crashed, delete airplane
+                    airplanes.Remove(airplane);
+                    break;
+                }
                 if (!isValidAirplanePos(airplane))
                 {
                     Console.WriteLine("INVALID POS, REMOVING");
@@ -83,18 +99,52 @@ namespace AirTrafficController
             }
             return false;
         }
-        public void checkProximityDanger()
+        public void checkCollisionDanger(iAirplane airplane1)
         {
-            foreach(iAirplane airplane1 in airplanes)
+            foreach (iAirplane airplane2 in airplanes)
             {
-                foreach (iAirplane airplane2 in airplanes)
+                //Same airplane, stop
+                if(airplane1.getId() == airplane2.getId()) { return; }
+
+                //Calculate distance between 2 airplanes
+                double distance = Vector2.Distance(airplane1.getPos(), airplane2.getPos());
+                bool collisionDanger = airplane1.getCollisionDanger();
+                airplane1.setCollisionDanger(false);
+                if (distance < this.distanceCollisionDanger)
                 {
-                    //Same airplane, stop
-                    if(airplane1.getId() == airplane2.getId()) { return; }
+                    if (!collisionDanger)
+                    {
+                        //First notification
+                        this.game.addNotification("COLLISION DANGER!!! " + airplane1.getId());
+                    }
+                    airplane1.setCollisionDanger(true);
+                    airplane1.setCollisionDangerWith(airplane2);
+                }
+            } 
+        }
+        public bool checkCrash(iAirplane airplane1)
+        {
+            foreach (iAirplane airplane2 in airplanes)
+            {
+                //Same airplane, stop
+                if (airplane1.getId() == airplane2.getId()) { return false; }
 
+                //Calculate distance between 2 airplanes
+                double distance = Vector2.Distance(airplane1.getPos(), airplane2.getPos());
+                if (distance < this.distanceCrash)
+                {
+                    this.game.addNotification($"Airplane {airplane1.getId()} and airplane {airplane2.getId()} have crashed. {airplane1.getCapacity() + airplane2.getCapacity()} people have died. Congratulations.", 6000);
 
+                    //Delete the airplane2
+                    airplanes.Remove(airplane2);
+                    return true;
                 }
             }
+            return false;
+        }
+        public void clearMap()
+        {
+            this.airplanes = new List<iAirplane>();
         }
     }
 }

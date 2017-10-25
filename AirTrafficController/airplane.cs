@@ -21,6 +21,7 @@ namespace AirTrafficController
         private int altitude = 0;
         private int speed;
         private int maxSpeed;
+        private int capacity;
         private int acceleration;
         private Vector2 direction;
         private map map;
@@ -28,6 +29,9 @@ namespace AirTrafficController
         private bool drawInfo = true;
         private bool hovering = false;
 
+        //Dangers
+        private bool collisionDanger = false;
+        private iAirplane collisionDangerWith;
         public airplane(map map)
         {
             /*Random random = new Random();
@@ -44,7 +48,7 @@ namespace AirTrafficController
             //Console.WriteLine("MAP SIZE: " + map.getSize().ToString());
             //Console.WriteLine("WINDOW SIZE: " + map.getGame().GraphicsDevice.Viewport.Width + " , " + map.getGame().GraphicsDevice.Viewport.Height);
         }
-        public void Initialize(string id, string vendor, string model, Vector2 pos, Vector2 direction, int altitude, int speed, int maxSpeed, int acceleration)
+        public void Initialize(string id, string vendor, string model, Vector2 pos, Vector2 direction, int altitude, int speed, int maxSpeed, int acceleration, int capacity)
         {
             this.id = id;
             this.vendor = vendor;
@@ -55,6 +59,7 @@ namespace AirTrafficController
             this.speed = speed;
             this.acceleration = acceleration;
             this.maxSpeed = maxSpeed;
+            this.capacity = capacity;
             this.game = this.map.getGame();
             this.icon = this.game.icons["AirbusA380"];
         }
@@ -101,11 +106,16 @@ namespace AirTrafficController
                 SpriteEffects.None,
                 0f);
             //spriteBatch.DrawString(this.map.getGame().defaultFont, "XD", this.drawPos, Color.Black);
-            if (drawInfo)
+            if (this.drawInfo)
             {
                 spriteBatch.DrawString(this.map.getGame().defaultFont, "SPEED: " + this.speed.ToString() + " u/s", drawPos + new Vector2(0, -20), Color.Black);
                 spriteBatch.DrawString(this.map.getGame().defaultFont, "COORDINATES: " + this.pos.X + ", " + this.pos.Y, drawPos + new Vector2(0, -40), Color.Black);
                 spriteBatch.DrawString(this.map.getGame().defaultFont, this.vendor + " " + this.model + " - " + this.id, drawPos + new Vector2(0, -60), Color.Black);
+            }
+            if (this.collisionDanger)
+            {
+                spriteBatch.DrawString(this.map.getGame().defaultFont, "COLLISION DANGER!!!", drawPos + new Vector2(0, 20), Color.Red);
+                Primitives2D.DrawLine(spriteBatch, this.drawPos, this.collisionDangerWith.getDrawPos(), Color.Red);
             }
         }
         public Vector2 getPos()
@@ -130,7 +140,6 @@ namespace AirTrafficController
         }
         public void click()
         {
-
         }
         public void hover(bool isHovering)
         {
@@ -140,6 +149,33 @@ namespace AirTrafficController
         {
             return this.drawPos;
         }
-
+        public void setCollisionDanger(bool collisionDanger)
+        {
+            this.collisionDanger = collisionDanger;
+        }
+        public string getVendor()
+        {
+            return this.vendor;
+        }
+        public string getModel()
+        {
+            return this.model;
+        }
+        public int getCapacity()
+        {
+            return this.capacity;
+        }
+        public int getMaxSpeed()
+        {
+            return this.maxSpeed;
+        }
+        public bool getCollisionDanger()
+        {
+            return this.collisionDanger;
+        }
+        public void setCollisionDangerWith(iAirplane airplane)
+        {
+            this.collisionDangerWith = airplane;
+        }
     }
 }

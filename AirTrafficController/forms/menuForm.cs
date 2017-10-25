@@ -15,6 +15,7 @@ namespace AirTrafficController.forms
         Game1 game;
         //Secondary forms:
         newAirplaneForm newAirplaneForm;
+        testForm testForm;
         public menuForm()
         {
             InitializeComponent();
@@ -39,6 +40,12 @@ namespace AirTrafficController.forms
         public void updateAll()
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            testForm = new testForm(this.game);
+            testForm.Show();
         }
     }
 }

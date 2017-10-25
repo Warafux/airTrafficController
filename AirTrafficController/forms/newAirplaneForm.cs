@@ -57,7 +57,8 @@ namespace AirTrafficController.forms
                 (int)numericUpDown_airplaneAltitude.Value,
                 (int)numericUpDown_airplaneSpeed.Value,
                 (int)numericUpDown_airplaneMaxSpeed.Value,
-                (int)numericUpDown_airplaneAcceleration.Value
+                (int)numericUpDown_airplaneAcceleration.Value,
+                100
             );
 
             gameMap.addAirplane(airplane);

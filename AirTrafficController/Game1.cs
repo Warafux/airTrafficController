@@ -36,7 +36,7 @@ namespace AirTrafficController
         //ICONS
         // http://www.iconsplace.com/white-icons/
         public Dictionary<string, Texture2D> icons;
-        public float iconScale = 0.1f;
+        public float iconScale;
 
         public List<iAirplanePreset> airplanePresets;
 
@@ -49,7 +49,8 @@ namespace AirTrafficController
             graphics.PreferredBackBufferWidth = 600;
             graphics.PreferredBackBufferHeight = 600;
             Content.RootDirectory = "Content";
-            mapSize = new Vector2(100000, 100000);
+            mapSize = new Vector2(10000, 10000);
+            iconScale = 1000/mapSize.X; 
             this.lastSecond = 0;
             this.icons = new Dictionary<string, Texture2D>();
         }
@@ -58,6 +59,7 @@ namespace AirTrafficController
             base.Initialize();
             Vector2 playerPosition = new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X, GraphicsDevice.Viewport.TitleSafeArea.Y + GraphicsDevice.Viewport.TitleSafeArea.Height / 2);
             this.IsMouseVisible = true;
+
         }
         protected override void LoadContent()
         {
@@ -113,6 +115,7 @@ namespace AirTrafficController
 
         protected override void UnloadContent()
         {
+
         }
         protected override void Update(GameTime gameTime)
         {
@@ -177,6 +180,10 @@ namespace AirTrafficController
         public void addNotification(string message)
         {
             notificationsManager.addNotification(message);
+        }
+        public void addNotification(string message, int notificationTime)
+        {
+            notificationsManager.addNotification(message, notificationTime);
         }
         public void setMenu(menuForm menu)
         {
