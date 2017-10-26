@@ -30,6 +30,7 @@
         {
             this.button_addRandomAirplane = new System.Windows.Forms.Button();
             this.button_testCollision = new System.Windows.Forms.Button();
+            this.button_testMultipleCollision = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_addRandomAirplane
@@ -52,11 +53,22 @@
             this.button_testCollision.UseVisualStyleBackColor = true;
             this.button_testCollision.Click += new System.EventHandler(this.button_testCollision_Click);
             // 
+            // button_testMultipleCollision
+            // 
+            this.button_testMultipleCollision.Location = new System.Drawing.Point(12, 138);
+            this.button_testMultipleCollision.Name = "button_testMultipleCollision";
+            this.button_testMultipleCollision.Size = new System.Drawing.Size(260, 57);
+            this.button_testMultipleCollision.TabIndex = 2;
+            this.button_testMultipleCollision.Text = "TEST COLLISION";
+            this.button_testMultipleCollision.UseVisualStyleBackColor = true;
+            this.button_testMultipleCollision.Click += new System.EventHandler(this.button_testMultipleCollision_Click);
+            // 
             // testForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.button_testMultipleCollision);
             this.Controls.Add(this.button_testCollision);
             this.Controls.Add(this.button_addRandomAirplane);
             this.Name = "testForm";
@@ -70,5 +82,6 @@
 
         private System.Windows.Forms.Button button_addRandomAirplane;
         private System.Windows.Forms.Button button_testCollision;
+        private System.Windows.Forms.Button button_testMultipleCollision;
     }
 }
