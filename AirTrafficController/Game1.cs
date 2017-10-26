@@ -27,11 +27,14 @@ namespace AirTrafficController
         public GameTime gameTime;
         private double lastSecond;
 
-        private int maxAirplanes = 5;
+        private int maxAirplanes = 500;
 
         private FrameCounter frameCounter;
         private notificationsManager notificationsManager;
         private Vector2 mapSize;
+
+        //DEBUG
+        public bool clickAsRandomAirplaneGenerator = true;
 
         //ICONS
         // http://www.iconsplace.com/white-icons/
@@ -143,22 +146,59 @@ namespace AirTrafficController
             //Click on an airplane
            
             List<iAirplane> airplanes = this.map.getAirplanes();
-            foreach (iAirplane airplane in airplanes)
+            if (!this.clickAsRandomAirplaneGenerator)
             {
-                //Primitives2D.DrawLine(spriteBatch, currentMouseState.Position.ToVector2(), airplane.getDrawPos(), Color.Black);
-                if (Vector2.Distance(currentMouseState.Position.ToVector2(), airplane.getDrawPos()) < 50)
+                foreach (iAirplane airplane in airplanes)
                 {
-                    airplane.hover(true);
-                    if (previousMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
+                    //Primitives2D.DrawLine(spriteBatch, currentMouseState.Position.ToVector2(), airplane.getDrawPos(), Color.Black);
+                    if (Vector2.Distance(currentMouseState.Position.ToVector2(), airplane.getDrawPos()) < 50)
                     {
-                        airplane.switchDrawInfo();
+                        airplane.hover(true);
+                        if (previousMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
+                        {
+                            airplane.switchDrawInfo();
+                        }
+                    }
+                    else
+                    {
+                        airplane.hover(false);
                     }
                 }
-                else
+            }
+            else
+            {
+                if (previousMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
                 {
-                    airplane.hover(false);
+                    iAirplane airplane;
+                    Vector2 localPos = new Vector2(
+                        utilDraw.convertRange(0, this.map.getGame().GraphicsDevice.Viewport.Width, 0, (int)this.map.getSize().X, (int)(currentMouseState.Position.X)),
+                        utilDraw.convertRange(0, this.map.getGame().GraphicsDevice.Viewport.Height, 0, (int)this.map.getSize().Y, (int)(currentMouseState.Position.Y))
+                    );
+                    if (currentKeyboardState.IsKeyDown(Keys.W))
+                    {
+                        airplane = this.generateRandomAirplane(localPos, utilVector2.getDirectionFromString("Up"));
+                    }
+                    else if (currentKeyboardState.IsKeyDown(Keys.A))
+                    {
+                        airplane = this.generateRandomAirplane(localPos, utilVector2.getDirectionFromString("Left"));
+                    }
+                    else if (currentKeyboardState.IsKeyDown(Keys.S))
+                    {
+                        airplane = this.generateRandomAirplane(localPos, utilVector2.getDirectionFromString("Down"));
+                    }
+                    else if (currentKeyboardState.IsKeyDown(Keys.D))
+                    {
+                        airplane = this.generateRandomAirplane(localPos, utilVector2.getDirectionFromString("Right"));
+                    }
+                    else
+                    {
+                        airplane = this.generateRandomAirplane(localPos);
+                    }
+
+                    this.addAirplaneToMap(airplane);
                 }
             }
+            //Click on the map
         }
         private void updateByOneSecond()
         {
@@ -169,11 +209,12 @@ namespace AirTrafficController
             GraphicsDevice.Clear(Color.White);
             base.Draw(gameTime);
             spriteBatch.Begin();
-                //airplane.Draw(spriteBatch);
+            
                 map.Draw(spriteBatch);
-            notificationsManager.Draw(spriteBatch);
+                notificationsManager.Draw(spriteBatch);
+            
             //FPS
-            spriteBatch.DrawString(defaultFont, Math.Ceiling(frameCounter.CurrentFramesPerSecond).ToString(), Vector2.Zero, Color.Green);
+                spriteBatch.DrawString(defaultFont, Math.Ceiling(frameCounter.CurrentFramesPerSecond).ToString(), Vector2.Zero, Color.Green);
 
             spriteBatch.End();
         }
@@ -205,7 +246,8 @@ namespace AirTrafficController
             }
             else
             {
-                notificationsManager.addNotification($"Adding airplane {airplane.getId()} to the map.");
+                notificationsManager.addNotification($"Adding airplane {airplane.getId()} to the map. {airplane.getPos().ToString()}");
+                this.map.addAirplane(airplane);
             }
         }
         public string generateRandomId()
@@ -226,6 +268,36 @@ namespace AirTrafficController
             }
             return randomGeneratedId;
         }
-        
+        public iAirplane generateRandomAirplane(Vector2 pos)
+        {
+            return generateRandomAirplane(pos, utilVector2.getRandomDirection());
+        }
+        public iAirplane generateRandomAirplane(Vector2 pos, Vector2 direction)
+        {
+            airplane airplane = new airplane(map);
+            Random random = new Random();
+            airplane.Initialize(
+                this.generateRandomId(),
+                "xd",
+                "xd",
+                pos,
+                direction,
+                10,
+                random.Next(200, 300),
+                random.Next(1, 500),
+                random.Next(1, 5),
+                random.Next(20, 400)
+            );
+            return airplane;
+        }
+        public iAirplane generateRandomAirplane()
+        {
+            Random random = new Random();
+            return generateRandomAirplane(new Vector2(random.Next(1, (int)this.map.getSize().X), random.Next(1, (int)this.map.getSize().Y)));
+        }
+        private bool playerIsPressingWASD()
+        {
+            return currentKeyboardState.IsKeyDown(Keys.W) || currentKeyboardState.IsKeyDown(Keys.A) || currentKeyboardState.IsKeyDown(Keys.S) || currentKeyboardState.IsKeyDown(Keys.D);
+        }
     }
 }

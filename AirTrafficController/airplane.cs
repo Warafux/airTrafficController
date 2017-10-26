@@ -34,6 +34,7 @@ namespace AirTrafficController
         public airplane(map map)
         {
             this.map = map;
+            collisionDangerWith = new List<iAirplane>();
         }
         public void Initialize(string id, string vendor, string model, Vector2 pos, Vector2 direction, int altitude, int speed, int maxSpeed, int acceleration, int capacity)
         {
@@ -103,7 +104,7 @@ namespace AirTrafficController
                 spriteBatch.DrawString(this.map.getGame().defaultFont, drawPos.ToString(), drawPos + new Vector2(20, -40), Color.Black);
                 spriteBatch.DrawString(this.map.getGame().defaultFont, this.speed.ToString() + " u/s", drawPos + new Vector2(20, -20), Color.Black);
             }
-            if (this.collisionDanger)
+            if (this.collisionDangerWith.Count > 0)
             {
                 spriteBatch.DrawString(this.map.getGame().defaultFont, "COLLISION DANGER!!!", drawPos + new Vector2(0, 20), Color.Red);
                 foreach(iAirplane collisionDangerAirplane in collisionDangerWith)
@@ -169,23 +170,15 @@ namespace AirTrafficController
         }
         public void addCollisionDangerWith(iAirplane airplane)
         {
-            if (!this.collisionDangerWith.Contains(airplane))
-            {
-                this.collisionDangerWith.Add(airplane);
-            }
+             this.collisionDangerWith.Add(airplane);
         }
         public void removeCollisionDangerWith(iAirplane airplane)
         {
             this.collisionDangerWith.Remove(airplane);
         }
-        private void checkCollisionDanger(iAirplane airplane)
+        public void removeAllCollisionDangerWith()
         {
-            //Calculate distance between 2 airplanes
-            double distance = Vector2.Distance(this.getPos(), airplane.getPos());
-            if (distance < this.map.getDistanceCollisionDanger())
-            {
-            
-            }
+            this.collisionDangerWith.Clear();
         }
     }
 }
