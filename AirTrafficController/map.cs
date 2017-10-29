@@ -56,7 +56,6 @@ namespace AirTrafficController
                         totalAirplanesToBeRemoved.Add(airplane);
                     }
                 }
-                Console.WriteLine(totalAirplanesToBeRemoved.Count.ToString());
                 removeAirplanes(totalAirplanesToBeRemoved);
             }
 

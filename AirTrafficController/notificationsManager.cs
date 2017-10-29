@@ -21,8 +21,6 @@ namespace AirTrafficController
         {
             notification.setEndTime(notificationTime + (int)game.gameTime.TotalGameTime.TotalMilliseconds);
             notifications.Add(notification);
-
-            Console.WriteLine("NOTIFICATION ADDED!");
         }
 
         public void addNotification(string message)
