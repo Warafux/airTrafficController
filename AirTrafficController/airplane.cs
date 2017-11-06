@@ -187,5 +187,13 @@ namespace AirTrafficController
         {
             return new Vector3(this.pos.X, this.pos.Y, this.altitude);
         }
+        public int getAcceleration()
+        {
+            return this.acceleration;
+        }
+        public int getAltitude()
+        {
+            return this.altitude;
+        }
     }
 }
