@@ -34,7 +34,7 @@ namespace AirTrafficController
         private Vector2 mapSize;
 
         //DEBUG
-        public bool clickAsRandomAirplaneGenerator = true;
+        public bool clickAsRandomAirplaneGenerator = false;
 
         //ICONS
         // http://www.iconsplace.com/white-icons/
@@ -46,6 +46,11 @@ namespace AirTrafficController
         public Texture2D lineTexture;
         public SpriteFont defaultFont;
         private map map;
+        private bool gameRunning = true;
+
+        //
+        private iAirplane closestAirplaneToMouse;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -132,7 +137,10 @@ namespace AirTrafficController
             //1 second delay event call
             if(this.lastSecond != gameTime.TotalGameTime.Seconds)
             {
-                updateByOneSecond();
+                if (this.gameRunning)
+                {
+                    updateByOneSecond();
+                }
             }
             this.lastSecond = gameTime.TotalGameTime.Seconds;
 
@@ -145,25 +153,10 @@ namespace AirTrafficController
 
             //Click on an airplane
            
-            List<iAirplane> airplanes = this.map.getAirplanes();
+            
             if (!this.clickAsRandomAirplaneGenerator)
             {
-                foreach (iAirplane airplane in airplanes)
-                {
-                    //Primitives2D.DrawLine(spriteBatch, currentMouseState.Position.ToVector2(), airplane.getDrawPos(), Color.Black);
-                    if (Vector2.Distance(currentMouseState.Position.ToVector2(), airplane.getDrawPos()) < 50)
-                    {
-                        airplane.hover(true);
-                        if (previousMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
-                        {
-                            airplane.switchDrawInfo();
-                        }
-                    }
-                    else
-                    {
-                        airplane.hover(false);
-                    }
-                }
+                
             }
             else
             {
@@ -199,7 +192,30 @@ namespace AirTrafficController
                 }
             }
             //Click on the map
+            if (previousMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
+            {
+                if(closestAirplaneToMouse != null)
+                {
+                    closestAirplaneToMouse.switchDrawInfo();
+                }
+            }
         }
+
+        private iAirplane getClosestAirplaneToMouse()
+        {
+            List<iAirplane> airplanes = this.map.getAirplanes();
+            if(airplanes.Count == 0) { return null; }
+            iAirplane closestAirplane = airplanes[0];
+            foreach (iAirplane airplane in airplanes)
+            {
+                if (Vector2.Distance(currentMouseState.Position.ToVector2(), airplane.getDrawPos()) < Vector2.Distance(currentMouseState.Position.ToVector2(), closestAirplane.getDrawPos()))
+                {
+                    closestAirplane = airplane;
+                }
+            }
+            return closestAirplane;
+        }
+
         private void updateByOneSecond()
         {
             map.Update(this.gameTime);
@@ -209,8 +225,17 @@ namespace AirTrafficController
             GraphicsDevice.Clear(Color.White);
             base.Draw(gameTime);
             spriteBatch.Begin();
-            
-                map.Draw(spriteBatch);
+            this.closestAirplaneToMouse = this.getClosestAirplaneToMouse();
+            if (closestAirplaneToMouse != null && Vector2.Distance(currentMouseState.Position.ToVector2(), closestAirplaneToMouse.getDrawPos()) < 50)
+            {
+                closestAirplaneToMouse.hover(true);
+                Primitives2D.DrawLine(spriteBatch, currentMouseState.Position.ToVector2(), closestAirplaneToMouse.getDrawPos(), Color.Black);
+            }
+            else
+            {
+
+            }
+            map.Draw(spriteBatch);
                 notificationsManager.Draw(spriteBatch);
             
             //FPS
@@ -298,6 +323,10 @@ namespace AirTrafficController
         private bool playerIsPressingWASD()
         {
             return currentKeyboardState.IsKeyDown(Keys.W) || currentKeyboardState.IsKeyDown(Keys.A) || currentKeyboardState.IsKeyDown(Keys.S) || currentKeyboardState.IsKeyDown(Keys.D);
+        }
+        public void switchGameRunning()
+        {
+            this.gameRunning = !this.gameRunning;
         }
     }
 }

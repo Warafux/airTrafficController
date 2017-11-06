@@ -73,7 +73,7 @@ namespace AirTrafficController
                 );
             this.pos = newPos;
 
-            //Check if 
+            
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -112,6 +112,8 @@ namespace AirTrafficController
                     Primitives2D.DrawLine(spriteBatch, this.drawPos, collisionDangerAirplane.getDrawPos(), Color.Red);
                 }
             }
+            //Reset hovering status
+            this.hovering = false;
         }
         public Vector2 getPos()
         {
