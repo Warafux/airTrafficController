@@ -213,6 +213,9 @@ namespace AirTrafficController
                     closestAirplane = airplane;
                 }
             }
+            if (Vector2.Distance(currentMouseState.Position.ToVector2(), closestAirplane.getDrawPos()) > 50) {
+                return null;
+            }
             return closestAirplane;
         }
 
