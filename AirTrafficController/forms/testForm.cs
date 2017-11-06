@@ -38,7 +38,7 @@ namespace AirTrafficController.forms
                 "xd",
                 new Vector2(random.Next(1, (int)gameMap.getSize().X), random.Next(1, (int)gameMap.getSize().Y)),
                 chosenDirection,
-                10,
+                random.Next(200, 8000),
                 random.Next(200, 300),
                 random.Next(1, 500),
                 random.Next(1, 5),

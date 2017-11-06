@@ -15,7 +15,7 @@ namespace AirTrafficController
         private Vector2 size;
         public Vector2 pos;
         private int distanceCollisionDangerRadius = 2000;
-        private int distanceCrash = 800;
+        private int distanceCrashRadius = 800;
 
         private List<iAirplane> airplanes = new List<iAirplane>();
 
@@ -137,8 +137,8 @@ namespace AirTrafficController
                 if (airplane1.getId() == airplane2.getId()) { continue; }
 
                 //Calculate distance between 2 airplanes
-                double distance = Vector2.Distance(airplane1.getPos(), airplane2.getPos());
-                if (distance < this.distanceCrash)
+                double radius = Vector3.Distance(airplane1.get3DPos(), airplane2.get3DPos());
+                if (radius < this.distanceCrashRadius)
                 {
                     this.game.addNotification($"Airplane {airplane1.getId()} has crashed. {airplane1.getCapacity()} people have died. Congratulations.", 6000);
 
