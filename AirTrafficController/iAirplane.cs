@@ -26,6 +26,7 @@ namespace AirTrafficController
         int getCapacity();
         int getMaxSpeed();
         bool getCollisionDanger();
+        Vector3 get3DPos();
 
         //Setters
         void setPos(Vector2 pos);
