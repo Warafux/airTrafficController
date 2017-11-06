@@ -16,10 +16,12 @@ namespace AirTrafficController.forms
         //Secondary forms:
         newAirplaneForm newAirplaneForm;
         testForm testForm;
+        editAirplaneForm editAirplaneForm;
         public menuForm()
         {
             InitializeComponent();
-            newAirplaneForm = new newAirplaneForm();
+            this.newAirplaneForm = new newAirplaneForm();
+            this.editAirplaneForm = new editAirplaneForm();
         }
         public void setGame(Game1 game)
         {
@@ -33,9 +35,9 @@ namespace AirTrafficController.forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            newAirplaneForm.Dispose();
-            newAirplaneForm = new newAirplaneForm(game);
-            newAirplaneForm.Show();
+            this.newAirplaneForm.Dispose();
+            this.newAirplaneForm = new newAirplaneForm(game);
+            this.newAirplaneForm.Show();
         }
         public void updateAll()
         {
@@ -51,6 +53,13 @@ namespace AirTrafficController.forms
         private void button3_Click(object sender, EventArgs e)
         {
             game.switchGameRunning();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.editAirplaneForm.Dispose();
+            this.editAirplaneForm = new editAirplaneForm(game);
+            this.editAirplaneForm.Show();
         }
     }
 }

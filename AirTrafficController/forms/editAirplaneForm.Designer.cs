@@ -1,6 +1,6 @@
 ﻿namespace AirTrafficController.forms
 {
-    partial class newAirplaneForm
+    partial class editAirplaneForm
     {
         /// <summary>
         /// Required designer variable.
@@ -49,7 +49,7 @@
             this.numericUpDown_airplaneAltitude = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.comboBox_airplanePresets = new System.Windows.Forms.ComboBox();
+            this.comboBox_availableAirplanes = new System.Windows.Forms.ComboBox();
             this.button_randomNumbers = new System.Windows.Forms.Button();
             this.button_randomAirplaneId = new System.Windows.Forms.Button();
             this.radioButton_airplaneDirectionLeft = new System.Windows.Forms.RadioButton();
@@ -119,9 +119,9 @@
             this.button_addAirplane.Name = "button_addAirplane";
             this.button_addAirplane.Size = new System.Drawing.Size(260, 47);
             this.button_addAirplane.TabIndex = 17;
-            this.button_addAirplane.Text = "Add airplane";
+            this.button_addAirplane.Text = "Save airplane";
             this.button_addAirplane.UseVisualStyleBackColor = true;
-            this.button_addAirplane.Click += new System.EventHandler(this.button_addAirplane_Click);
+            this.button_addAirplane.Click += new System.EventHandler(this.button_saveAirplane_Click);
             // 
             // textBox_airplaneId
             // 
@@ -205,7 +205,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(260, 47);
             this.label4.TabIndex = 13;
-            this.label4.Text = "New airplane";
+            this.label4.Text = "Edit airplane";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
@@ -239,7 +239,7 @@
             // 
             this.numericUpDown_airplaneAcceleration.Location = new System.Drawing.Point(148, 378);
             this.numericUpDown_airplaneAcceleration.Maximum = new decimal(new int[] {
-            10,
+            5,
             0,
             0,
             0});
@@ -334,19 +334,19 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(15, 56);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(82, 13);
+            this.label11.Size = new System.Drawing.Size(95, 13);
             this.label11.TabIndex = 23;
-            this.label11.Text = "Airplane presets";
+            this.label11.Text = "Available airplanes";
             // 
-            // comboBox_airplanePresets
+            // comboBox_availableAirplanes
             // 
-            this.comboBox_airplanePresets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_airplanePresets.FormattingEnabled = true;
-            this.comboBox_airplanePresets.Location = new System.Drawing.Point(18, 72);
-            this.comboBox_airplanePresets.Name = "comboBox_airplanePresets";
-            this.comboBox_airplanePresets.Size = new System.Drawing.Size(232, 21);
-            this.comboBox_airplanePresets.TabIndex = 1;
-            this.comboBox_airplanePresets.SelectedValueChanged += new System.EventHandler(this.comboBox_airplanePresets_SelectedValueChanged);
+            this.comboBox_availableAirplanes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_availableAirplanes.FormattingEnabled = true;
+            this.comboBox_availableAirplanes.Location = new System.Drawing.Point(18, 72);
+            this.comboBox_availableAirplanes.Name = "comboBox_availableAirplanes";
+            this.comboBox_availableAirplanes.Size = new System.Drawing.Size(232, 21);
+            this.comboBox_availableAirplanes.TabIndex = 1;
+            this.comboBox_availableAirplanes.SelectedValueChanged += new System.EventHandler(this.comboBox_airplanePresets_SelectedValueChanged);
             // 
             // button_randomNumbers
             // 
@@ -461,7 +461,7 @@
             0,
             0});
             // 
-            // newAirplaneForm
+            // editAirplaneForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -476,7 +476,7 @@
             this.Controls.Add(this.radioButton_airplaneDirectionLeft);
             this.Controls.Add(this.button_randomAirplaneId);
             this.Controls.Add(this.button_randomNumbers);
-            this.Controls.Add(this.comboBox_airplanePresets);
+            this.Controls.Add(this.comboBox_availableAirplanes);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.numericUpDown_airplaneAltitude);
@@ -498,7 +498,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox_airplaneVendor);
             this.Controls.Add(this.textBox_airplaneModel);
-            this.Name = "newAirplaneForm";
+            this.Name = "editAirplaneForm";
             this.Text = "newAirplaneForm";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_airplaneCapacity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_airplaneCoordinateX)).EndInit();
@@ -535,7 +535,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDown_airplaneAltitude;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox_airplanePresets;
+        private System.Windows.Forms.ComboBox comboBox_availableAirplanes;
         private System.Windows.Forms.Button button_randomNumbers;
         private System.Windows.Forms.Button button_randomAirplaneId;
         private System.Windows.Forms.RadioButton radioButton_airplaneDirectionLeft;

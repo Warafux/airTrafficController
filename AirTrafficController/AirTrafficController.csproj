@@ -80,6 +80,12 @@
     <Compile Include="forms\menuForm.Designer.cs">
       <DependentUpon>menuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\editAirplaneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\editAirplaneForm.Designer.cs">
+      <DependentUpon>editAirplaneForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\newAirplaneForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,9 @@
   <ItemGroup>
     <EmbeddedResource Include="forms\menuForm.resx">
       <DependentUpon>menuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\editAirplaneForm.resx">
+      <DependentUpon>editAirplaneForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\newAirplaneForm.resx">
       <DependentUpon>newAirplaneForm.cs</DependentUpon>
