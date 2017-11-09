@@ -38,11 +38,11 @@ namespace AirTrafficController.forms
                 "xd",
                 new Vector2(random.Next(1, (int)gameMap.getSize().X), random.Next(1, (int)gameMap.getSize().Y)),
                 chosenDirection,
-                random.Next(200, 8000),
-                random.Next(200, 300),
-                random.Next(1, 500),
-                random.Next(1, 5),
-                random.Next(20, 400)
+                random.Next(Game1.minMaxAltitude[0], Game1.minMaxAltitude[1]),
+                random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
+                random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
+                random.Next(Game1.minMaxAcceleration[0], Game1.minMaxAcceleration[1]),
+                random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
             gameMap.addAirplane(airplane);
@@ -62,10 +62,10 @@ namespace AirTrafficController.forms
                 new Vector2(gameMap.getSize().X / 2, gameMap.getSize().Y * 0.75f),
                 utilVector2.getDirectionFromString("Up"),
                 10,
-                random.Next(200, 300),
-                random.Next(1, 500),
-                random.Next(1, 5),
-                random.Next(20, 400)
+                random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
+                random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
+                random.Next(Game1.minMaxAcceleration[0], Game1.minMaxAcceleration[1]),
+                random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
             airplane airplane2 = new airplane(gameMap);
@@ -76,10 +76,10 @@ namespace AirTrafficController.forms
                 new Vector2(gameMap.getSize().X / 2, gameMap.getSize().Y * 0.25f),
                 utilVector2.getDirectionFromString("Down"),
                 10,
-                random.Next(200, 300),
-                random.Next(1, 500),
-                random.Next(1, 5),
-                random.Next(20, 400)
+                random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
+                random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
+                random.Next(Game1.minMaxAcceleration[0], Game1.minMaxAcceleration[1]),
+                random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
             gameMap.addAirplane(airplane1);
@@ -103,7 +103,7 @@ namespace AirTrafficController.forms
                 300,
                 300,
                 0,
-                random.Next(20, 400)
+                random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
             airplane airplane2 = new airplane(gameMap);
@@ -117,7 +117,7 @@ namespace AirTrafficController.forms
                 300,
                 300,
                 0,
-                random.Next(20, 400)
+                random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
             airplane airplane3 = new airplane(gameMap);
@@ -131,7 +131,7 @@ namespace AirTrafficController.forms
                 300,
                 300,
                 0,
-                random.Next(20, 400)
+                random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
             airplane airplane4 = new airplane(gameMap);
@@ -145,7 +145,7 @@ namespace AirTrafficController.forms
                 300,
                 300,
                 0,
-                random.Next(20, 400)
+                random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
             gameMap.addAirplane(airplane1);
@@ -168,10 +168,10 @@ namespace AirTrafficController.forms
                 new Vector2(gameMap.getSize().X / 2, gameMap.getSize().Y * 0.75f),
                 utilVector2.getDirectionFromString("Up"),
                 10,
-                random.Next(200, 300),
-                random.Next(1, 500),
-                random.Next(1, 5),
-                random.Next(20, 400)
+                random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
+                random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
+                random.Next(Game1.minMaxAcceleration[0], Game1.minMaxAcceleration[1]),
+                random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
             airplane airplane2 = new airplane(gameMap);
@@ -182,10 +182,10 @@ namespace AirTrafficController.forms
                 new Vector2(gameMap.getSize().X / 2, gameMap.getSize().Y * 0.25f),
                 utilVector2.getDirectionFromString("Down"),
                 10,
-                random.Next(200, 300),
-                random.Next(1, 500),
-                random.Next(1, 5),
-                random.Next(20, 400)
+                random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
+                random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
+                random.Next(Game1.minMaxAcceleration[0], Game1.minMaxAcceleration[1]),
+                random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
             airplane airplane3 = new airplane(gameMap);
@@ -196,10 +196,10 @@ namespace AirTrafficController.forms
                 new Vector2(gameMap.getSize().X * 0.75f, gameMap.getSize().Y / 2 ),
                 utilVector2.getDirectionFromString("Left"),
                 10,
-                random.Next(200, 300),
-                random.Next(1, 500),
-                random.Next(1, 5),
-                random.Next(20, 400)
+                random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
+                random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
+                random.Next(Game1.minMaxAcceleration[0], Game1.minMaxAcceleration[1]),
+                random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
             airplane airplane4 = new airplane(gameMap);
@@ -210,10 +210,10 @@ namespace AirTrafficController.forms
                 new Vector2(gameMap.getSize().X * 0.25f, gameMap.getSize().Y / 2),
                 utilVector2.getDirectionFromString("Right"),
                 10,
-                random.Next(200, 300),
-                random.Next(1, 500),
-                random.Next(1, 5),
-                random.Next(20, 400)
+                random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
+                random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
+                random.Next(Game1.minMaxAcceleration[0], Game1.minMaxAcceleration[1]),
+                random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
             gameMap.addAirplane(airplane1);

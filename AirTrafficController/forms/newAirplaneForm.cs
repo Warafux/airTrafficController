@@ -29,10 +29,7 @@ namespace AirTrafficController.forms
             InitializeComponent();
             this.game = game;
 
-            //Numeric updown maximum number depending on the map size
-            numericUpDown_airplaneCoordinateX.Maximum = (Decimal)game.getMapSize().X;
-            numericUpDown_airplaneCoordinateY.Maximum = (Decimal)game.getMapSize().Y;
-
+            loadMinMaxValues();
             loadAirplanePresets();
         }
 
@@ -110,7 +107,8 @@ namespace AirTrafficController.forms
             Random random = new Random();
             numericUpDown_airplaneCoordinateX.Value = (decimal)random.Next(1, (int)game.getMapSize().X);
             numericUpDown_airplaneCoordinateY.Value = (decimal)random.Next(1, (int)game.getMapSize().Y);
-            numericUpDown_airplaneSpeed.Value = (decimal)random.Next(1, 50);
+            numericUpDown_airplaneSpeed.Value = (decimal)random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]);
+            numericUpDown_airplaneMaxSpeed.Value = (decimal)random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]);
             numericUpDown_airplaneAcceleration.Value = (decimal)random.Next(1, 5);
             numericUpDown_airplaneAltitude.Value = (decimal)random.Next(1, 10000);
         }
@@ -158,6 +156,28 @@ namespace AirTrafficController.forms
         private void button_randomAirplaneId_Click(object sender, EventArgs e)
         {
             textBox_airplaneId.Text = game.generateRandomId();
+        }
+        private void loadMinMaxValues()
+        {
+            //This functions makes sure every form has the same limits on numericupdown values
+
+            //Numeric updown maximum number depending on the map size
+            numericUpDown_airplaneCoordinateX.Maximum = (Decimal)game.getMapSize().X;
+            numericUpDown_airplaneCoordinateY.Maximum = (Decimal)game.getMapSize().Y;
+
+            numericUpDown_airplaneCapacity.Minimum = Game1.minMaxCapacity[0];
+            numericUpDown_airplaneCapacity.Maximum = Game1.minMaxCapacity[1];
+
+            numericUpDown_airplaneAcceleration.Minimum = Game1.minMaxAcceleration[0];
+            numericUpDown_airplaneAcceleration.Maximum = Game1.minMaxAcceleration[1];
+
+            numericUpDown_airplaneCapacity.Minimum = Game1.minMaxCapacity[0];
+            numericUpDown_airplaneCapacity.Maximum = Game1.minMaxCapacity[1];
+
+            numericUpDown_airplaneMaxSpeed.Minimum = Game1.minMaxMAXSpeed[0];
+            numericUpDown_airplaneMaxSpeed.Maximum = Game1.minMaxMAXSpeed[1];
+            numericUpDown_airplaneSpeed.Minimum = Game1.minMaxMAXSpeed[0];
+            numericUpDown_airplaneSpeed.Maximum = Game1.minMaxMAXSpeed[1];
         }
     }
 }

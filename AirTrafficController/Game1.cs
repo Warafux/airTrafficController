@@ -48,6 +48,11 @@ namespace AirTrafficController
         private map map;
         private bool gameRunning = true;
 
+        //Min/Max of values
+        public static int[] minMaxAcceleration = {1, 10};
+        public static int[] minMaxMAXSpeed = {200, 1200};//Max speed
+        public static int[] minMaxAltitude = {200, 9000};
+        public static int[] minMaxCapacity = {20, 500};
         //
         private iAirplane closestAirplaneToMouse;
 
