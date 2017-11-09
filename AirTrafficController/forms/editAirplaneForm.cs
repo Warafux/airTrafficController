@@ -29,10 +29,7 @@ namespace AirTrafficController.forms
             InitializeComponent();
             this.game = game;
 
-            //Numeric updown maximum number depending on the map size
-            numericUpDown_airplaneCoordinateX.Maximum = (Decimal)game.getMapSize().X;
-            numericUpDown_airplaneCoordinateY.Maximum = (Decimal)game.getMapSize().Y;
-
+            loadMinMaxValues();
             loadAvailableAirplanes();
         }
 
@@ -104,7 +101,7 @@ namespace AirTrafficController.forms
             foreach (iAirplane airplane in this.availableAirplanes)
             {
                 DataRow hashTypeRow = tmp_dt.NewRow();
-                hashTypeRow["name"] = airplane.getVendor() + " - " + airplane.getModel();
+                hashTypeRow["name"] = airplane.getId() + " - " + airplane.getVendor() + " - " + airplane.getModel();
                 hashTypeRow["iAirplane"] = airplane;
                 tmp_dt.Rows.Add(hashTypeRow);
             }
@@ -132,6 +129,7 @@ namespace AirTrafficController.forms
 
         private void loadSelectedAirplaneInfo()
         {
+
             textBox_airplaneId.Text = this.selectedAirplane.getId();
             textBox_airplaneVendor.Text = this.selectedAirplane.getVendor();
             textBox_airplaneModel.Text = this.selectedAirplane.getModel();
@@ -142,17 +140,51 @@ namespace AirTrafficController.forms
             numericUpDown_airplaneCoordinateY.Value = (decimal)this.selectedAirplane.getPos().Y;
             numericUpDown_airplaneCapacity.Value = this.selectedAirplane.getCapacity();
             numericUpDown_airplaneMaxSpeed.Value = this.selectedAirplane.getMaxSpeed();
-        }
 
-        private void button_randomAirplaneId_Click(object sender, EventArgs e)
-        {
-            textBox_airplaneId.Text = game.generateRandomId();
+            //Direction
+            switch (utilVector2.getStringFromDirection(this.selectedAirplane.getDirection()))
+            {
+                case "Left":
+                    this.radioButton_airplaneDirectionLeft.Checked = true;
+                    break;
+                case "Right":
+                    this.radioButton_airplaneDirectionRight.Checked = true;
+                    break;
+                case "Up":
+                    this.radioButton_airplaneDirectionUp.Checked = true;
+                    break;
+                case "Down":
+                    this.radioButton_airplaneDirectionDown.Checked = true;
+                    break;
+            }
         }
 
         private void button_saveAirplane_Click(object sender, EventArgs e)
         {
             if (!checkFields()) { return; }
             
+        }
+        private void loadMinMaxValues()
+        {
+            //This functions makes sure every form has the same limits on numericupdown values
+
+            //Numeric updown maximum number depending on the map size
+            numericUpDown_airplaneCoordinateX.Maximum = (Decimal)game.getMapSize().X;
+            numericUpDown_airplaneCoordinateY.Maximum = (Decimal)game.getMapSize().Y;
+
+            numericUpDown_airplaneCapacity.Minimum = Game1.minMaxCapacity[0];
+            numericUpDown_airplaneCapacity.Maximum = Game1.minMaxCapacity[1];
+
+            numericUpDown_airplaneAcceleration.Minimum = Game1.minMaxAcceleration[0];
+            numericUpDown_airplaneAcceleration.Maximum = Game1.minMaxAcceleration[1];
+
+            numericUpDown_airplaneCapacity.Minimum = Game1.minMaxCapacity[0];
+            numericUpDown_airplaneCapacity.Maximum = Game1.minMaxCapacity[1];
+
+            numericUpDown_airplaneMaxSpeed.Minimum = Game1.minMaxMAXSpeed[0];
+            numericUpDown_airplaneMaxSpeed.Maximum = Game1.minMaxMAXSpeed[1];
+            numericUpDown_airplaneSpeed.Minimum = Game1.minMaxMAXSpeed[0];
+            numericUpDown_airplaneSpeed.Maximum = Game1.minMaxMAXSpeed[1];
         }
     }
 }
