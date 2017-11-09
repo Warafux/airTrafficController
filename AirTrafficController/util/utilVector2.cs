@@ -9,48 +9,31 @@ namespace AirTrafficController.util
 {
     public class utilVector2
     {
+        public static Dictionary<string, Vector2> availableDirections = new Dictionary<string, Vector2>() {
+            {"Left", new Vector2(-1, 0)},
+            {"Right", new Vector2(1, 0)},
+            {"Up", new Vector2(0, -1)},
+            {"Down", new Vector2(0, 1)},
+
+        };
+        //Default values
+        public static Vector2 defaultDirection = new Vector2(1, 0);
+        public static string defaultDirectionName = "Right";
+
         public static Vector2 getRandomDirection()
         {
             Random random = new Random();
-            Vector2 ret = new Vector2(-1, 0);
-            switch (random.Next(1, 4))
-            {
-                case 1:
-                    ret = new Vector2(1, 0);
-                    break;
-                case 2:
-                    ret = new Vector2(0, -1);
-                    break;
-                case 3:
-                    ret = new Vector2(0, 1);
-                    break;
-                default:
-                    break;
-            }
-            return ret;
+            return utilVector2.availableDirections.ElementAt(random.Next(0, utilVector2.availableDirections.Count)).Value;
         }
 
         public static Vector2 getDirectionFromString(string directionString)
         {
-            Vector2 ret = new Vector2(-1, 0);
-            switch (directionString)
-            {
-                case "Right":
-                    ret = new Vector2(1, 0);
-                    break;
-                case "Up":
-                    ret = new Vector2(0, -1);
-                    break;
-                case "Down":
-                    ret = new Vector2(0, 1);
-                    break;
-                case "Random Direction":
-                    ret = utilVector2.getRandomDirection();
-                    break;
-                default:
-                    break;
-            }
-            return ret;
+            return utilVector2.availableDirections.ContainsKey(directionString) ? utilVector2.availableDirections[directionString] : utilVector2.defaultDirection;
+        }
+        public static string getStringFromDirection(Vector2 direction)
+        {
+            //Source https://stackoverflow.com/a/2444064/6832219
+            return utilVector2.availableDirections.ContainsValue(direction) ? utilVector2.availableDirections.First(x => x.Value == direction).Key : utilVector2.defaultDirectionName;
         }
         public static float angleOfDirection(Vector2 direction)
         {

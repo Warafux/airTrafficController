@@ -195,5 +195,9 @@ namespace AirTrafficController
         {
             return this.altitude;
         }
+        public Vector2 getDirection()
+        {
+            return this.direction;
+        }
     }
 }
