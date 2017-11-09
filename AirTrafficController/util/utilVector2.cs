@@ -13,8 +13,7 @@ namespace AirTrafficController.util
             {"Left", new Vector2(-1, 0)},
             {"Right", new Vector2(1, 0)},
             {"Up", new Vector2(0, -1)},
-            {"Down", new Vector2(0, 1)},
-
+            {"Down", new Vector2(0, 1)}
         };
         //Default values
         public static Vector2 defaultDirection = new Vector2(1, 0);
@@ -23,7 +22,7 @@ namespace AirTrafficController.util
         public static Vector2 getRandomDirection()
         {
             Random random = new Random();
-            return utilVector2.availableDirections.ElementAt(random.Next(0, utilVector2.availableDirections.Count)).Value;
+            return utilVector2.availableDirections.ElementAt(random.Next(0, utilVector2.availableDirections.Count - 1)).Value;
         }
 
         public static Vector2 getDirectionFromString(string directionString)

@@ -44,7 +44,7 @@ namespace AirTrafficController.forms
             map gameMap = game.getMap();
             airplane airplane = new airplane(gameMap);
 
-            Vector2 chosenDirection = utilVector2.getDirectionFromString(checkedRadioButtonDirection().Text);
+            Vector2 chosenDirection = checkedRadioButtonDirection().Text == "Random Direction" ? utilVector2.getRandomDirection() : utilVector2.getDirectionFromString(checkedRadioButtonDirection().Text);
             airplane.Initialize(
                 textBox_airplaneId.Text,
                 textBox_airplaneVendor.Text,

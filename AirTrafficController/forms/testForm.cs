@@ -102,7 +102,7 @@ namespace AirTrafficController.forms
                 10,
                 300,
                 300,
-                0,
+                1,
                 random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
@@ -116,7 +116,7 @@ namespace AirTrafficController.forms
                 10,
                 300,
                 300,
-                0,
+                1,
                 random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
@@ -130,7 +130,7 @@ namespace AirTrafficController.forms
                 10,
                 300,
                 300,
-                0,
+                1,
                 random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
@@ -144,7 +144,7 @@ namespace AirTrafficController.forms
                 10,
                 300,
                 300,
-                0,
+                1,
                 random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
