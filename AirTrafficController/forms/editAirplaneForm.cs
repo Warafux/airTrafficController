@@ -83,7 +83,8 @@ namespace AirTrafficController.forms
             Random random = new Random();
             numericUpDown_airplaneCoordinateX.Value = (decimal)random.Next(1, (int)game.getMapSize().X);
             numericUpDown_airplaneCoordinateY.Value = (decimal)random.Next(1, (int)game.getMapSize().Y);
-            numericUpDown_airplaneSpeed.Value = (decimal)random.Next(1, 50);
+            numericUpDown_airplaneSpeed.Value = (decimal)random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]);
+            numericUpDown_airplaneMaxSpeed.Value = (decimal)random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]);
             numericUpDown_airplaneAcceleration.Value = (decimal)random.Next(1, 5);
             numericUpDown_airplaneAltitude.Value = (decimal)random.Next(1, 10000);
         }
@@ -162,8 +163,26 @@ namespace AirTrafficController.forms
         private void button_saveAirplane_Click(object sender, EventArgs e)
         {
             if (!checkFields()) { return; }
-            
+            this.loadValuesToSelectedAirplane();
         }
+
+        private void loadValuesToSelectedAirplane()
+        {
+            Vector2 chosenDirection = utilVector2.getDirectionFromString(checkedRadioButtonDirection().Text);
+            this.selectedAirplane.Initialize(
+                textBox_airplaneId.Text,
+                textBox_airplaneVendor.Text,
+                textBox_airplaneModel.Text,
+                new Vector2((float)numericUpDown_airplaneCoordinateX.Value, (float)numericUpDown_airplaneCoordinateY.Value),
+                chosenDirection,
+                (int)numericUpDown_airplaneAltitude.Value,
+                (int)numericUpDown_airplaneSpeed.Value,
+                (int)numericUpDown_airplaneMaxSpeed.Value,
+                (int)numericUpDown_airplaneAcceleration.Value,
+                100
+            );
+        }
+
         private void loadMinMaxValues()
         {
             //This functions makes sure every form has the same limits on numericupdown values
