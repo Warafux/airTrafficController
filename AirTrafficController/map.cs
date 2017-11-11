@@ -14,7 +14,7 @@ namespace AirTrafficController
         private Game1 game;
         private Vector2 size;
         public Vector2 pos;
-        private int distanceCollisionDangerRadius = 1300;
+        private int distanceCollisionDangerRadius = 1800;
         private int distanceCrashRadius = 800;
         private int altitudeDanger = Game1.minMaxAltitude[0] + 150;
         private int altitudeCrash = Game1.minMaxAltitude[0];
@@ -122,7 +122,7 @@ namespace AirTrafficController
         public void checkAltitudeDanger(iAirplane airplane)
         {
             airplane.setAltitudeDanger(false);
-            if (airplane.getAltitude() < this.altitudeDanger)
+            if (airplane.getAltitude() <= this.altitudeDanger)
             {
                 airplane.setAltitudeDanger(true);
             } 
@@ -138,7 +138,7 @@ namespace AirTrafficController
 
                 //Calculate distance between 2 airplanes
                 double radius = Vector3.Distance(airplane1.get3DPos(), airplane2.get3DPos());
-                if (radius < this.distanceCollisionDangerRadius)
+                if (radius <= this.distanceCollisionDangerRadius)
                 {
                     //this.game.addNotification($"Airplane {airplane1.getId()} and airplane {airplane2.getId()} are really close!!({(int)Math.Round(distance)})", 6000);
                     airplane1.addCollisionDangerWith(airplane2);
@@ -156,7 +156,7 @@ namespace AirTrafficController
         public bool checkCrash(iAirplane airplane1)
         {
             //CRASH with floor/ground(altitude)
-            if(airplane1.getAltitude() < this.altitudeCrash)
+            if(airplane1.getAltitude() <= this.altitudeCrash)
             {
                 this.game.addNotification($"Airplane {airplane1.getId()} has crashed with the ground. {airplane1.getCapacity()} people have died. Congratulations.", 6000);
 
@@ -171,7 +171,7 @@ namespace AirTrafficController
 
                 //Calculate distance between 2 airplanes
                 double radius = Vector3.Distance(airplane1.get3DPos(), airplane2.get3DPos());
-                if (radius < this.distanceCrashRadius)
+                if (radius <= this.distanceCrashRadius)
                 {
                     this.game.addNotification($"Airplane {airplane1.getId()} has crashed with another airplane. {airplane1.getCapacity()} people have died. Congratulations.", 6000);
 
