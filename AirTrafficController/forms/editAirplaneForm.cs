@@ -123,14 +123,11 @@ namespace AirTrafficController.forms
             if(selectedValueRow == null) { return; }
             iAirplane airplane = (iAirplane)selectedValueRow[1];
             this.selectedAirplane = airplane;
-
             this.loadSelectedAirplaneInfo();
-            
         }
 
         private void loadSelectedAirplaneInfo()
         {
-
             textBox_airplaneId.Text = this.selectedAirplane.getId();
             textBox_airplaneVendor.Text = this.selectedAirplane.getVendor();
             textBox_airplaneModel.Text = this.selectedAirplane.getModel();
@@ -140,6 +137,7 @@ namespace AirTrafficController.forms
             numericUpDown_airplaneCoordinateX.Value = (decimal)this.selectedAirplane.getPos().X;
             numericUpDown_airplaneCoordinateY.Value = (decimal)this.selectedAirplane.getPos().Y;
             numericUpDown_airplaneCapacity.Value = this.selectedAirplane.getCapacity();
+            numericUpDown_airplaneSpeed.Value = this.selectedAirplane.getSpeed();
             numericUpDown_airplaneMaxSpeed.Value = this.selectedAirplane.getMaxSpeed();
 
             //Direction
