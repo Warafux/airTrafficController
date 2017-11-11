@@ -27,6 +27,7 @@ namespace AirTrafficController
         int getMaxSpeed();
         int getAcceleration();
         int getAltitude();
+        bool getIsOn();
         Vector2 getDirection();
         bool getCollisionDanger();
         Vector3 get3DPos();
@@ -38,6 +39,9 @@ namespace AirTrafficController
         void setCollisionDanger(bool collisionDanger);
         void addCollisionDangerWith(iAirplane airplane);
         void removeAllCollisionDangerWith();
+        void switchIsOn();
+        void setIsOn(bool isOn);
+
         //Other
         void click();
         void hover(bool isHovering);

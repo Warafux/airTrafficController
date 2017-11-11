@@ -24,13 +24,19 @@ namespace AirTrafficController
         private int capacity;
         private int acceleration;
         private Vector2 direction;
+
+        private bool isOn = true;
+
         private map map;
         private Game1 game;
         private bool drawInfo = true;
         private bool hovering = false;
+
+
         //Dangers
         private bool collisionDanger = false;
         private List<iAirplane> collisionDangerWith;
+        private bool fallingDanger = false;
         public airplane(map map)
         {
             this.map = map;
@@ -54,19 +60,32 @@ namespace AirTrafficController
         public void Update()
         {
             //Calculate new pos with speed and acceleration
-            if (this.speed < this.maxSpeed)
+            if (this.isOn)
             {
-                this.speed = this.speed + this.acceleration;
-            }
-            else if(this.speed > this.maxSpeed)
-            {
-                this.speed = this.maxSpeed;
+                //Motor is ON
+                this.fallingDanger = false;
+                if (this.speed < this.maxSpeed)
+                {
+                    this.speed = this.speed + this.acceleration;
+                }
+                else if (this.speed > this.maxSpeed)
+                {
+                    this.speed = this.maxSpeed;
+                }
+                else
+                {
+                    //This will make speed unestable (not linear)
+                    this.speed = this.speed - this.speed * this.acceleration / 100;
+                }
             }
             else
             {
-                //This will make speed unestable (not linear)
-                this.speed = this.speed - this.speed * this.acceleration / 100;
+                //Motor is OFF, speed-- and altitude--
+                this.speed = MathHelper.Clamp(this.speed - this.acceleration * 4 - 15, 0, Game1.minMaxMAXSpeed[1]);
+                this.altitude = MathHelper.Clamp(this.altitude - this.acceleration * 3 - 50, 0, Game1.minMaxAltitude[1]);
+                this.fallingDanger = true;
             }
+            //Calculate the pos with new speed
             Vector2 newPos = new Vector2(
                 this.direction.X * this.speed + this.pos.X,
                 this.direction.Y * this.speed + this.pos.Y
@@ -96,22 +115,31 @@ namespace AirTrafficController
                 SpriteEffects.None,
                 0f);
             //spriteBatch.DrawString(this.map.getGame().defaultFont, "XD", this.drawPos, Color.Black);
+
+            int rows = 0;
             if (this.drawInfo)
             {
                 Vector2 stringOffset = this.map.getGame().defaultFont.MeasureString(this.vendor + " " + this.model + " - " + this.id);
-                spriteBatch.DrawString(this.map.getGame().defaultFont, this.vendor + " " + this.model + " - " + this.id, drawPos + new Vector2(-(stringOffset.X) / 2, -70), Color.Black);
-
-                spriteBatch.DrawString(this.map.getGame().defaultFont, drawPos.ToString(), drawPos + new Vector2(30, -40), Color.Black);
-                spriteBatch.DrawString(this.map.getGame().defaultFont, "Alt: " + this.altitude + "m", drawPos + new Vector2(30, -20), Color.Black);
-                spriteBatch.DrawString(this.map.getGame().defaultFont, this.speed.ToString() + " u/s", drawPos + new Vector2(30, 0), Color.Black);
+                spriteBatch.DrawString(this.map.getGame().defaultFont, this.vendor + " " + this.model + " - " + this.id, drawPos + new Vector2(-(stringOffset.X) / 2, 0- ++rows * 20), Color.Black);
+                spriteBatch.DrawString(this.map.getGame().defaultFont, drawPos.ToString(), drawPos + new Vector2(30, 0 - ++rows * 20), Color.Black);
+                spriteBatch.DrawString(this.map.getGame().defaultFont, "Alt: " + this.altitude + "m", drawPos + new Vector2(30, 0 - ++rows * 20), Color.Black);
+                spriteBatch.DrawString(this.map.getGame().defaultFont, this.speed.ToString() + " u/s", drawPos + new Vector2(30, 0 - ++rows * 20), Color.Black);
+                spriteBatch.DrawString(this.map.getGame().defaultFont, "MOTOR IS " + (this.isOn ? "ON" : "OFF"), drawPos + new Vector2(30, 0 - ++rows * 20), this.isOn ? Color.Green : Color.Red);
             }
+
+
+            rows = 0;
             if (this.collisionDangerWith.Count > 0)
             {
-                spriteBatch.DrawString(this.map.getGame().defaultFont, "COLLISION DANGER!!!", drawPos + new Vector2(0, 20), Color.Red);
+                spriteBatch.DrawString(this.map.getGame().defaultFont, "COLLISION DANGER!!!", drawPos + new Vector2(0, 0 + ++rows * 20), Color.Red);
                 foreach(iAirplane collisionDangerAirplane in collisionDangerWith)
                 {
                     Primitives2D.DrawLine(spriteBatch, this.drawPos, collisionDangerAirplane.getDrawPos(), Color.Red);
                 }
+            }
+            if (this.fallingDanger)
+            {
+                spriteBatch.DrawString(this.map.getGame().defaultFont, "FALLING DANGER!!!", drawPos + new Vector2(0, 0 + ++rows * 20), Color.Red);
             }
             //Reset hovering status
             this.hovering = false;
@@ -198,6 +226,18 @@ namespace AirTrafficController
         public Vector2 getDirection()
         {
             return this.direction;
+        }
+        public bool getIsOn()
+        {
+            return this.isOn;
+        }
+        public void setIsOn(bool status)
+        {
+            this.isOn = status;
+        }
+        public void switchIsOn()
+        {
+            this.isOn = !this.isOn;
         }
     }
 }
