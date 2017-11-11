@@ -14,8 +14,10 @@ namespace AirTrafficController
         private Game1 game;
         private Vector2 size;
         public Vector2 pos;
-        private int distanceCollisionDangerRadius = 2000;
+        private int distanceCollisionDangerRadius = 1300;
         private int distanceCrashRadius = 800;
+        private int altitudeDanger = Game1.minMaxAltitude[0] + 150;
+        private int altitudeCrash = Game1.minMaxAltitude[0];
 
         private List<iAirplane> airplanes = new List<iAirplane>();
 
@@ -42,12 +44,23 @@ namespace AirTrafficController
                 airplane.Update();
             }
 
+            //Check if pos are valid
+            List<iAirplane> totalAirplanesToBeRemoved = new List<iAirplane>();
+            foreach (iAirplane airplane in airplanes)
+            {
+                if (!isValidAirplanePos(airplane))
+                {
+                    totalAirplanesToBeRemoved.Add(airplane);
+                }
+            }
+            removeAirplanes(totalAirplanesToBeRemoved);
+
             //Check collisions crashes
             bool allOk = false;
             while (!allOk)
             {
                 allOk = true;
-                List<iAirplane> totalAirplanesToBeRemoved = new List<iAirplane>();
+                totalAirplanesToBeRemoved.Clear(); // Reset list
 
                 foreach (iAirplane airplane in airplanes)
                 {
@@ -60,14 +73,11 @@ namespace AirTrafficController
                 removeAirplanes(totalAirplanesToBeRemoved);
             }
 
-            //Then, check collisions DANGER and POSITION
+            //Then, check collisions/altitude DANGER
             foreach (iAirplane airplane in airplanes)
             {
                 checkCollisionDanger(airplane);
-                if (!isValidAirplanePos(airplane))
-                {
-                    this.airplanes.Remove(airplane);
-                }
+                checkAltitudeDanger(airplane);
             }
             
         }
@@ -109,8 +119,17 @@ namespace AirTrafficController
             }
             return false;
         }
+        public void checkAltitudeDanger(iAirplane airplane)
+        {
+            airplane.setAltitudeDanger(false);
+            if (airplane.getAltitude() < this.altitudeDanger)
+            {
+                airplane.setAltitudeDanger(true);
+            } 
+        }
         public void checkCollisionDanger(iAirplane airplane1)
         {
+            //Reset collision danger list
             airplane1.removeAllCollisionDangerWith();
             foreach (iAirplane airplane2 in airplanes)
             {
@@ -136,6 +155,15 @@ namespace AirTrafficController
         }
         public bool checkCrash(iAirplane airplane1)
         {
+            //CRASH with floor/ground(altitude)
+            if(airplane1.getAltitude() < this.altitudeCrash)
+            {
+                this.game.addNotification($"Airplane {airplane1.getId()} has crashed with the ground. {airplane1.getCapacity()} people have died. Congratulations.", 6000);
+
+                return true;
+            }
+
+            //CRASH with airplanes
             foreach (iAirplane airplane2 in this.airplanes)
             {
                 //Same airplane, stop
@@ -145,10 +173,12 @@ namespace AirTrafficController
                 double radius = Vector3.Distance(airplane1.get3DPos(), airplane2.get3DPos());
                 if (radius < this.distanceCrashRadius)
                 {
-                    this.game.addNotification($"Airplane {airplane1.getId()} has crashed. {airplane1.getCapacity()} people have died. Congratulations.", 6000);
+                    this.game.addNotification($"Airplane {airplane1.getId()} has crashed with another airplane. {airplane1.getCapacity()} people have died. Congratulations.", 6000);
 
                     return true;
                 }
+
+                
             }
             return false;
         }
