@@ -121,7 +121,7 @@ namespace AirTrafficController
             {
                 Vector2 stringOffset = this.map.getGame().defaultFont.MeasureString(this.vendor + " " + this.model + " - " + this.id);
                 spriteBatch.DrawString(this.map.getGame().defaultFont, this.vendor + " " + this.model + " - " + this.id, drawPos + new Vector2(-(stringOffset.X) / 2, 0- ++rows * 20), Color.Black);
-                spriteBatch.DrawString(this.map.getGame().defaultFont, drawPos.ToString(), drawPos + new Vector2(30, 0 - ++rows * 20), Color.Black);
+                spriteBatch.DrawString(this.map.getGame().defaultFont, this.pos.ToString(), drawPos + new Vector2(30, 0 - ++rows * 20), Color.Black);
                 spriteBatch.DrawString(this.map.getGame().defaultFont, "Alt: " + this.altitude + "m", drawPos + new Vector2(30, 0 - ++rows * 20), Color.Black);
                 spriteBatch.DrawString(this.map.getGame().defaultFont, this.speed.ToString() + " u/s", drawPos + new Vector2(30, 0 - ++rows * 20), Color.Black);
                 spriteBatch.DrawString(this.map.getGame().defaultFont, "MOTOR IS " + (this.isOn ? "ON" : "OFF"), drawPos + new Vector2(30, 0 - ++rows * 20), this.isOn ? Color.Green : Color.Red);
