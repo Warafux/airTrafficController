@@ -55,7 +55,7 @@ namespace AirTrafficController
         public static int[] minMaxMAXSpeed = {200, 1200};//Max speed
         public static int[] minMaxAltitude = {200, 9000};
         public static int[] minMaxCapacity = {20, 500};
-        public static int[] minMaxVerticalAcceleration = {1, 10};
+        public static int[] minMaxVerticalAcceleration = {-10, 10};
         //
         private iAirplane closestAirplaneToMouse;
 
@@ -65,7 +65,7 @@ namespace AirTrafficController
             this.graphics.PreferredBackBufferWidth = 600;
             this.graphics.PreferredBackBufferHeight = 600;
             this.Content.RootDirectory = "Content";
-            this.mapSize = new Vector2(10000, 10000);
+            this.mapSize = new Vector2(25000, 25000);
             this.iconScale = 1000/mapSize.X; 
             this.lastSecond = 0;
             this.icons = new Dictionary<string, Texture2D>();
