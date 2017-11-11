@@ -42,6 +42,7 @@ namespace AirTrafficController
                 airplane.Update();
             }
 
+            //Check collisions crashes
             bool allOk = false;
             while (!allOk)
             {
@@ -59,12 +60,16 @@ namespace AirTrafficController
                 removeAirplanes(totalAirplanesToBeRemoved);
             }
 
-            //Finally, check collisions DANGER
+            //Then, check collisions DANGER and POSITION
             foreach (iAirplane airplane in airplanes)
             {
                 checkCollisionDanger(airplane);
+                if (!isValidAirplanePos(airplane))
+                {
+                    this.airplanes.Remove(airplane);
+                }
             }
-  
+            
         }
         private bool isValidAirplanePos(iAirplane airplane)
         {
