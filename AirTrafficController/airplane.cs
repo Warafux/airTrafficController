@@ -286,5 +286,9 @@ namespace AirTrafficController
         {
             return this.verticalAcceleration;
         }
+        public void setVerticalAcceleration(int verticalAcceleration)
+        {
+            this.verticalAcceleration = verticalAcceleration;
+        }
     }
 }

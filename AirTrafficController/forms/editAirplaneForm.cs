@@ -223,5 +223,15 @@ namespace AirTrafficController.forms
         {
             this.selectedAirplane.switchDeployedLandingGear();
         }
+
+        private void button_airplaneAscend_Click(object sender, EventArgs e)
+        {
+            this.selectedAirplane.setVerticalAcceleration(Game1.minMaxVerticalAcceleration[1]);
+        }
+
+        private void button_airplaneDescend_Click(object sender, EventArgs e)
+        {
+            this.selectedAirplane.setVerticalAcceleration(Game1.minMaxVerticalAcceleration[0]);
+        }
     }
 }

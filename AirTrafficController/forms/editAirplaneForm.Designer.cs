@@ -63,6 +63,9 @@
             this.button_airplaneSwitchDeployedLandingGear = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.numericUpDown_airplaneVerticalAcceleration = new System.Windows.Forms.NumericUpDown();
+            this.label15 = new System.Windows.Forms.Label();
+            this.button_airplaneAscend = new System.Windows.Forms.Button();
+            this.button_airplaneDescend = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_airplaneCapacity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_airplaneCoordinateX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_airplaneCoordinateY)).BeginInit();
@@ -119,7 +122,7 @@
             // 
             // button_addAirplane
             // 
-            this.button_addAirplane.Location = new System.Drawing.Point(12, 638);
+            this.button_addAirplane.Location = new System.Drawing.Point(18, 543);
             this.button_addAirplane.Name = "button_addAirplane";
             this.button_addAirplane.Size = new System.Drawing.Size(260, 47);
             this.button_addAirplane.TabIndex = 17;
@@ -206,7 +209,7 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 9);
+            this.label4.Location = new System.Drawing.Point(142, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(260, 47);
             this.label4.TabIndex = 13;
@@ -458,9 +461,9 @@
             // 
             // button_airplaneSwitchMotorStatus
             // 
-            this.button_airplaneSwitchMotorStatus.Location = new System.Drawing.Point(12, 544);
+            this.button_airplaneSwitchMotorStatus.Location = new System.Drawing.Point(295, 166);
             this.button_airplaneSwitchMotorStatus.Name = "button_airplaneSwitchMotorStatus";
-            this.button_airplaneSwitchMotorStatus.Size = new System.Drawing.Size(260, 23);
+            this.button_airplaneSwitchMotorStatus.Size = new System.Drawing.Size(198, 55);
             this.button_airplaneSwitchMotorStatus.TabIndex = 34;
             this.button_airplaneSwitchMotorStatus.Text = "Switch motor status ON/OFF";
             this.button_airplaneSwitchMotorStatus.UseVisualStyleBackColor = true;
@@ -468,9 +471,9 @@
             // 
             // button_airplaneSwitchDeployedLandingGear
             // 
-            this.button_airplaneSwitchDeployedLandingGear.Location = new System.Drawing.Point(12, 573);
+            this.button_airplaneSwitchDeployedLandingGear.Location = new System.Drawing.Point(295, 227);
             this.button_airplaneSwitchDeployedLandingGear.Name = "button_airplaneSwitchDeployedLandingGear";
-            this.button_airplaneSwitchDeployedLandingGear.Size = new System.Drawing.Size(260, 23);
+            this.button_airplaneSwitchDeployedLandingGear.Size = new System.Drawing.Size(198, 55);
             this.button_airplaneSwitchDeployedLandingGear.TabIndex = 35;
             this.button_airplaneSwitchDeployedLandingGear.Text = "Switch landing gear status DEPLOYED/NOT DEPLOYED";
             this.button_airplaneSwitchDeployedLandingGear.UseVisualStyleBackColor = true;
@@ -508,11 +511,44 @@
             0,
             0});
             // 
+            // label15
+            // 
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(293, 63);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(200, 30);
+            this.label15.TabIndex = 38;
+            this.label15.Text = "Airplane Controller";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button_airplaneAscend
+            // 
+            this.button_airplaneAscend.Location = new System.Drawing.Point(295, 105);
+            this.button_airplaneAscend.Name = "button_airplaneAscend";
+            this.button_airplaneAscend.Size = new System.Drawing.Size(96, 55);
+            this.button_airplaneAscend.TabIndex = 39;
+            this.button_airplaneAscend.Text = "Ascend";
+            this.button_airplaneAscend.UseVisualStyleBackColor = true;
+            this.button_airplaneAscend.Click += new System.EventHandler(this.button_airplaneAscend_Click);
+            // 
+            // button_airplaneDescend
+            // 
+            this.button_airplaneDescend.Location = new System.Drawing.Point(397, 105);
+            this.button_airplaneDescend.Name = "button_airplaneDescend";
+            this.button_airplaneDescend.Size = new System.Drawing.Size(96, 55);
+            this.button_airplaneDescend.TabIndex = 40;
+            this.button_airplaneDescend.Text = "Descend";
+            this.button_airplaneDescend.UseVisualStyleBackColor = true;
+            this.button_airplaneDescend.Click += new System.EventHandler(this.button_airplaneDescend_Click);
+            // 
             // editAirplaneForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 730);
+            this.ClientSize = new System.Drawing.Size(524, 730);
+            this.Controls.Add(this.button_airplaneDescend);
+            this.Controls.Add(this.button_airplaneAscend);
+            this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.numericUpDown_airplaneVerticalAcceleration);
             this.Controls.Add(this.button_airplaneSwitchDeployedLandingGear);
@@ -601,5 +637,8 @@
         private System.Windows.Forms.Button button_airplaneSwitchDeployedLandingGear;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.NumericUpDown numericUpDown_airplaneVerticalAcceleration;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button button_airplaneAscend;
+        private System.Windows.Forms.Button button_airplaneDescend;
     }
 }

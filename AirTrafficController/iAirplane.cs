@@ -47,6 +47,7 @@ namespace AirTrafficController
         void setAltitudeDanger(bool altitudeDanger);
         void switchDeployedLandingGear();
         void setDeployedLandingGear(bool deployedLandingGear);
+        void setVerticalAcceleration(int verticalAcceleration);
 
         //Other
         void click();
