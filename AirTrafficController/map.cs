@@ -18,7 +18,7 @@ namespace AirTrafficController
         private int distanceCrashRadius = 800;
         private int altitudeDanger = Game1.minMaxAltitude[0] + 150;
         private int altitudeCrash = Game1.minMaxAltitude[0];
-
+        private stats stats;
         private List<iAirplane> airplanes = new List<iAirplane>();
 
         //DRAW PROPERTIES
@@ -28,6 +28,10 @@ namespace AirTrafficController
             this.game = game;
             this.pos = pos;
             this.size = size;
+        }
+        public void setStats(stats stats)
+        {
+            this.stats = stats;
         }
         public void addAirplane(iAirplane airplane)
         {
@@ -158,7 +162,28 @@ namespace AirTrafficController
             //CRASH with floor/ground(altitude)
             if(airplane1.getAltitude() <= this.altitudeCrash)
             {
-                this.game.addNotification($"Airplane {airplane1.getId()} has crashed with the ground. {airplane1.getCapacity()} people have died. Congratulations.", 6000);
+                if (airplane1.getDeployedLandingGear())
+                {
+                    //Landing gear is deployed
+                    if(airplane1.getSpeed() <= this.landingMaxSpeed)
+                    {
+                        //Airplane can land and be removed
+                        this.game.addNotification($"Airplane {airplane1.getId()} has landed succesfully.", 6000);
+                    }
+                    else
+                    {
+                        Random random = new Random();
+                        int deadPeople = random.Next((int)(airplane1.getCapacity() * 0.2), (int)(airplane1.getCapacity() * 0.8));
+                        this.game.addNotification($"Airplane {airplane1.getId()} has landed with some difficulties killing {deadPeople} people.", 6000);
+                        this.stats.addDeadPeople($"{airplane1.getId()} - {airplane1.getVendor()} {airplane1.getModel()} Landed with some difficulties killing {deadPeople} people.", deadPeople);
+                    }
+                }
+                else
+                {
+                    //Landing gear is not deployed
+                    this.game.addNotification($"Airplane {airplane1.getId()} has crashed with the ground. {airplane1.getCapacity()} people have died. Congratulations.", 6000);
+                    this.stats.addDeadPeople($"{airplane1.getId()} - {airplane1.getVendor()} {airplane1.getModel()} has crashed with the ground. {airplane1.getCapacity()} people have died.", airplane1.getCapacity());
+                }
 
                 return true;
             }
@@ -174,7 +199,7 @@ namespace AirTrafficController
                 if (radius <= this.distanceCrashRadius)
                 {
                     this.game.addNotification($"Airplane {airplane1.getId()} has crashed with another airplane. {airplane1.getCapacity()} people have died. Congratulations.", 6000);
-
+                    this.stats.addDeadPeople($"{airplane1.getId()} - {airplane1.getVendor()} {airplane1.getModel()} has crashed with another airplane. {airplane1.getCapacity()} people have died.", airplane1.getCapacity());
                     return true;
                 }
 
