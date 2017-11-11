@@ -59,6 +59,7 @@
             this.radioButton_airplaneDirectionRandom = new System.Windows.Forms.RadioButton();
             this.label13 = new System.Windows.Forms.Label();
             this.numericUpDown_airplaneMaxSpeed = new System.Windows.Forms.NumericUpDown();
+            this.button_airplaneSwitchMotorStatus = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_airplaneCapacity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_airplaneCoordinateX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_airplaneCoordinateY)).BeginInit();
@@ -114,7 +115,7 @@
             // 
             // button_addAirplane
             // 
-            this.button_addAirplane.Location = new System.Drawing.Point(12, 518);
+            this.button_addAirplane.Location = new System.Drawing.Point(12, 609);
             this.button_addAirplane.Name = "button_addAirplane";
             this.button_addAirplane.Size = new System.Drawing.Size(260, 47);
             this.button_addAirplane.TabIndex = 17;
@@ -451,11 +452,22 @@
             0,
             0});
             // 
+            // button_airplaneSwitchMotorStatus
+            // 
+            this.button_airplaneSwitchMotorStatus.Location = new System.Drawing.Point(12, 515);
+            this.button_airplaneSwitchMotorStatus.Name = "button_airplaneSwitchMotorStatus";
+            this.button_airplaneSwitchMotorStatus.Size = new System.Drawing.Size(260, 23);
+            this.button_airplaneSwitchMotorStatus.TabIndex = 34;
+            this.button_airplaneSwitchMotorStatus.Text = "Switch motor status ON/OFF";
+            this.button_airplaneSwitchMotorStatus.UseVisualStyleBackColor = true;
+            this.button_airplaneSwitchMotorStatus.Click += new System.EventHandler(this.button_airplaneSwitchMotorStatus_Click);
+            // 
             // editAirplaneForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 577);
+            this.ClientSize = new System.Drawing.Size(284, 730);
+            this.Controls.Add(this.button_airplaneSwitchMotorStatus);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.numericUpDown_airplaneMaxSpeed);
             this.Controls.Add(this.radioButton_airplaneDirectionRandom);
@@ -535,5 +547,6 @@
         private System.Windows.Forms.RadioButton radioButton_airplaneDirectionRandom;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown numericUpDown_airplaneMaxSpeed;
+        private System.Windows.Forms.Button button_airplaneSwitchMotorStatus;
     }
 }

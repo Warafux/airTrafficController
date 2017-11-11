@@ -205,5 +205,10 @@ namespace AirTrafficController.forms
             numericUpDown_airplaneSpeed.Minimum = Game1.minMaxMAXSpeed[0];
             numericUpDown_airplaneSpeed.Maximum = Game1.minMaxMAXSpeed[1];
         }
+
+        private void button_airplaneSwitchMotorStatus_Click(object sender, EventArgs e)
+        {
+            this.selectedAirplane.switchIsOn();
+        }
     }
 }
