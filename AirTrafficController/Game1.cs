@@ -24,6 +24,8 @@ namespace AirTrafficController
 
         private menuForm menu;
 
+        private stats stats;
+
         public GameTime gameTime;
         private double lastSecond;
 
@@ -58,38 +60,47 @@ namespace AirTrafficController
 
         public Game1()
         {
-            graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 600;
-            graphics.PreferredBackBufferHeight = 600;
-            Content.RootDirectory = "Content";
-            mapSize = new Vector2(10000, 10000);
-            iconScale = 1000/mapSize.X; 
+            this.graphics = new GraphicsDeviceManager(this);
+            this.graphics.PreferredBackBufferWidth = 600;
+            this.graphics.PreferredBackBufferHeight = 600;
+            this.Content.RootDirectory = "Content";
+            this.mapSize = new Vector2(10000, 10000);
+            this.iconScale = 1000/mapSize.X; 
             this.lastSecond = 0;
             this.icons = new Dictionary<string, Texture2D>();
         }
         protected override void Initialize()
         {
             base.Initialize();
-            Vector2 playerPosition = new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X, GraphicsDevice.Viewport.TitleSafeArea.Y + GraphicsDevice.Viewport.TitleSafeArea.Height / 2);
             this.IsMouseVisible = true;
 
         }
         protected override void LoadContent()
         {
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            map = new map(this, Vector2.Zero, mapSize);
-            defaultFont = Content.Load<SpriteFont>("defaultFont");
+            this.spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            this.stats = new stats();
+
+            this.map = new map(this, Vector2.Zero, mapSize);
+            this.map.setStats(this.stats);
+
+            this.defaultFont = Content.Load<SpriteFont>("defaultFont");
+
             this.icons.Add("AirbusA380", Content.Load<Texture2D>("AirbusA380"));
             this.icons.Add("Boeing737", Content.Load<Texture2D>("Boeing737"));
-            frameCounter = new FrameCounter();
-            notificationsManager = new notificationsManager(this);
-            lineTexture = new Texture2D(GraphicsDevice, 1, 1);
-            lineTexture.SetData(new Color[] { Color.White });
-            airplanePresets = loadAirplanePresets();
+
+            this.frameCounter = new FrameCounter();
+
+            this.notificationsManager = new notificationsManager(this);
+
+            this.lineTexture = new Texture2D(GraphicsDevice, 1, 1);
+            this.lineTexture.SetData(new Color[] { Color.White });
+
+            this.airplanePresets = getAirplanePresets();
 
         }
 
-        private List<iAirplanePreset> loadAirplanePresets()
+        private List<iAirplanePreset> getAirplanePresets()
         {
             //Create a new list
             List<iAirplanePreset> airplanePresets = new List<iAirplanePreset>();
