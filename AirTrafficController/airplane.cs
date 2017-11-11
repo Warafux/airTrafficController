@@ -23,6 +23,7 @@ namespace AirTrafficController
         private int maxSpeed;
         private int capacity;
         private int acceleration;
+        private int verticalAcceleration;
         private Vector2 direction;
         private bool deployedLandingGear = false;
 
@@ -33,6 +34,7 @@ namespace AirTrafficController
         private bool drawInfo = false;
         private bool hovering = false;
 
+        
 
         //Dangers
         private bool collisionDanger = false;
@@ -47,7 +49,7 @@ namespace AirTrafficController
             this.map = map;
             collisionDangerWith = new List<iAirplane>();
         }
-        public void Initialize(string id, string vendor, string model, Vector2 pos, Vector2 direction, int altitude, int speed, int maxSpeed, int acceleration, int capacity)
+        public void Initialize(string id, string vendor, string model, Vector2 pos, Vector2 direction, int altitude, int speed, int maxSpeed, int acceleration, int verticalAcceleration, int capacity)
         {
             this.id = id;
             this.vendor = vendor;
@@ -57,6 +59,7 @@ namespace AirTrafficController
             this.altitude = altitude;
             this.speed = speed;
             this.acceleration = acceleration;
+            this.verticalAcceleration = verticalAcceleration;
             this.maxSpeed = maxSpeed;
             this.capacity = capacity;
             this.game = this.map.getGame();
@@ -68,8 +71,8 @@ namespace AirTrafficController
             if (this.isOn)
             {
                 //Motor is ON
-                this.fallingDanger = false;
-                if (this.speed < this.maxSpeed)
+                //horizontal movement
+                if (this.speed < (this.maxSpeed - 50))
                 {
                     this.speed = this.speed + this.acceleration;
                 }
@@ -82,12 +85,19 @@ namespace AirTrafficController
                     //This will make speed unestable (not linear)
                     this.speed = this.speed - this.speed * this.acceleration / 100;
                 }
+
+                //vertical movement
+                this.fallingDanger = false;
+                if(this.altitude < Game1.minMaxAltitude[1])
+                {
+                    this.altitude = this.altitude + this.verticalAcceleration;
+                }
             }
             else
             {
                 //Motor is OFF, speed-- and altitude--
                 this.speed = MathHelper.Clamp(this.speed - this.acceleration * 4 - 15, Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]);
-                this.altitude = MathHelper.Clamp(this.altitude - this.acceleration * 3 - 50, Game1.minMaxAltitude[0], Game1.minMaxAltitude[1]);
+                this.altitude = MathHelper.Clamp(this.altitude - 10 - 50, Game1.minMaxAltitude[0], Game1.minMaxAltitude[1]);
                 this.fallingDanger = true;
             }
             //Calculate the pos with new speed

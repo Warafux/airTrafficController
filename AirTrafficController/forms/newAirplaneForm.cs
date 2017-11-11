@@ -55,6 +55,7 @@ namespace AirTrafficController.forms
                 (int)numericUpDown_airplaneSpeed.Value,
                 (int)numericUpDown_airplaneMaxSpeed.Value,
                 (int)numericUpDown_airplaneAcceleration.Value,
+                (int)numericUpDown_airplaneVerticalAcceleration.Value,
                 100
             );
 

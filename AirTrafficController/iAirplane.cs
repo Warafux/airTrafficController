@@ -15,7 +15,7 @@ namespace AirTrafficController
         //Methods
         void Update();
         void Draw(SpriteBatch spriteBatch);
-        void Initialize(string id, string vendor, string model, Vector2 pos, Vector2 direction, int altitude, int speed, int maxSpeed, int acceleration, int capacity);
+        void Initialize(string id, string vendor, string model, Vector2 pos, Vector2 direction, int altitude, int speed, int maxSpeed, int acceleration, int verticalAcceleration, int capacity);
 
         //Getters
         Vector2 getPos();

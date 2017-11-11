@@ -42,6 +42,7 @@ namespace AirTrafficController.forms
                 random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
                 random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
                 random.Next(Game1.minMaxAcceleration[0], Game1.minMaxAcceleration[1]),
+                random.Next(Game1.minMaxVerticalAcceleration[0], Game1.minMaxVerticalAcceleration[1]),
                 random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
@@ -65,6 +66,7 @@ namespace AirTrafficController.forms
                 random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
                 random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
                 random.Next(Game1.minMaxAcceleration[0], Game1.minMaxAcceleration[1]),
+                random.Next(Game1.minMaxVerticalAcceleration[0], Game1.minMaxVerticalAcceleration[1]),
                 random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
@@ -79,6 +81,7 @@ namespace AirTrafficController.forms
                 random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
                 random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
                 random.Next(Game1.minMaxAcceleration[0], Game1.minMaxAcceleration[1]),
+                random.Next(Game1.minMaxVerticalAcceleration[0], Game1.minMaxVerticalAcceleration[1]),
                 random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
@@ -102,7 +105,8 @@ namespace AirTrafficController.forms
                 Game1.minMaxAltitude[1],
                 300,
                 300,
-                1,
+                Game1.minMaxAcceleration[0],
+                Game1.minMaxVerticalAcceleration[0],
                 random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
@@ -116,7 +120,8 @@ namespace AirTrafficController.forms
                 Game1.minMaxAltitude[1],
                 300,
                 300,
-                1,
+                Game1.minMaxAcceleration[0],
+                Game1.minMaxVerticalAcceleration[0],
                 random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
@@ -130,7 +135,8 @@ namespace AirTrafficController.forms
                 Game1.minMaxAltitude[1],
                 300,
                 300,
-                1,
+                Game1.minMaxAcceleration[0],
+                Game1.minMaxVerticalAcceleration[0],
                 random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
@@ -144,7 +150,8 @@ namespace AirTrafficController.forms
                 Game1.minMaxAltitude[1],
                 300,
                 300,
-                1,
+                Game1.minMaxAcceleration[0],
+                Game1.minMaxVerticalAcceleration[0],
                 random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
@@ -171,6 +178,7 @@ namespace AirTrafficController.forms
                 random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
                 random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
                 random.Next(Game1.minMaxAcceleration[0], Game1.minMaxAcceleration[1]),
+                random.Next(Game1.minMaxVerticalAcceleration[0], Game1.minMaxVerticalAcceleration[1]),
                 random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
@@ -185,6 +193,7 @@ namespace AirTrafficController.forms
                 random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
                 random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
                 random.Next(Game1.minMaxAcceleration[0], Game1.minMaxAcceleration[1]),
+                random.Next(Game1.minMaxVerticalAcceleration[0], Game1.minMaxVerticalAcceleration[1]),
                 random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
@@ -199,6 +208,7 @@ namespace AirTrafficController.forms
                 random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
                 random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
                 random.Next(Game1.minMaxAcceleration[0], Game1.minMaxAcceleration[1]),
+                random.Next(Game1.minMaxVerticalAcceleration[0], Game1.minMaxVerticalAcceleration[1]),
                 random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
@@ -213,6 +223,7 @@ namespace AirTrafficController.forms
                 random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
                 random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
                 random.Next(Game1.minMaxAcceleration[0], Game1.minMaxAcceleration[1]),
+                random.Next(Game1.minMaxVerticalAcceleration[0], Game1.minMaxVerticalAcceleration[1]),
                 random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
@@ -239,6 +250,7 @@ namespace AirTrafficController.forms
                 random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[0] + 400),
                 random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[0] + 800) ,
                 random.Next(Game1.minMaxAcceleration[0], Game1.minMaxAcceleration[1]),
+                random.Next(Game1.minMaxVerticalAcceleration[0], Game1.minMaxVerticalAcceleration[1]),
                 random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
             airplane1.setIsOn(false);
@@ -262,6 +274,7 @@ namespace AirTrafficController.forms
                 random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
                 random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
                 random.Next(Game1.minMaxAcceleration[0], Game1.minMaxAcceleration[1]),
+                random.Next(Game1.minMaxVerticalAcceleration[0], Game1.minMaxVerticalAcceleration[1]),
                 random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
@@ -276,6 +289,7 @@ namespace AirTrafficController.forms
                 random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
                 random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
                 random.Next(Game1.minMaxAcceleration[0], Game1.minMaxAcceleration[1]),
+                random.Next(Game1.minMaxVerticalAcceleration[0], Game1.minMaxVerticalAcceleration[1]),
                 random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 

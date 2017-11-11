@@ -55,6 +55,7 @@ namespace AirTrafficController
         public static int[] minMaxMAXSpeed = {200, 1200};//Max speed
         public static int[] minMaxAltitude = {200, 9000};
         public static int[] minMaxCapacity = {20, 500};
+        public static int[] minMaxVerticalAcceleration = {1, 10};
         //
         private iAirplane closestAirplaneToMouse;
 
@@ -326,11 +327,12 @@ namespace AirTrafficController
                 "xd",
                 pos,
                 direction,
-                10,
-                random.Next(200, 300),
-                random.Next(1, 500),
-                random.Next(1, 5),
-                random.Next(20, 400)
+                Game1.minMaxAltitude[1],
+                random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
+                random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]),
+                random.Next(Game1.minMaxAcceleration[0], Game1.minMaxAcceleration[1]),
+                random.Next(Game1.minMaxVerticalAcceleration[0], Game1.minMaxVerticalAcceleration[1]),
+                random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
             return airplane;
         }

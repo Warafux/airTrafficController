@@ -18,6 +18,7 @@ namespace AirTrafficController
         private int distanceCrashRadius = 800;
         private int altitudeDanger = Game1.minMaxAltitude[0] + 150;
         private int altitudeCrash = Game1.minMaxAltitude[0];
+        private int landingMaxSpeed = 50;
         private stats stats;
         private List<iAirplane> airplanes = new List<iAirplane>();
 
