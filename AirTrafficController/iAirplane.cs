@@ -27,6 +27,7 @@ namespace AirTrafficController
         int getMaxSpeed();
         int getSpeed();
         int getAcceleration();
+        int getVerticalAcceleration();
         int getAltitude();
         bool getIsOn();
         Vector2 getDirection();

@@ -282,5 +282,9 @@ namespace AirTrafficController
         {
             this.deployedLandingGear = !this.deployedLandingGear;
         }
+        public int getVerticalAcceleration()
+        {
+            return this.verticalAcceleration;
+        }
     }
 }

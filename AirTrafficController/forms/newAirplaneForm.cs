@@ -110,8 +110,9 @@ namespace AirTrafficController.forms
             numericUpDown_airplaneCoordinateY.Value = (decimal)random.Next(1, (int)game.getMapSize().Y);
             numericUpDown_airplaneSpeed.Value = (decimal)random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]);
             numericUpDown_airplaneMaxSpeed.Value = (decimal)random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]);
-            numericUpDown_airplaneAcceleration.Value = (decimal)random.Next(1, 5);
-            numericUpDown_airplaneAltitude.Value = (decimal)random.Next(1, 10000);
+            numericUpDown_airplaneAcceleration.Value = (decimal)random.Next(Game1.minMaxAcceleration[0], Game1.minMaxAcceleration[0]);
+            numericUpDown_airplaneVerticalAcceleration.Value = (decimal)random.Next(Game1.minMaxVerticalAcceleration[0], Game1.minMaxVerticalAcceleration[1]);
+            numericUpDown_airplaneAltitude.Value = (decimal)random.Next(Game1.minMaxAltitude[0], Game1.minMaxAltitude[1]);
         }
 
         private void loadAirplanePresets()
@@ -175,8 +176,16 @@ namespace AirTrafficController.forms
             numericUpDown_airplaneCapacity.Minimum = Game1.minMaxCapacity[0];
             numericUpDown_airplaneCapacity.Maximum = Game1.minMaxCapacity[1];
 
+            numericUpDown_airplaneAltitude.Minimum = Game1.minMaxAltitude[0];
+            numericUpDown_airplaneAltitude.Maximum = Game1.minMaxAltitude[1];
+
+
             numericUpDown_airplaneMaxSpeed.Minimum = Game1.minMaxMAXSpeed[0];
             numericUpDown_airplaneMaxSpeed.Maximum = Game1.minMaxMAXSpeed[1];
+
+            numericUpDown_airplaneVerticalAcceleration.Minimum = Game1.minMaxVerticalAcceleration[0];
+            numericUpDown_airplaneVerticalAcceleration.Maximum = Game1.minMaxVerticalAcceleration[1];
+
             numericUpDown_airplaneSpeed.Minimum = Game1.minMaxMAXSpeed[0];
             numericUpDown_airplaneSpeed.Maximum = Game1.minMaxMAXSpeed[1];
         }
