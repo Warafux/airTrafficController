@@ -25,6 +25,7 @@ namespace AirTrafficController
         string getModel();
         int getCapacity();
         int getMaxSpeed();
+        int getSpeed();
         int getAcceleration();
         int getAltitude();
         bool getIsOn();
@@ -41,6 +42,7 @@ namespace AirTrafficController
         void removeAllCollisionDangerWith();
         void switchIsOn();
         void setIsOn(bool isOn);
+        void setAltitudeDanger(bool altitudeDanger);
 
         //Other
         void click();

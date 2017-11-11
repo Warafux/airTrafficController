@@ -29,14 +29,18 @@ namespace AirTrafficController
 
         private map map;
         private Game1 game;
-        private bool drawInfo = true;
+        private bool drawInfo = false;
         private bool hovering = false;
 
 
         //Dangers
         private bool collisionDanger = false;
         private List<iAirplane> collisionDangerWith;
+
         private bool fallingDanger = false;
+
+        private bool altitudeDanger = false;
+
         public airplane(map map)
         {
             this.map = map;
@@ -81,8 +85,8 @@ namespace AirTrafficController
             else
             {
                 //Motor is OFF, speed-- and altitude--
-                this.speed = MathHelper.Clamp(this.speed - this.acceleration * 4 - 15, 0, Game1.minMaxMAXSpeed[1]);
-                this.altitude = MathHelper.Clamp(this.altitude - this.acceleration * 3 - 50, 0, Game1.minMaxAltitude[1]);
+                this.speed = MathHelper.Clamp(this.speed - this.acceleration * 4 - 15, Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]);
+                this.altitude = MathHelper.Clamp(this.altitude - this.acceleration * 3 - 50, Game1.minMaxAltitude[0], Game1.minMaxAltitude[1]);
                 this.fallingDanger = true;
             }
             //Calculate the pos with new speed
@@ -141,6 +145,10 @@ namespace AirTrafficController
             {
                 spriteBatch.DrawString(this.map.getGame().defaultFont, "FALLING DANGER!!!", drawPos + new Vector2(0, 0 + ++rows * 20), Color.Red);
             }
+            if (this.altitudeDanger)
+            {
+                spriteBatch.DrawString(this.map.getGame().defaultFont, "ALTITUDE DANGER!!!", drawPos + new Vector2(0, 0 + ++rows * 20), Color.Red);
+            }
             //Reset hovering status
             this.hovering = false;
         }
@@ -178,6 +186,10 @@ namespace AirTrafficController
         public void setCollisionDanger(bool collisionDanger)
         {
             this.collisionDanger = collisionDanger;
+        }
+        public void setAltitudeDanger(bool altitudeDanger)
+        {
+            this.altitudeDanger = altitudeDanger;
         }
         public string getVendor()
         {
@@ -238,6 +250,10 @@ namespace AirTrafficController
         public void switchIsOn()
         {
             this.isOn = !this.isOn;
+        }
+        public int getSpeed()
+        {
+            return this.speed;
         }
     }
 }
