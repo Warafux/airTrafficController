@@ -31,7 +31,9 @@
             this.button_addRandomAirplane = new System.Windows.Forms.Button();
             this.button_testCollision = new System.Windows.Forms.Button();
             this.button_testMultipleCollision = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_testMultipleCollisionRandom = new System.Windows.Forms.Button();
+            this.button_testCollisionGround = new System.Windows.Forms.Button();
+            this.button_testNoCollisionAirplaneAltitude = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_addRandomAirplane
@@ -64,22 +66,44 @@
             this.button_testMultipleCollision.UseVisualStyleBackColor = true;
             this.button_testMultipleCollision.Click += new System.EventHandler(this.button_testMultipleCollision_Click);
             // 
-            // button1
+            // button_testMultipleCollisionRandom
             // 
-            this.button1.Location = new System.Drawing.Point(12, 201);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(260, 57);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "TEST MULTIPLE COLLISION RANDOM SPEED/ACCELERATION";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button_testMultipleCollisionRandom.Location = new System.Drawing.Point(12, 201);
+            this.button_testMultipleCollisionRandom.Name = "button_testMultipleCollisionRandom";
+            this.button_testMultipleCollisionRandom.Size = new System.Drawing.Size(260, 57);
+            this.button_testMultipleCollisionRandom.TabIndex = 3;
+            this.button_testMultipleCollisionRandom.Text = "TEST MULTIPLE COLLISION RANDOM SPEED/ACCELERATION";
+            this.button_testMultipleCollisionRandom.UseVisualStyleBackColor = true;
+            this.button_testMultipleCollisionRandom.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button_testCollisionGround
+            // 
+            this.button_testCollisionGround.Location = new System.Drawing.Point(12, 264);
+            this.button_testCollisionGround.Name = "button_testCollisionGround";
+            this.button_testCollisionGround.Size = new System.Drawing.Size(260, 57);
+            this.button_testCollisionGround.TabIndex = 4;
+            this.button_testCollisionGround.Text = "TEST COLLISION WITH GROUND";
+            this.button_testCollisionGround.UseVisualStyleBackColor = true;
+            this.button_testCollisionGround.Click += new System.EventHandler(this.button_testCollisionGround_Click);
+            // 
+            // button_testNoCollisionAirplaneAltitude
+            // 
+            this.button_testNoCollisionAirplaneAltitude.Location = new System.Drawing.Point(12, 327);
+            this.button_testNoCollisionAirplaneAltitude.Name = "button_testNoCollisionAirplaneAltitude";
+            this.button_testNoCollisionAirplaneAltitude.Size = new System.Drawing.Size(260, 57);
+            this.button_testNoCollisionAirplaneAltitude.TabIndex = 5;
+            this.button_testNoCollisionAirplaneAltitude.Text = "TEST NO COLLISION WITH AIRPLANES (ALTITUDE)";
+            this.button_testNoCollisionAirplaneAltitude.UseVisualStyleBackColor = true;
+            this.button_testNoCollisionAirplaneAltitude.Click += new System.EventHandler(this.button_testNoCollisionAirplaneAltitude_Click);
             // 
             // testForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 526);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button_testNoCollisionAirplaneAltitude);
+            this.Controls.Add(this.button_testCollisionGround);
+            this.Controls.Add(this.button_testMultipleCollisionRandom);
             this.Controls.Add(this.button_testMultipleCollision);
             this.Controls.Add(this.button_testCollision);
             this.Controls.Add(this.button_addRandomAirplane);
@@ -95,6 +119,8 @@
         private System.Windows.Forms.Button button_addRandomAirplane;
         private System.Windows.Forms.Button button_testCollision;
         private System.Windows.Forms.Button button_testMultipleCollision;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_testMultipleCollisionRandom;
+        private System.Windows.Forms.Button button_testCollisionGround;
+        private System.Windows.Forms.Button button_testNoCollisionAirplaneAltitude;
     }
 }
