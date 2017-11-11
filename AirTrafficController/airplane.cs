@@ -24,6 +24,7 @@ namespace AirTrafficController
         private int capacity;
         private int acceleration;
         private Vector2 direction;
+        private bool deployedLandingGear = false;
 
         private bool isOn = true;
 
@@ -149,6 +150,10 @@ namespace AirTrafficController
             {
                 spriteBatch.DrawString(this.map.getGame().defaultFont, "ALTITUDE DANGER!!!", drawPos + new Vector2(0, 0 + ++rows * 20), Color.Red);
             }
+            if (this.deployedLandingGear)
+            {
+                spriteBatch.DrawString(this.map.getGame().defaultFont, "Landing gear is deployed!", drawPos + new Vector2(0, 0 + ++rows * 20), Color.GreenYellow);
+            }
             //Reset hovering status
             this.hovering = false;
         }
@@ -254,6 +259,18 @@ namespace AirTrafficController
         public int getSpeed()
         {
             return this.speed;
+        }
+        public bool getDeployedLandingGear()
+        {
+            return this.deployedLandingGear;
+        }
+        public void setDeployedLandingGear(bool deployedLandingGear)
+        {
+            this.deployedLandingGear = deployedLandingGear;
+        }
+        public void switchDeployedLandingGear()
+        {
+            this.deployedLandingGear = !this.deployedLandingGear;
         }
     }
 }

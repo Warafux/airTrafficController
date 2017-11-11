@@ -208,5 +208,10 @@ namespace AirTrafficController.forms
         {
             this.selectedAirplane.switchIsOn();
         }
+
+        private void button_airplaneSwitchDeployedLandingGear_Click(object sender, EventArgs e)
+        {
+            this.selectedAirplane.switchDeployedLandingGear();
+        }
     }
 }

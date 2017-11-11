@@ -60,6 +60,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.numericUpDown_airplaneMaxSpeed = new System.Windows.Forms.NumericUpDown();
             this.button_airplaneSwitchMotorStatus = new System.Windows.Forms.Button();
+            this.button_airplaneSwitchDeployedLandingGear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_airplaneCapacity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_airplaneCoordinateX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_airplaneCoordinateY)).BeginInit();
@@ -462,11 +463,22 @@
             this.button_airplaneSwitchMotorStatus.UseVisualStyleBackColor = true;
             this.button_airplaneSwitchMotorStatus.Click += new System.EventHandler(this.button_airplaneSwitchMotorStatus_Click);
             // 
+            // button_airplaneSwitchDeployedLandingGear
+            // 
+            this.button_airplaneSwitchDeployedLandingGear.Location = new System.Drawing.Point(12, 544);
+            this.button_airplaneSwitchDeployedLandingGear.Name = "button_airplaneSwitchDeployedLandingGear";
+            this.button_airplaneSwitchDeployedLandingGear.Size = new System.Drawing.Size(260, 23);
+            this.button_airplaneSwitchDeployedLandingGear.TabIndex = 35;
+            this.button_airplaneSwitchDeployedLandingGear.Text = "Switch landing gear status DEPLOYED/NOT DEPLOYED";
+            this.button_airplaneSwitchDeployedLandingGear.UseVisualStyleBackColor = true;
+            this.button_airplaneSwitchDeployedLandingGear.Click += new System.EventHandler(this.button_airplaneSwitchDeployedLandingGear_Click);
+            // 
             // editAirplaneForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 730);
+            this.Controls.Add(this.button_airplaneSwitchDeployedLandingGear);
             this.Controls.Add(this.button_airplaneSwitchMotorStatus);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.numericUpDown_airplaneMaxSpeed);
@@ -548,5 +560,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown numericUpDown_airplaneMaxSpeed;
         private System.Windows.Forms.Button button_airplaneSwitchMotorStatus;
+        private System.Windows.Forms.Button button_airplaneSwitchDeployedLandingGear;
     }
 }
