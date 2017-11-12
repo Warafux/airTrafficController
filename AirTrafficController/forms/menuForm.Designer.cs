@@ -36,6 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label_runningStatus = new System.Windows.Forms.Label();
             this.button_airplaneController = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button_newAirplane
@@ -60,9 +61,9 @@
             // 
             // button_tests
             // 
-            this.button_tests.Location = new System.Drawing.Point(12, 157);
+            this.button_tests.Location = new System.Drawing.Point(12, 140);
             this.button_tests.Name = "button_tests";
-            this.button_tests.Size = new System.Drawing.Size(277, 92);
+            this.button_tests.Size = new System.Drawing.Size(277, 50);
             this.button_tests.TabIndex = 2;
             this.button_tests.Text = "TESTS";
             this.button_tests.UseVisualStyleBackColor = true;
@@ -91,7 +92,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(570, 137);
+            this.label2.Location = new System.Drawing.Point(570, 136);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(124, 18);
             this.label2.TabIndex = 5;
@@ -101,7 +102,7 @@
             // label_runningStatus
             // 
             this.label_runningStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_runningStatus.Location = new System.Drawing.Point(573, 166);
+            this.label_runningStatus.Location = new System.Drawing.Point(573, 152);
             this.label_runningStatus.Name = "label_runningStatus";
             this.label_runningStatus.Size = new System.Drawing.Size(121, 43);
             this.label_runningStatus.TabIndex = 6;
@@ -118,9 +119,20 @@
             this.button_airplaneController.UseVisualStyleBackColor = true;
             this.button_airplaneController.Click += new System.EventHandler(this.button_airplaneController_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 193);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Made by Warafu";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
             // menuForm
             // 
-            this.ClientSize = new System.Drawing.Size(706, 261);
+            this.ClientSize = new System.Drawing.Size(706, 211);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.button_airplaneController);
             this.Controls.Add(this.label_runningStatus);
             this.Controls.Add(this.label2);
@@ -139,6 +151,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.menuForm_FormClosed);
             this.Load += new System.EventHandler(this.menuForm_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -152,5 +165,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label_runningStatus;
         private System.Windows.Forms.Button button_airplaneController;
+        private System.Windows.Forms.Label label3;
     }
 }
