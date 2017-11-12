@@ -17,11 +17,14 @@ namespace AirTrafficController.forms
         newAirplaneForm newAirplaneForm;
         testForm testForm;
         editAirplaneForm editAirplaneForm;
+        private controllerAirplaneForm controllerAirplaneForm;
+
         public menuForm()
         {
             InitializeComponent();
             this.newAirplaneForm = new newAirplaneForm();
             this.editAirplaneForm = new editAirplaneForm();
+            this.controllerAirplaneForm = new controllerAirplaneForm();
         }
         public void setGame(Game1 game)
         {
@@ -51,7 +54,7 @@ namespace AirTrafficController.forms
             {
                 //if game is running, restart edit form
                 this.editAirplaneForm.Dispose();
-                this.editAirplaneForm = new editAirplaneForm(game);
+                this.editAirplaneForm = new editAirplaneForm(this.game);
             }
         }
 
@@ -60,9 +63,17 @@ namespace AirTrafficController.forms
             this.label_runningStatus.Text = this.game.getGameRunning() ? "ON" : "OFF";
             if (!this.game.getGameRunning())
             {
-                this.editAirplaneForm.Dispose();
-                this.editAirplaneForm = new editAirplaneForm(game);
-                this.editAirplaneForm.Show();
+                if (this.game.getMap().getAirplanes().Count == 0)
+                {
+                    MessageBox.Show("No airplanes on the map.");
+                }
+                else
+                {
+                    this.editAirplaneForm.Dispose();
+                    this.editAirplaneForm = new editAirplaneForm(this.game);
+                    this.editAirplaneForm.Show();
+                }
+                
             }
             else
             {
@@ -79,10 +90,22 @@ namespace AirTrafficController.forms
         private void button_newAirplane_Click(object sender, EventArgs e)
         {
             this.newAirplaneForm.Dispose();
-            this.newAirplaneForm = new newAirplaneForm(game);
+            this.newAirplaneForm = new newAirplaneForm(this.game);
             this.newAirplaneForm.Show();
         }
 
-
+        private void button_airplaneController_Click(object sender, EventArgs e)
+        {
+            if (this.game.getMap().getAirplanes().Count == 0)
+            {
+                MessageBox.Show("No airplanes on the map.");
+            }
+            else
+            {
+                this.controllerAirplaneForm.Dispose();
+                this.controllerAirplaneForm = new controllerAirplaneForm(this.game);
+                this.controllerAirplaneForm.Show();
+            }
+        }
     }
 }

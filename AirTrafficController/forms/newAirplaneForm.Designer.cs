@@ -77,7 +77,7 @@
             this.textBox_airplaneModel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox_airplaneModel.Location = new System.Drawing.Point(18, 165);
             this.textBox_airplaneModel.Name = "textBox_airplaneModel";
-            this.textBox_airplaneModel.Size = new System.Drawing.Size(232, 20);
+            this.textBox_airplaneModel.Size = new System.Drawing.Size(241, 20);
             this.textBox_airplaneModel.TabIndex = 4;
             this.textBox_airplaneModel.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -86,7 +86,7 @@
             this.textBox_airplaneVendor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox_airplaneVendor.Location = new System.Drawing.Point(18, 208);
             this.textBox_airplaneVendor.Name = "textBox_airplaneVendor";
-            this.textBox_airplaneVendor.Size = new System.Drawing.Size(232, 20);
+            this.textBox_airplaneVendor.Size = new System.Drawing.Size(241, 20);
             this.textBox_airplaneVendor.TabIndex = 5;
             // 
             // label1
@@ -118,9 +118,9 @@
             // 
             // button_addAirplane
             // 
-            this.button_addAirplane.Location = new System.Drawing.Point(12, 545);
+            this.button_addAirplane.Location = new System.Drawing.Point(18, 545);
             this.button_addAirplane.Name = "button_addAirplane";
-            this.button_addAirplane.Size = new System.Drawing.Size(260, 47);
+            this.button_addAirplane.Size = new System.Drawing.Size(241, 47);
             this.button_addAirplane.TabIndex = 17;
             this.button_addAirplane.Text = "Add airplane";
             this.button_addAirplane.UseVisualStyleBackColor = true;
@@ -132,7 +132,7 @@
             this.textBox_airplaneId.Cursor = System.Windows.Forms.Cursors.Default;
             this.textBox_airplaneId.Location = new System.Drawing.Point(18, 123);
             this.textBox_airplaneId.Name = "textBox_airplaneId";
-            this.textBox_airplaneId.Size = new System.Drawing.Size(141, 20);
+            this.textBox_airplaneId.Size = new System.Drawing.Size(150, 20);
             this.textBox_airplaneId.TabIndex = 2;
             // 
             // numericUpDown_airplaneCapacity
@@ -149,7 +149,7 @@
             0,
             0});
             this.numericUpDown_airplaneCapacity.Name = "numericUpDown_airplaneCapacity";
-            this.numericUpDown_airplaneCapacity.Size = new System.Drawing.Size(232, 20);
+            this.numericUpDown_airplaneCapacity.Size = new System.Drawing.Size(241, 20);
             this.numericUpDown_airplaneCapacity.TabIndex = 6;
             this.numericUpDown_airplaneCapacity.Value = new decimal(new int[] {
             1,
@@ -347,7 +347,7 @@
             this.comboBox_airplanePresets.FormattingEnabled = true;
             this.comboBox_airplanePresets.Location = new System.Drawing.Point(18, 72);
             this.comboBox_airplanePresets.Name = "comboBox_airplanePresets";
-            this.comboBox_airplanePresets.Size = new System.Drawing.Size(232, 21);
+            this.comboBox_airplanePresets.Size = new System.Drawing.Size(241, 21);
             this.comboBox_airplanePresets.TabIndex = 1;
             this.comboBox_airplanePresets.SelectedValueChanged += new System.EventHandler(this.comboBox_airplanePresets_SelectedValueChanged);
             // 
@@ -363,7 +363,7 @@
             // 
             // button_randomAirplaneId
             // 
-            this.button_randomAirplaneId.Location = new System.Drawing.Point(165, 123);
+            this.button_randomAirplaneId.Location = new System.Drawing.Point(174, 123);
             this.button_randomAirplaneId.Name = "button_randomAirplaneId";
             this.button_randomAirplaneId.Size = new System.Drawing.Size(85, 22);
             this.button_randomAirplaneId.TabIndex = 3;
@@ -500,7 +500,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 630);
+            this.ClientSize = new System.Drawing.Size(278, 630);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.numericUpDown_airplaneVerticalAcceleration);
             this.Controls.Add(this.label13);

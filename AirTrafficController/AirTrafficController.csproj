@@ -74,6 +74,12 @@
   <ItemGroup>
     <Compile Include="airplane.cs" />
     <Compile Include="airplanePreset.cs" />
+    <Compile Include="forms\controllerAirplaneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\controllerAirplaneForm.Designer.cs">
+      <DependentUpon>controllerAirplaneForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\menuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="forms\controllerAirplaneForm.resx">
+      <DependentUpon>controllerAirplaneForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\menuForm.resx">
       <DependentUpon>menuForm.cs</DependentUpon>
     </EmbeddedResource>

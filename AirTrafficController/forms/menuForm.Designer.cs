@@ -35,6 +35,7 @@
             this.button_editAirplanes = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label_runningStatus = new System.Windows.Forms.Label();
+            this.button_airplaneController = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_newAirplane
@@ -107,9 +108,20 @@
             this.label_runningStatus.Text = "?";
             this.label_runningStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // button_airplaneController
+            // 
+            this.button_airplaneController.Location = new System.Drawing.Point(295, 140);
+            this.button_airplaneController.Name = "button_airplaneController";
+            this.button_airplaneController.Size = new System.Drawing.Size(269, 50);
+            this.button_airplaneController.TabIndex = 7;
+            this.button_airplaneController.Text = "Airplane Controller";
+            this.button_airplaneController.UseVisualStyleBackColor = true;
+            this.button_airplaneController.Click += new System.EventHandler(this.button_airplaneController_Click);
+            // 
             // menuForm
             // 
             this.ClientSize = new System.Drawing.Size(706, 261);
+            this.Controls.Add(this.button_airplaneController);
             this.Controls.Add(this.label_runningStatus);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button_editAirplanes);
@@ -139,5 +151,6 @@
         private System.Windows.Forms.Button button_editAirplanes;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label_runningStatus;
+        private System.Windows.Forms.Button button_airplaneController;
     }
 }
