@@ -27,6 +27,12 @@
       "id": "/properties/maxSpeed",
       "minimum": 0,
       "type": "integer"
+    },
+    "iconName": {
+      "default": "UNDEFINED",
+      "description": "Name of the icon of the airplane.",
+      "id": "/properties/iconName",
+      "type": "string"
     }
   }
 }

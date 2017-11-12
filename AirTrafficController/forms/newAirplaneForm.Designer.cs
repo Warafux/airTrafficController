@@ -62,6 +62,8 @@
             this.numericUpDown_airplaneMaxSpeed = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
             this.numericUpDown_airplaneVerticalAcceleration = new System.Windows.Forms.NumericUpDown();
+            this.comboBox_airplaneAvailableIcons = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_airplaneCapacity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_airplaneCoordinateX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_airplaneCoordinateY)).BeginInit();
@@ -118,7 +120,7 @@
             // 
             // button_addAirplane
             // 
-            this.button_addAirplane.Location = new System.Drawing.Point(18, 545);
+            this.button_addAirplane.Location = new System.Drawing.Point(18, 585);
             this.button_addAirplane.Name = "button_addAirplane";
             this.button_addAirplane.Size = new System.Drawing.Size(241, 47);
             this.button_addAirplane.TabIndex = 17;
@@ -496,11 +498,32 @@
             0,
             0});
             // 
+            // comboBox_airplaneAvailableIcons
+            // 
+            this.comboBox_airplaneAvailableIcons.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_airplaneAvailableIcons.FormattingEnabled = true;
+            this.comboBox_airplaneAvailableIcons.Location = new System.Drawing.Point(18, 555);
+            this.comboBox_airplaneAvailableIcons.Name = "comboBox_airplaneAvailableIcons";
+            this.comboBox_airplaneAvailableIcons.Size = new System.Drawing.Size(241, 21);
+            this.comboBox_airplaneAvailableIcons.TabIndex = 36;
+            this.comboBox_airplaneAvailableIcons.SelectedValueChanged += new System.EventHandler(this.comboBox_airplaneAvailableIcons_SelectedValueChanged);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(15, 537);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(68, 13);
+            this.label15.TabIndex = 37;
+            this.label15.Text = "Airplane icon";
+            // 
             // newAirplaneForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(278, 630);
+            this.ClientSize = new System.Drawing.Size(278, 701);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.comboBox_airplaneAvailableIcons);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.numericUpDown_airplaneVerticalAcceleration);
             this.Controls.Add(this.label13);
@@ -592,5 +615,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDown_airplaneMaxSpeed;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.NumericUpDown numericUpDown_airplaneVerticalAcceleration;
+        private System.Windows.Forms.ComboBox comboBox_airplaneAvailableIcons;
+        private System.Windows.Forms.Label label15;
     }
 }

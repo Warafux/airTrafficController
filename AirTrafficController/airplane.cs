@@ -49,7 +49,7 @@ namespace AirTrafficController
             this.map = map;
             collisionDangerWith = new List<iAirplane>();
         }
-        public void Initialize(string id, string vendor, string model, Vector2 pos, Vector2 direction, int altitude, int speed, int maxSpeed, int acceleration, int verticalAcceleration, int capacity)
+        public void Initialize(string id, Texture2D icon, string vendor, string model, Vector2 pos, Vector2 direction, int altitude, int speed, int maxSpeed, int acceleration, int verticalAcceleration, int capacity)
         {
             this.id = id;
             this.vendor = vendor;
@@ -63,7 +63,7 @@ namespace AirTrafficController
             this.maxSpeed = maxSpeed;
             this.capacity = capacity;
             this.game = this.map.getGame();
-            this.icon = this.game.icons["AirbusA380"];
+            this.icon = icon;
         }
         public void Update()
         {
@@ -72,19 +72,37 @@ namespace AirTrafficController
             {
                 //Motor is ON
                 //horizontal movement
-                if (this.speed < (this.maxSpeed - 50))
+                if(this.acceleration >= 0)
                 {
-                    this.speed = this.speed + this.acceleration;
-                }
-                else if (this.speed > this.maxSpeed)
-                {
-                    this.speed = this.maxSpeed;
+                    //Positive acceleration (ACCELERATING)
+                    if (this.speed < (this.maxSpeed - 50))
+                    {
+                        this.speed = this.speed + this.acceleration;
+                    }
+                    else if (this.speed > this.maxSpeed)
+                    {
+                        this.speed = this.maxSpeed;
+                    }
+                    else
+                    {
+                        //This will make speed unestable (not linear)
+                        this.speed = this.speed - this.speed * this.acceleration / 100;
+                    }
                 }
                 else
                 {
-                    //This will make speed unestable (not linear)
-                    this.speed = this.speed - this.speed * this.acceleration / 100;
+                    //Negative acceleration (BRAKING)
+                    if(this.speed < Game1.minMaxMAXSpeed[0] + 30)
+                    {
+                        this.speed = Game1.minMaxMAXSpeed[0] + Math.Abs(this.acceleration) + 20;
+                        this.acceleration = 2;//STOP BRAKING
+                    }
+                    else
+                    {
+                        this.speed = this.speed + this.acceleration;
+                    }
                 }
+
 
                 //vertical movement
                 this.fallingDanger = false;
@@ -289,6 +307,19 @@ namespace AirTrafficController
         public void setVerticalAcceleration(int verticalAcceleration)
         {
             this.verticalAcceleration = verticalAcceleration;
+        }
+        public void setAcceleration(int acceleration)
+        {
+            if(acceleration >= Game1.minMaxAcceleration[0] && acceleration <= Game1.minMaxAcceleration[1])
+            {
+                //If acceleration is an allowed numbber, proceed to change it
+                this.acceleration = acceleration;
+            }
+                //If out of bounds, ignore it
+        }
+        public bool getAltitudeDanger()
+        {
+            return this.altitudeDanger;
         }
     }
 }

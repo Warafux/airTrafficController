@@ -34,6 +34,7 @@ namespace AirTrafficController.forms
             Vector2 chosenDirection = utilVector2.getRandomDirection();
             airplane.Initialize(
                 this.game.generateRandomId(),
+                this.game.icons.ElementAt(0).Value,
                 "xd",
                 "xd",
                 new Vector2(random.Next(1, (int)gameMap.getSize().X), random.Next(1, (int)gameMap.getSize().Y)),
@@ -58,6 +59,7 @@ namespace AirTrafficController.forms
             Random random = new Random();
             airplane1.Initialize(
                 "T1",
+                this.game.icons.ElementAt(0).Value,
                 "TEST CRASH",
                 "1",
                 new Vector2(gameMap.getSize().X / 2, gameMap.getSize().Y * 0.75f),
@@ -73,6 +75,7 @@ namespace AirTrafficController.forms
             airplane airplane2 = new airplane(gameMap);
             airplane2.Initialize(
                 "T2",
+                this.game.icons.ElementAt(0).Value,
                 "TEST CRASH",
                 "2",
                 new Vector2(gameMap.getSize().X / 2, gameMap.getSize().Y * 0.25f),
@@ -98,6 +101,7 @@ namespace AirTrafficController.forms
             Random random = new Random();
             airplane1.Initialize(
                 "T1",
+                this.game.icons.ElementAt(0).Value,
                 "TEST CRASH",
                 "1",
                 new Vector2(gameMap.getSize().X / 2, gameMap.getSize().Y * 0.75f),
@@ -113,6 +117,7 @@ namespace AirTrafficController.forms
             airplane airplane2 = new airplane(gameMap);
             airplane2.Initialize(
                 "T2",
+                this.game.icons.ElementAt(0).Value,
                 "TEST CRASH",
                 "2",
                 new Vector2(gameMap.getSize().X / 2, gameMap.getSize().Y * 0.25f),
@@ -128,6 +133,7 @@ namespace AirTrafficController.forms
             airplane airplane3 = new airplane(gameMap);
             airplane3.Initialize(
                 "T3",
+                this.game.icons.ElementAt(0).Value,
                 "TEST CRASH",
                 "3",
                 new Vector2(gameMap.getSize().X * 0.75f, gameMap.getSize().Y / 2 ),
@@ -143,6 +149,7 @@ namespace AirTrafficController.forms
             airplane airplane4 = new airplane(gameMap);
             airplane4.Initialize(
                 "T4",
+                this.game.icons.ElementAt(0).Value,
                 "TEST CRASH",
                 "4",
                 new Vector2(gameMap.getSize().X * 0.25f, gameMap.getSize().Y / 2),
@@ -170,6 +177,7 @@ namespace AirTrafficController.forms
             Random random = new Random();
             airplane1.Initialize(
                 "T1",
+                this.game.icons.ElementAt(0).Value,
                 "TEST CRASH",
                 "1",
                 new Vector2(gameMap.getSize().X / 2, gameMap.getSize().Y * 0.75f),
@@ -185,6 +193,7 @@ namespace AirTrafficController.forms
             airplane airplane2 = new airplane(gameMap);
             airplane2.Initialize(
                 "T2",
+                this.game.icons.ElementAt(0).Value,
                 "TEST CRASH",
                 "2",
                 new Vector2(gameMap.getSize().X / 2, gameMap.getSize().Y * 0.25f),
@@ -200,6 +209,7 @@ namespace AirTrafficController.forms
             airplane airplane3 = new airplane(gameMap);
             airplane3.Initialize(
                 "T3",
+                this.game.icons.ElementAt(0).Value,
                 "TEST CRASH",
                 "3",
                 new Vector2(gameMap.getSize().X * 0.75f, gameMap.getSize().Y / 2 ),
@@ -215,6 +225,7 @@ namespace AirTrafficController.forms
             airplane airplane4 = new airplane(gameMap);
             airplane4.Initialize(
                 "T4",
+                this.game.icons.ElementAt(0).Value,
                 "TEST CRASH",
                 "4",
                 new Vector2(gameMap.getSize().X * 0.25f, gameMap.getSize().Y / 2),
@@ -242,6 +253,7 @@ namespace AirTrafficController.forms
             Random random = new Random();
             airplane1.Initialize(
                 "T1",
+                this.game.icons.ElementAt(0).Value,
                 "TEST CRASH",
                 "1",
                 new Vector2(gameMap.getSize().X / 2, gameMap.getSize().Y * 0.75f),
@@ -266,6 +278,7 @@ namespace AirTrafficController.forms
             Random random = new Random();
             airplane1.Initialize(
                 "T1",
+                this.game.icons.ElementAt(0).Value,
                 "TEST CRASH",
                 "1",
                 new Vector2(gameMap.getSize().X / 2, gameMap.getSize().Y * 0.75f),
@@ -281,6 +294,7 @@ namespace AirTrafficController.forms
             airplane airplane2 = new airplane(gameMap);
             airplane2.Initialize(
                 "T2",
+                this.game.icons.ElementAt(0).Value,
                 "TEST CRASH",
                 "2",
                 new Vector2(gameMap.getSize().X / 2, gameMap.getSize().Y * 0.25f),

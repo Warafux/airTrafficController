@@ -54,6 +54,8 @@
             this.label_airplaneLandingGear = new System.Windows.Forms.Label();
             this.label_airplaneAltitudeDanger = new System.Windows.Forms.Label();
             this.label_airplaneCollisionDanger = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label_airplaneVerticalAcceleration = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox_airplaneId
@@ -177,7 +179,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 463);
+            this.label2.Location = new System.Drawing.Point(69, 466);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 44;
@@ -187,7 +189,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 481);
+            this.label3.Location = new System.Drawing.Point(41, 484);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 13);
             this.label3.TabIndex = 45;
@@ -197,7 +199,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 501);
+            this.label4.Location = new System.Drawing.Point(65, 504);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 13);
             this.label4.TabIndex = 46;
@@ -207,7 +209,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(11, 530);
+            this.label6.Location = new System.Drawing.Point(11, 553);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 13);
             this.label6.TabIndex = 47;
@@ -217,7 +219,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(143, 530);
+            this.label7.Location = new System.Drawing.Point(143, 553);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 13);
             this.label7.TabIndex = 48;
@@ -227,7 +229,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(10, 590);
+            this.label8.Location = new System.Drawing.Point(10, 613);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(81, 13);
             this.label8.TabIndex = 49;
@@ -237,7 +239,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(132, 590);
+            this.label9.Location = new System.Drawing.Point(132, 613);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(78, 13);
             this.label9.TabIndex = 50;
@@ -247,7 +249,7 @@
             // label_airplaneSpeed
             // 
             this.label_airplaneSpeed.AutoSize = true;
-            this.label_airplaneSpeed.Location = new System.Drawing.Point(86, 462);
+            this.label_airplaneSpeed.Location = new System.Drawing.Point(117, 465);
             this.label_airplaneSpeed.Name = "label_airplaneSpeed";
             this.label_airplaneSpeed.Size = new System.Drawing.Size(0, 13);
             this.label_airplaneSpeed.TabIndex = 52;
@@ -255,7 +257,7 @@
             // label_airplaneAcceleration
             // 
             this.label_airplaneAcceleration.AutoSize = true;
-            this.label_airplaneAcceleration.Location = new System.Drawing.Point(85, 481);
+            this.label_airplaneAcceleration.Location = new System.Drawing.Point(117, 484);
             this.label_airplaneAcceleration.Name = "label_airplaneAcceleration";
             this.label_airplaneAcceleration.Size = new System.Drawing.Size(0, 13);
             this.label_airplaneAcceleration.TabIndex = 53;
@@ -263,7 +265,7 @@
             // label_airplaneAltitude
             // 
             this.label_airplaneAltitude.AutoSize = true;
-            this.label_airplaneAltitude.Location = new System.Drawing.Point(86, 500);
+            this.label_airplaneAltitude.Location = new System.Drawing.Point(117, 503);
             this.label_airplaneAltitude.Name = "label_airplaneAltitude";
             this.label_airplaneAltitude.Size = new System.Drawing.Size(0, 13);
             this.label_airplaneAltitude.TabIndex = 54;
@@ -272,7 +274,7 @@
             // 
             this.label_airplaneMotorStatus.AutoSize = true;
             this.label_airplaneMotorStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_airplaneMotorStatus.Location = new System.Drawing.Point(12, 543);
+            this.label_airplaneMotorStatus.Location = new System.Drawing.Point(12, 566);
             this.label_airplaneMotorStatus.Name = "label_airplaneMotorStatus";
             this.label_airplaneMotorStatus.Size = new System.Drawing.Size(0, 33);
             this.label_airplaneMotorStatus.TabIndex = 55;
@@ -281,7 +283,7 @@
             // 
             this.label_airplaneLandingGear.AutoSize = true;
             this.label_airplaneLandingGear.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_airplaneLandingGear.Location = new System.Drawing.Point(140, 543);
+            this.label_airplaneLandingGear.Location = new System.Drawing.Point(140, 566);
             this.label_airplaneLandingGear.Name = "label_airplaneLandingGear";
             this.label_airplaneLandingGear.Size = new System.Drawing.Size(0, 33);
             this.label_airplaneLandingGear.TabIndex = 56;
@@ -290,7 +292,7 @@
             // 
             this.label_airplaneAltitudeDanger.AutoSize = true;
             this.label_airplaneAltitudeDanger.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_airplaneAltitudeDanger.Location = new System.Drawing.Point(140, 614);
+            this.label_airplaneAltitudeDanger.Location = new System.Drawing.Point(140, 637);
             this.label_airplaneAltitudeDanger.Name = "label_airplaneAltitudeDanger";
             this.label_airplaneAltitudeDanger.Size = new System.Drawing.Size(0, 33);
             this.label_airplaneAltitudeDanger.TabIndex = 57;
@@ -299,16 +301,36 @@
             // 
             this.label_airplaneCollisionDanger.AutoSize = true;
             this.label_airplaneCollisionDanger.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_airplaneCollisionDanger.Location = new System.Drawing.Point(12, 614);
+            this.label_airplaneCollisionDanger.Location = new System.Drawing.Point(12, 637);
             this.label_airplaneCollisionDanger.Name = "label_airplaneCollisionDanger";
             this.label_airplaneCollisionDanger.Size = new System.Drawing.Size(0, 33);
             this.label_airplaneCollisionDanger.TabIndex = 58;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 523);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(107, 13);
+            this.label10.TabIndex = 59;
+            this.label10.Text = "Vertical Acceleration:";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label_airplaneVerticalAcceleration
+            // 
+            this.label_airplaneVerticalAcceleration.AutoSize = true;
+            this.label_airplaneVerticalAcceleration.Location = new System.Drawing.Point(114, 523);
+            this.label_airplaneVerticalAcceleration.Name = "label_airplaneVerticalAcceleration";
+            this.label_airplaneVerticalAcceleration.Size = new System.Drawing.Size(0, 13);
+            this.label_airplaneVerticalAcceleration.TabIndex = 60;
             // 
             // controllerAirplaneForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(224, 730);
+            this.Controls.Add(this.label_airplaneVerticalAcceleration);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label_airplaneCollisionDanger);
             this.Controls.Add(this.label_airplaneAltitudeDanger);
             this.Controls.Add(this.label_airplaneLandingGear);
@@ -377,5 +399,7 @@
         private System.Windows.Forms.Label label_airplaneLandingGear;
         private System.Windows.Forms.Label label_airplaneAltitudeDanger;
         private System.Windows.Forms.Label label_airplaneCollisionDanger;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label_airplaneVerticalAcceleration;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AirTrafficController.util;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,8 @@ namespace AirTrafficController.forms
     {
         Game1 game;
         private List<iAirplanePreset> airplanePresets = new List<iAirplanePreset>();
+        private Dictionary<string, Texture2D> icons = new Dictionary<string, Texture2D>();
+        private Texture2D selectedAirplaneIcon;
 
         public newAirplaneForm()
         {
@@ -31,6 +34,7 @@ namespace AirTrafficController.forms
 
             loadMinMaxValues();
             loadAirplanePresets();
+            loadAirplaneIcons();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -47,6 +51,7 @@ namespace AirTrafficController.forms
             Vector2 chosenDirection = checkedRadioButtonDirection().Text == "Random Direction" ? utilVector2.getRandomDirection() : utilVector2.getDirectionFromString(checkedRadioButtonDirection().Text);
             airplane.Initialize(
                 textBox_airplaneId.Text,
+                selectedAirplaneIcon,
                 textBox_airplaneVendor.Text,
                 textBox_airplaneModel.Text,
                 new Vector2((float)numericUpDown_airplaneCoordinateX.Value, (float)numericUpDown_airplaneCoordinateY.Value),
@@ -142,6 +147,33 @@ namespace AirTrafficController.forms
             comboBox_airplanePresets.DisplayMember = "name";
             comboBox_airplanePresets.DataSource = tmp_dt;
         }
+        private void loadAirplaneIcons()
+        {
+            //Take icons from game main class
+            this.icons.Clear();
+            this.icons = this.game.icons;
+
+            DataTable tmp_dt = new DataTable();
+            tmp_dt.Clear();
+            tmp_dt.Columns.Add("name", typeof(String));
+            tmp_dt.Columns.Add("icon", typeof(Texture2D));
+
+            foreach (KeyValuePair<string, Texture2D> iconEntry in this.icons)
+            {
+                DataRow hashTypeRow = tmp_dt.NewRow();
+                hashTypeRow["name"] = iconEntry.Key;
+                hashTypeRow["icon"] = iconEntry.Value;
+                tmp_dt.Rows.Add(hashTypeRow);
+            }
+
+
+            //Reset items from combobox
+            comboBox_airplaneAvailableIcons.Items.Clear();
+
+            comboBox_airplaneAvailableIcons.ValueMember = "icon";
+            comboBox_airplaneAvailableIcons.DisplayMember = "name";
+            comboBox_airplaneAvailableIcons.DataSource = tmp_dt;
+        }
 
         private void comboBox_airplanePresets_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -153,6 +185,7 @@ namespace AirTrafficController.forms
             textBox_airplaneModel.Text = airplanePreset.getModel();
             numericUpDown_airplaneCapacity.Value = (decimal)airplanePreset.getCapacity();
             numericUpDown_airplaneMaxSpeed.Value = (decimal)airplanePreset.getMaxSpeed();
+            comboBox_airplaneAvailableIcons.SelectedIndex = comboBox_airplaneAvailableIcons.FindStringExact(airplanePreset.getIconName());
         }
 
         private void button_randomAirplaneId_Click(object sender, EventArgs e)
@@ -188,6 +221,15 @@ namespace AirTrafficController.forms
 
             numericUpDown_airplaneSpeed.Minimum = Game1.minMaxMAXSpeed[0];
             numericUpDown_airplaneSpeed.Maximum = Game1.minMaxMAXSpeed[1];
+        }
+
+        private void comboBox_airplaneAvailableIcons_SelectedValueChanged(object sender, EventArgs e)
+        {
+            //Load preset into form
+            DataRowView selectedValueRow = (DataRowView)comboBox_airplaneAvailableIcons.SelectedItem;
+            if (selectedValueRow == null) { return; }
+            this.selectedAirplaneIcon = (Texture2D)selectedValueRow[1];
+
         }
     }
 }

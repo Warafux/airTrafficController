@@ -1,0 +1,7 @@
+﻿{
+  "vendor": "Boeing",
+  "model": "737",
+  "iconName": "Boeing737",
+  "capacity": 300,
+  "maxSpeed": 1500
+}

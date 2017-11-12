@@ -171,6 +171,7 @@ namespace AirTrafficController.forms
             Vector2 chosenDirection = utilVector2.getDirectionFromString(checkedRadioButtonDirection().Text);
             this.selectedAirplane.Initialize(
                 textBox_airplaneId.Text,
+                game.icons.ElementAt(0).Value,
                 textBox_airplaneVendor.Text,
                 textBox_airplaneModel.Text,
                 new Vector2((float)numericUpDown_airplaneCoordinateX.Value, (float)numericUpDown_airplaneCoordinateY.Value),

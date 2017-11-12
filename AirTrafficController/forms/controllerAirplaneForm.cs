@@ -77,6 +77,7 @@ namespace AirTrafficController.forms
             }
             this.label_airplaneAltitude.Text = this.selectedAirplane.getAltitude().ToString();
             this.label_airplaneAcceleration.Text = this.selectedAirplane.getAcceleration().ToString();
+            this.label_airplaneVerticalAcceleration.Text = this.selectedAirplane.getVerticalAcceleration().ToString();
             this.label_airplaneSpeed.Text = this.selectedAirplane.getSpeed().ToString();
             this.label_airplaneCollisionDanger.Text = this.selectedAirplane.getCollisionDanger().ToString();
             this.label_airplaneMotorStatus.Text = this.selectedAirplane.getIsOn().ToString();

@@ -5,6 +5,7 @@ using System;
 using AirTrafficController.forms;
 using System.Collections.Generic;
 using C3.XNA;
+using System.Linq;
 using AirTrafficController.util;
 using System.IO;
 using Newtonsoft.Json.Schema;
@@ -52,7 +53,7 @@ namespace AirTrafficController
 
         //Min/Max of values
         public static int[] minMaxAcceleration = {-20, 20};
-        public static int[] minMaxMAXSpeed = {1, 1200};//Max speed
+        public static int[] minMaxMAXSpeed = {1, 2000};//Max speed
         public static int[] minMaxAltitude = {1, 9000};
         public static int[] minMaxCapacity = {20, 500};
         public static int[] minMaxVerticalAcceleration = {-20, 20};
@@ -132,7 +133,8 @@ namespace AirTrafficController
                             jsonObject.GetValue("vendor").ToString(),
                             jsonObject.GetValue("model").ToString(),
                             (int)jsonObject.GetValue("capacity"),
-                            (int)jsonObject.GetValue("maxSpeed")
+                            (int)jsonObject.GetValue("maxSpeed"),
+                            jsonObject.GetValue("iconName").ToString()
                             );
                         airplanePresets.Add(airplanePreset);
                     }
@@ -331,6 +333,7 @@ namespace AirTrafficController
             Random random = new Random();
             airplane.Initialize(
                 this.generateRandomId(),
+                this.icons.ElementAt(0).Value,
                 "xd",
                 "xd",
                 pos,

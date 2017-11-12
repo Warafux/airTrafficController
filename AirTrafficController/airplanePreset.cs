@@ -12,6 +12,7 @@ namespace AirTrafficController
         private string model = "";
         private int capacity = 0;
         private int maxSpeed = 0;
+        private string iconName = "";
         public string getVendor()
         {
             return this.vendor;
@@ -28,12 +29,17 @@ namespace AirTrafficController
         {
             return this.maxSpeed;
         }
-        public void Initialize(string vendor, string model, int capacity, int maxSpeed)
+        public string getIconName()
+        {
+            return this.iconName;
+        }
+        public void Initialize(string vendor, string model, int capacity, int maxSpeed, string iconName)
         {
             this.vendor = vendor;
             this.model = model;
             this.capacity = capacity;
             this.maxSpeed = maxSpeed;
+            this.iconName = iconName;
         }
     }
 }

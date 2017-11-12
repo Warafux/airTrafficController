@@ -10,8 +10,9 @@ namespace AirTrafficController
     {
         string getVendor();
         string getModel();
+        string getIconName();
         int getCapacity();
         int getMaxSpeed();
-        void Initialize(string vendor, string model, int capacity, int maxSpeed);
+        void Initialize(string vendor, string model, int capacity, int maxSpeed, string iconName);
     }
 }
