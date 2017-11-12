@@ -61,5 +61,10 @@ namespace AirTrafficController.forms
             this.editAirplaneForm = new editAirplaneForm(game);
             this.editAirplaneForm.Show();
         }
+
+        private void menuForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.game.Exit();
+        }
     }
 }

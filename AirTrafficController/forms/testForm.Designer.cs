@@ -107,8 +107,14 @@
             this.Controls.Add(this.button_testMultipleCollision);
             this.Controls.Add(this.button_testCollision);
             this.Controls.Add(this.button_addRandomAirplane);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "testForm";
-            this.Text = "testForm";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.Text = "Tests";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.testForm_Load);
             this.ResumeLayout(false);
 

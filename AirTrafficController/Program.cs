@@ -21,8 +21,8 @@ namespace AirTrafficController
             menu.Show();
             menu.setGame(game);
 
-            game.Run();
             game.setMenu(menu);
+            game.Run();
         }
     }
 #endif

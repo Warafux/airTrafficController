@@ -535,8 +535,14 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox_airplaneVendor);
             this.Controls.Add(this.textBox_airplaneModel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "newAirplaneForm";
-            this.Text = "newAirplaneForm";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.Text = "New Airplane";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_airplaneCapacity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_airplaneCoordinateX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_airplaneCoordinateY)).EndInit();

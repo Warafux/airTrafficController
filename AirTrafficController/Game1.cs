@@ -62,8 +62,11 @@ namespace AirTrafficController
         public Game1()
         {
             this.graphics = new GraphicsDeviceManager(this);
-            this.graphics.PreferredBackBufferWidth = 600;
-            this.graphics.PreferredBackBufferHeight = 600;
+            //this.graphics.PreferredBackBufferWidth = 600;
+            //this.graphics.PreferredBackBufferHeight = 600;
+            this.graphics.PreferredBackBufferWidth = (int)(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width * 0.75f);
+            this.graphics.PreferredBackBufferHeight = (int)(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height * 0.75f);
+            this.Window.Position = new Point(0, 0);
             this.Content.RootDirectory = "Content";
             this.mapSize = new Vector2(25000, 25000);
             this.iconScale = 1000/mapSize.X; 
@@ -138,6 +141,11 @@ namespace AirTrafficController
             return airplanePresets;
         }
 
+        protected override void OnExiting(object sender, EventArgs args)
+        {
+            this.menu.Close();
+            this.menu.Dispose();
+        }
         protected override void UnloadContent()
         {
 
