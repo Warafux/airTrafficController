@@ -51,7 +51,7 @@ namespace AirTrafficController
         private bool gameRunning = true;
 
         //Min/Max of values
-        public static int[] minMaxAcceleration = {0, 20};
+        public static int[] minMaxAcceleration = {-20, 20};
         public static int[] minMaxMAXSpeed = {1, 1200};//Max speed
         public static int[] minMaxAltitude = {1, 9000};
         public static int[] minMaxCapacity = {20, 500};

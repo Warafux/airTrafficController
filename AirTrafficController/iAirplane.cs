@@ -32,8 +32,9 @@ namespace AirTrafficController
         bool getIsOn();
         Vector2 getDirection();
         bool getCollisionDanger();
-        Vector3 get3DPos();
+        bool getAltitudeDanger();
         bool getDeployedLandingGear();
+        Vector3 get3DPos();
 
         //Setters
         void setPos(Vector2 pos);
@@ -48,6 +49,7 @@ namespace AirTrafficController
         void switchDeployedLandingGear();
         void setDeployedLandingGear(bool deployedLandingGear);
         void setVerticalAcceleration(int verticalAcceleration);
+        void setAcceleration(int acceleration);
 
         //Other
         void click();
