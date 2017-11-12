@@ -26,45 +26,63 @@ namespace AirTrafficController.forms
         public void setGame(Game1 game)
         {
             this.game = game;
+            this.label_runningStatus.Text = this.game.getGameRunning() ? "ON" : "OFF";
         }
 
         private void menuForm_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.newAirplaneForm.Dispose();
-            this.newAirplaneForm = new newAirplaneForm(game);
-            this.newAirplaneForm.Show();
+            
         }
         public void updateAll()
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            testForm = new testForm(this.game);
-            testForm.Show();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            game.switchGameRunning();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            this.editAirplaneForm.Dispose();
-            this.editAirplaneForm = new editAirplaneForm(game);
-            this.editAirplaneForm.Show();
-        }
-
         private void menuForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.game.Exit();
         }
+
+        private void button_switchGameRunning_Click(object sender, EventArgs e)
+        {
+            this.game.switchGameRunning();
+            this.label_runningStatus.Text = this.game.getGameRunning() ? "ON" : "OFF";
+            if (this.game.getGameRunning())
+            {
+                //if game is running, restart edit form
+                this.editAirplaneForm.Dispose();
+                this.editAirplaneForm = new editAirplaneForm(game);
+            }
+        }
+
+        private void button_editAirplanes_Click(object sender, EventArgs e)
+        {
+            this.label_runningStatus.Text = this.game.getGameRunning() ? "ON" : "OFF";
+            if (!this.game.getGameRunning())
+            {
+                this.editAirplaneForm.Dispose();
+                this.editAirplaneForm = new editAirplaneForm(game);
+                this.editAirplaneForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Impossible to edit airplanes while simulation is running.");
+            }
+        }
+
+        private void button_tests_Click(object sender, EventArgs e)
+        {
+            this.testForm = new testForm(this.game);
+            this.testForm.Show();
+        }
+
+        private void button_newAirplane_Click(object sender, EventArgs e)
+        {
+            this.newAirplaneForm.Dispose();
+            this.newAirplaneForm = new newAirplaneForm(game);
+            this.newAirplaneForm.Show();
+        }
+
+
     }
 }

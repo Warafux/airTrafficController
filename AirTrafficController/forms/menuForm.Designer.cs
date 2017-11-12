@@ -28,22 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_newAirplane = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.button_tests = new System.Windows.Forms.Button();
+            this.button_switchGameRunning = new System.Windows.Forms.Button();
+            this.button_editAirplanes = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label_runningStatus = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // button_newAirplane
             // 
-            this.button1.Location = new System.Drawing.Point(12, 84);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(277, 50);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Add a new airplane";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button_newAirplane.Location = new System.Drawing.Point(12, 84);
+            this.button_newAirplane.Name = "button_newAirplane";
+            this.button_newAirplane.Size = new System.Drawing.Size(277, 50);
+            this.button_newAirplane.TabIndex = 0;
+            this.button_newAirplane.Text = "Add a new airplane";
+            this.button_newAirplane.UseVisualStyleBackColor = true;
+            this.button_newAirplane.Click += new System.EventHandler(this.button_newAirplane_Click);
             // 
             // label1
             // 
@@ -55,44 +57,66 @@
             this.label1.Text = "AirTrafficController Menu";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button2
+            // button_tests
             // 
-            this.button2.Location = new System.Drawing.Point(12, 157);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(277, 92);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "TESTS";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button_tests.Location = new System.Drawing.Point(12, 157);
+            this.button_tests.Name = "button_tests";
+            this.button_tests.Size = new System.Drawing.Size(277, 92);
+            this.button_tests.TabIndex = 2;
+            this.button_tests.Text = "TESTS";
+            this.button_tests.UseVisualStyleBackColor = true;
+            this.button_tests.Click += new System.EventHandler(this.button_tests_Click);
             // 
-            // button3
+            // button_switchGameRunning
             // 
-            this.button3.Location = new System.Drawing.Point(570, 84);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(124, 50);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Turn On/Off airplanes update";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button_switchGameRunning.Location = new System.Drawing.Point(570, 84);
+            this.button_switchGameRunning.Name = "button_switchGameRunning";
+            this.button_switchGameRunning.Size = new System.Drawing.Size(124, 50);
+            this.button_switchGameRunning.TabIndex = 3;
+            this.button_switchGameRunning.Text = "Turn On/Off airplanes update";
+            this.button_switchGameRunning.UseVisualStyleBackColor = true;
+            this.button_switchGameRunning.Click += new System.EventHandler(this.button_switchGameRunning_Click);
             // 
-            // button4
+            // button_editAirplanes
             // 
-            this.button4.Location = new System.Drawing.Point(295, 84);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(269, 50);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Edit airplanes";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button_editAirplanes.Location = new System.Drawing.Point(295, 84);
+            this.button_editAirplanes.Name = "button_editAirplanes";
+            this.button_editAirplanes.Size = new System.Drawing.Size(269, 50);
+            this.button_editAirplanes.TabIndex = 4;
+            this.button_editAirplanes.Text = "Edit airplanes";
+            this.button_editAirplanes.UseVisualStyleBackColor = true;
+            this.button_editAirplanes.Click += new System.EventHandler(this.button_editAirplanes_Click);
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(570, 137);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(124, 18);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Simulation status:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_runningStatus
+            // 
+            this.label_runningStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_runningStatus.Location = new System.Drawing.Point(573, 166);
+            this.label_runningStatus.Name = "label_runningStatus";
+            this.label_runningStatus.Size = new System.Drawing.Size(121, 43);
+            this.label_runningStatus.TabIndex = 6;
+            this.label_runningStatus.Text = "?";
+            this.label_runningStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // menuForm
             // 
             this.ClientSize = new System.Drawing.Size(706, 261);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label_runningStatus);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.button_editAirplanes);
+            this.Controls.Add(this.button_switchGameRunning);
+            this.Controls.Add(this.button_tests);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button_newAirplane);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -108,10 +132,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_newAirplane;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button_tests;
+        private System.Windows.Forms.Button button_switchGameRunning;
+        private System.Windows.Forms.Button button_editAirplanes;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label_runningStatus;
     }
 }

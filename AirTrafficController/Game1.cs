@@ -357,5 +357,13 @@ namespace AirTrafficController
         {
             this.gameRunning = !this.gameRunning;
         }
+        public void setGameRunning(bool status)
+        {
+            this.gameRunning = status;
+        }
+        public bool getGameRunning()
+        {
+            return this.gameRunning;
+        }
     }
 }
