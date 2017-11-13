@@ -115,7 +115,7 @@ namespace AirTrafficController.forms
             numericUpDown_airplaneCoordinateY.Value = (decimal)random.Next(1, (int)game.getMapSize().Y);
             numericUpDown_airplaneSpeed.Value = (decimal)random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]);
             numericUpDown_airplaneMaxSpeed.Value = (decimal)random.Next(Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]);
-            numericUpDown_airplaneAcceleration.Value = (decimal)random.Next(Game1.minMaxAcceleration[0], Game1.minMaxAcceleration[0]);
+            numericUpDown_airplaneAcceleration.Value = (decimal)random.Next(Game1.minMaxAcceleration[0], Game1.minMaxAcceleration[1]);
             numericUpDown_airplaneVerticalAcceleration.Value = (decimal)random.Next(Game1.minMaxVerticalAcceleration[0], Game1.minMaxVerticalAcceleration[1]);
             numericUpDown_airplaneAltitude.Value = (decimal)random.Next(Game1.minMaxAltitude[0], Game1.minMaxAltitude[1]);
         }

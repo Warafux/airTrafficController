@@ -115,7 +115,7 @@ namespace AirTrafficController
             {
                 //Motor is OFF, speed-- and altitude--
                 this.speed = MathHelper.Clamp(this.speed - this.acceleration * 4 - 15, Game1.minMaxMAXSpeed[0], Game1.minMaxMAXSpeed[1]);
-                this.altitude = MathHelper.Clamp(this.altitude - 10 - 50, Game1.minMaxAltitude[0], Game1.minMaxAltitude[1]);
+                this.altitude = MathHelper.Clamp(this.altitude - (int)(9.8 * 2), Game1.minMaxAltitude[0], Game1.minMaxAltitude[1]);
                 this.fallingDanger = true;
             }
             //Calculate the pos with new speed

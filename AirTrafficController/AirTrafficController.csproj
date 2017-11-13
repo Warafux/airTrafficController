@@ -104,11 +104,11 @@
     <Compile Include="forms\testForm.Designer.cs">
       <DependentUpon>testForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="iAirplanePreset.cs" />
+    <Compile Include="Interfaces\iAirplane.cs" />
+    <Compile Include="Interfaces\iAirplanePreset.cs" />
     <Compile Include="notification.cs" />
     <Compile Include="notificationsManager.cs" />
     <Compile Include="FrameCounter.cs" />
-    <Compile Include="iAirplane.cs" />
     <Compile Include="map.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
