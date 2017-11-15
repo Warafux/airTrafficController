@@ -110,8 +110,6 @@ namespace AirTrafficController
             List<iAirplanePreset> airplanePresets = new List<iAirplanePreset>();
 
             //Load schema
-            
-            //string jsonSchema = File.ReadAllText("airplanePresets/AirplanePresetSchema.json");
             string jsonSchema = File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"AirplanePresetSchema.json"));
             JSchema schema = JSchema.Parse(jsonSchema);
 
@@ -255,10 +253,6 @@ namespace AirTrafficController
             {
                 closestAirplaneToMouse.hover(true);
                 Primitives2D.DrawLine(spriteBatch, currentMouseState.Position.ToVector2(), closestAirplaneToMouse.getDrawPos(), Color.Black);
-            }
-            else
-            {
-
             }
             map.Draw(spriteBatch);
                 notificationsManager.Draw(spriteBatch);

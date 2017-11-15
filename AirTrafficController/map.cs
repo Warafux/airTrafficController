@@ -43,15 +43,16 @@ namespace AirTrafficController
         }
         public void Update(GameTime gameTime)
         {
+            if(this.airplanes.Count == 0) { return}
             //First update ALL AIRPLANES
-            foreach (iAirplane airplane in airplanes)
+            foreach (iAirplane airplane in this.airplanes)
             {
                 airplane.Update();
             }
 
             //Check if pos are valid
             List<iAirplane> totalAirplanesToBeRemoved = new List<iAirplane>();
-            foreach (iAirplane airplane in airplanes)
+            foreach (iAirplane airplane in this.airplanes)
             {
                 if (!isValidAirplanePos(airplane))
                 {
@@ -67,7 +68,7 @@ namespace AirTrafficController
                 allOk = true;
                 totalAirplanesToBeRemoved.Clear(); // Reset list
 
-                foreach (iAirplane airplane in airplanes)
+                foreach (iAirplane airplane in this.airplanes)
                 {
                     if (checkCrash(airplane))
                     {
@@ -79,7 +80,7 @@ namespace AirTrafficController
             }
 
             //Then, check collisions/altitude DANGER
-            foreach (iAirplane airplane in airplanes)
+            foreach (iAirplane airplane in this.airplanes)
             {
                 checkCollisionDanger(airplane);
                 checkAltitudeDanger(airplane);
