@@ -91,8 +91,12 @@ namespace AirTrafficController
 
             this.defaultFont = Content.Load<SpriteFont>("defaultFont");
 
+            //Load icons manually
             this.icons.Add("AirbusA380", Content.Load<Texture2D>("AirbusA380"));
             this.icons.Add("Boeing737", Content.Load<Texture2D>("Boeing737"));
+            this.icons.Add("AirbusA330", Content.Load<Texture2D>("AirbusA330"));
+            this.icons.Add("Embraer195", Content.Load<Texture2D>("Embraer195"));
+            this.icons.Add("Learjet85", Content.Load<Texture2D>("Learjet85"));
 
             this.frameCounter = new FrameCounter();
 
