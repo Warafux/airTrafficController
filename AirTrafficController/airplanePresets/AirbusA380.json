@@ -2,6 +2,6 @@
   "vendor": "Airbus",
   "model": "A380",
   "iconName": "AirbusA380",
-  "capacity": 200,
+  "capacity": 480,
   "maxSpeed": 1020
 }

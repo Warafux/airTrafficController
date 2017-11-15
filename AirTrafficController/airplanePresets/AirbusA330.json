@@ -1,0 +1,7 @@
+﻿{
+  "vendor": "Airbus",
+  "model": "A330",
+  "iconName": "AirbusA330",
+  "capacity": 253,
+  "maxSpeed": 913
+}

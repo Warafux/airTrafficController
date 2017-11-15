@@ -4,8 +4,11 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/Alex/Documents/GitHub/airTrafficController/AirTrafficController/Content/AirbusA330.png</File>
     <File>C:/Users/Alex/Documents/GitHub/airTrafficController/AirTrafficController/Content/AirbusA380.png</File>
     <File>C:/Users/Alex/Documents/GitHub/airTrafficController/AirTrafficController/Content/Boeing737.png</File>
     <File>C:/Users/Alex/Documents/GitHub/airTrafficController/AirTrafficController/Content/defaultFont.spritefont</File>
+    <File>C:/Users/Alex/Documents/GitHub/airTrafficController/AirTrafficController/Content/Embraer195.png</File>
+    <File>C:/Users/Alex/Documents/GitHub/airTrafficController/AirTrafficController/Content/Learjet85.png</File>
   </SourceFiles>
 </SourceFileCollection>
