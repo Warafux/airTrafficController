@@ -37,7 +37,7 @@ namespace AirTrafficController
         private Vector2 mapSize;
 
         //DEBUG
-        public bool clickAsRandomAirplaneGenerator = false;
+        public bool rightClickAsRandomAirplaneGenerator = true;
 
         //ICONS
         // http://www.iconsplace.com/white-icons/
@@ -73,12 +73,7 @@ namespace AirTrafficController
             this.iconScale = 1000/mapSize.X; 
             this.lastSecond = 0;
             this.icons = new Dictionary<string, Texture2D>();
-        }
-        protected override void Initialize()
-        {
-            base.Initialize();
             this.IsMouseVisible = true;
-
         }
         protected override void LoadContent()
         {
@@ -185,13 +180,9 @@ namespace AirTrafficController
             //Click on an airplane
            
             
-            if (!this.clickAsRandomAirplaneGenerator)
+            if (this.rightClickAsRandomAirplaneGenerator)
             {
-                
-            }
-            else
-            {
-                if (previousMouseState.LeftButton == ButtonState.Released && currentMouseState.LeftButton == ButtonState.Pressed)
+                if (previousMouseState.RightButton == ButtonState.Released && currentMouseState.RightButton == ButtonState.Pressed)
                 {
                     iAirplane airplane;
                     Vector2 localPos = new Vector2(
