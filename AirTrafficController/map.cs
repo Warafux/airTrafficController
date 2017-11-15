@@ -43,7 +43,7 @@ namespace AirTrafficController
         }
         public void Update(GameTime gameTime)
         {
-            if(this.airplanes.Count == 0) { return}
+            if(this.airplanes.Count == 0) { return; }
             //First update ALL AIRPLANES
             foreach (iAirplane airplane in this.airplanes)
             {
