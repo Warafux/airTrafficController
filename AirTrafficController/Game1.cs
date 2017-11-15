@@ -216,7 +216,8 @@ namespace AirTrafficController
             {
                 if(closestAirplaneToMouse != null)
                 {
-                    closestAirplaneToMouse.switchDrawInfo();
+                    //Call to click method of the airplane
+                    closestAirplaneToMouse.click();
                 }
             }
         }

@@ -210,6 +210,7 @@ namespace AirTrafficController
         }
         public void click()
         {
+            this.switchDrawInfo();
         }
         public void hover(bool isHovering)
         {
