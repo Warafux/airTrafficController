@@ -37,11 +37,12 @@
             this.label_runningStatus = new System.Windows.Forms.Label();
             this.button_airplaneController = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.button_statistics = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_newAirplane
             // 
-            this.button_newAirplane.Location = new System.Drawing.Point(12, 84);
+            this.button_newAirplane.Location = new System.Drawing.Point(12, 68);
             this.button_newAirplane.Name = "button_newAirplane";
             this.button_newAirplane.Size = new System.Drawing.Size(277, 50);
             this.button_newAirplane.TabIndex = 0;
@@ -61,7 +62,7 @@
             // 
             // button_tests
             // 
-            this.button_tests.Location = new System.Drawing.Point(12, 140);
+            this.button_tests.Location = new System.Drawing.Point(12, 124);
             this.button_tests.Name = "button_tests";
             this.button_tests.Size = new System.Drawing.Size(277, 50);
             this.button_tests.TabIndex = 2;
@@ -71,7 +72,7 @@
             // 
             // button_switchGameRunning
             // 
-            this.button_switchGameRunning.Location = new System.Drawing.Point(570, 84);
+            this.button_switchGameRunning.Location = new System.Drawing.Point(570, 68);
             this.button_switchGameRunning.Name = "button_switchGameRunning";
             this.button_switchGameRunning.Size = new System.Drawing.Size(124, 50);
             this.button_switchGameRunning.TabIndex = 3;
@@ -81,7 +82,7 @@
             // 
             // button_editAirplanes
             // 
-            this.button_editAirplanes.Location = new System.Drawing.Point(295, 84);
+            this.button_editAirplanes.Location = new System.Drawing.Point(295, 68);
             this.button_editAirplanes.Name = "button_editAirplanes";
             this.button_editAirplanes.Size = new System.Drawing.Size(269, 50);
             this.button_editAirplanes.TabIndex = 4;
@@ -92,7 +93,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(570, 136);
+            this.label2.Location = new System.Drawing.Point(570, 120);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(124, 18);
             this.label2.TabIndex = 5;
@@ -102,7 +103,7 @@
             // label_runningStatus
             // 
             this.label_runningStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_runningStatus.Location = new System.Drawing.Point(573, 152);
+            this.label_runningStatus.Location = new System.Drawing.Point(573, 136);
             this.label_runningStatus.Name = "label_runningStatus";
             this.label_runningStatus.Size = new System.Drawing.Size(121, 43);
             this.label_runningStatus.TabIndex = 6;
@@ -111,7 +112,7 @@
             // 
             // button_airplaneController
             // 
-            this.button_airplaneController.Location = new System.Drawing.Point(295, 140);
+            this.button_airplaneController.Location = new System.Drawing.Point(295, 124);
             this.button_airplaneController.Name = "button_airplaneController";
             this.button_airplaneController.Size = new System.Drawing.Size(269, 50);
             this.button_airplaneController.TabIndex = 7;
@@ -129,9 +130,20 @@
             this.label3.Text = "Made by Warafu";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
+            // button_statistics
+            // 
+            this.button_statistics.Location = new System.Drawing.Point(295, 180);
+            this.button_statistics.Name = "button_statistics";
+            this.button_statistics.Size = new System.Drawing.Size(269, 26);
+            this.button_statistics.TabIndex = 9;
+            this.button_statistics.Text = "Statistics";
+            this.button_statistics.UseVisualStyleBackColor = true;
+            this.button_statistics.Click += new System.EventHandler(this.button_statistics_Click);
+            // 
             // menuForm
             // 
             this.ClientSize = new System.Drawing.Size(706, 211);
+            this.Controls.Add(this.button_statistics);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button_airplaneController);
             this.Controls.Add(this.label_runningStatus);
@@ -166,5 +178,6 @@
         private System.Windows.Forms.Label label_runningStatus;
         private System.Windows.Forms.Button button_airplaneController;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button_statistics;
     }
 }

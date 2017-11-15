@@ -372,5 +372,9 @@ namespace AirTrafficController
         {
             return this.gameRunning;
         }
+        public stats getStats()
+        {
+            return this.stats;
+        }
     }
 }

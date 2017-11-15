@@ -98,6 +98,12 @@
     <Compile Include="forms\newAirplaneForm.Designer.cs">
       <DependentUpon>newAirplaneForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\statsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\statsForm.Designer.cs">
+      <DependentUpon>statsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\testForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\newAirplaneForm.resx">
       <DependentUpon>newAirplaneForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\statsForm.resx">
+      <DependentUpon>statsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\testForm.resx">
       <DependentUpon>testForm.cs</DependentUpon>

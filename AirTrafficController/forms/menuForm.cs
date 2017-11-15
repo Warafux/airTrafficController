@@ -18,6 +18,7 @@ namespace AirTrafficController.forms
         newAirplaneForm newAirplaneForm;
         testForm testForm;
         editAirplaneForm editAirplaneForm;
+        statsForm statsForm;
         private controllerAirplaneForm controllerAirplaneForm;
 
         public menuForm()
@@ -26,6 +27,7 @@ namespace AirTrafficController.forms
             this.newAirplaneForm = new newAirplaneForm();
             this.editAirplaneForm = new editAirplaneForm();
             this.controllerAirplaneForm = new controllerAirplaneForm();
+            this.statsForm = new statsForm();
         }
         public void setGame(Game1 game)
         {
@@ -112,6 +114,12 @@ namespace AirTrafficController.forms
         private void label3_Click(object sender, EventArgs e)
         {
             Process.Start("https://alexparedes.ovh");
+        }
+
+        private void button_statistics_Click(object sender, EventArgs e)
+        {
+            this.statsForm = new statsForm(this.game);
+            this.statsForm.Show();
         }
     }
 }
