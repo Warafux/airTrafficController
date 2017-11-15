@@ -216,5 +216,10 @@ namespace AirTrafficController
         {
             return this.distanceCollisionDangerRadius;
         }
+
+        internal void removeAirplane(iAirplane airplane)
+        {
+            this.airplanes.Remove(airplane);
+        }
     }
 }

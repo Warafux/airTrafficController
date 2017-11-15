@@ -27,11 +27,13 @@ namespace AirTrafficController
         private Vector2 direction;
         private bool deployedLandingGear = false;
 
-        private bool isOn = true;
+        private bool isOn = true;//Motor status
 
         private map map;
         private Game1 game;
-        private bool drawInfo = false;
+
+        //GUI vars
+        private bool drawInfo = true;
         private bool hovering = false;
 
         

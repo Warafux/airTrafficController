@@ -234,5 +234,11 @@ namespace AirTrafficController.forms
         {
             this.selectedAirplane.setVerticalAcceleration(Game1.minMaxVerticalAcceleration[0]);
         }
+
+        private void button_airplaneRemove_Click(object sender, EventArgs e)
+        {
+            this.game.removeAirplane(this.selectedAirplane);
+            this.Close();
+        }
     }
 }

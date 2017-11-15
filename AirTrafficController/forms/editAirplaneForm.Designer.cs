@@ -61,6 +61,7 @@
             this.numericUpDown_airplaneMaxSpeed = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
             this.numericUpDown_airplaneVerticalAcceleration = new System.Windows.Forms.NumericUpDown();
+            this.button_airplaneRemove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_airplaneCapacity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_airplaneCoordinateX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_airplaneCoordinateY)).BeginInit();
@@ -486,11 +487,22 @@
             0,
             0});
             // 
+            // button_airplaneRemove
+            // 
+            this.button_airplaneRemove.Location = new System.Drawing.Point(18, 595);
+            this.button_airplaneRemove.Name = "button_airplaneRemove";
+            this.button_airplaneRemove.Size = new System.Drawing.Size(241, 47);
+            this.button_airplaneRemove.TabIndex = 38;
+            this.button_airplaneRemove.Text = "DELETE AIRPLANE";
+            this.button_airplaneRemove.UseVisualStyleBackColor = true;
+            this.button_airplaneRemove.Click += new System.EventHandler(this.button_airplaneRemove_Click);
+            // 
             // editAirplaneForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(281, 730);
+            this.Controls.Add(this.button_airplaneRemove);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.numericUpDown_airplaneVerticalAcceleration);
             this.Controls.Add(this.label13);
@@ -580,5 +592,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDown_airplaneMaxSpeed;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.NumericUpDown numericUpDown_airplaneVerticalAcceleration;
+        private System.Windows.Forms.Button button_airplaneRemove;
     }
 }

@@ -277,6 +277,13 @@ namespace AirTrafficController
 
             spriteBatch.End();
         }
+
+        public void removeAirplane(iAirplane airplane)
+        {
+            this.map.removeAirplane(airplane);
+            this.addNotification($"Airplane {airplane.getId()} has been removed from the map.");
+        }
+
         public void addNotification(string message)
         {
             notificationsManager.addNotification(message);
