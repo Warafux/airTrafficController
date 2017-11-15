@@ -30,7 +30,7 @@ namespace AirTrafficController
         public GameTime gameTime;
         private double lastSecond;
 
-        private int maxAirplanes = 500;
+        private int maxAirplanes = 5;
 
         private FrameCounter frameCounter;
         private notificationsManager notificationsManager;

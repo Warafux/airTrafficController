@@ -64,7 +64,7 @@ namespace AirTrafficController.forms
                 100
             );
 
-            gameMap.addAirplane(airplane);
+            this.game.addAirplaneToMap(airplane);
             this.Close();
         }
         private RadioButton checkedRadioButtonDirection()

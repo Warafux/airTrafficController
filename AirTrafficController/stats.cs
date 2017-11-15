@@ -16,5 +16,13 @@ namespace AirTrafficController
             this.deadPeopleCounter += Math.Abs(quantity);
             this.deadPeopleLog.Add(logMessage);
         }
+        public int getDeadPeople()
+        {
+            return this.deadPeopleCounter;
+        }
+        public List<String> getDeadPeopleLog()
+        {
+            return this.deadPeopleLog;
+        }
     }
 }

@@ -105,7 +105,7 @@ namespace AirTrafficController.forms
 
         private void button_airplaneDescend_Click(object sender, EventArgs e)
         {
-            this.selectedAirplane.setVerticalAcceleration(Game1.minMaxVerticalAcceleration[0]);
+            this.selectedAirplane.setVerticalAcceleration(this.selectedAirplane.getVerticalAcceleration() - 1);
         }
 
         private void controllerAirplaneForm_Load(object sender, EventArgs e)

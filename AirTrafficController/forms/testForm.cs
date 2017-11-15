@@ -47,7 +47,7 @@ namespace AirTrafficController.forms
                 random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
-            gameMap.addAirplane(airplane);
+            this.game.addAirplaneToMap(airplane);
         }
 
         private void button_testCollision_Click(object sender, EventArgs e)
@@ -88,8 +88,8 @@ namespace AirTrafficController.forms
                 random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
-            gameMap.addAirplane(airplane1);
-            gameMap.addAirplane(airplane2);
+            this.game.addAirplaneToMap(airplane1);
+            this.game.addAirplaneToMap(airplane2);
         }
 
         private void button_testMultipleCollision_Click(object sender, EventArgs e)
@@ -162,10 +162,10 @@ namespace AirTrafficController.forms
                 random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
-            gameMap.addAirplane(airplane1);
-            gameMap.addAirplane(airplane2);
-            gameMap.addAirplane(airplane3);
-            gameMap.addAirplane(airplane4);
+            this.game.addAirplaneToMap(airplane1);
+            this.game.addAirplaneToMap(airplane2);
+            this.game.addAirplaneToMap(airplane3);
+            this.game.addAirplaneToMap(airplane4);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -238,10 +238,10 @@ namespace AirTrafficController.forms
                 random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
-            gameMap.addAirplane(airplane1);
-            gameMap.addAirplane(airplane2);
-            gameMap.addAirplane(airplane3);
-            gameMap.addAirplane(airplane4);
+            this.game.addAirplaneToMap(airplane1);
+            this.game.addAirplaneToMap(airplane2);
+            this.game.addAirplaneToMap(airplane3);
+            this.game.addAirplaneToMap(airplane4);
         }
 
         private void button_testCollisionGround_Click(object sender, EventArgs e)
@@ -266,7 +266,7 @@ namespace AirTrafficController.forms
                 random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
             airplane1.setIsOn(false);
-            gameMap.addAirplane(airplane1);
+            this.game.addAirplaneToMap(airplane1);
         }
 
         private void button_testNoCollisionAirplaneAltitude_Click(object sender, EventArgs e)
@@ -307,8 +307,8 @@ namespace AirTrafficController.forms
                 random.Next(Game1.minMaxCapacity[0], Game1.minMaxCapacity[1])
             );
 
-            gameMap.addAirplane(airplane1);
-            gameMap.addAirplane(airplane2);
+            this.game.addAirplaneToMap(airplane1);
+            this.game.addAirplaneToMap(airplane2);
         }
     }
 }

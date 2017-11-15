@@ -96,6 +96,7 @@ namespace AirTrafficController
                     {
                         this.speed = Game1.minMaxMAXSpeed[0] + Math.Abs(this.acceleration) + 20;
                         this.acceleration = 2;//STOP BRAKING
+                        this.game.addNotification($"Airplane {this.id} has reached the minimum speed! Accelerating again...");
                     }
                     else
                     {
@@ -306,16 +307,11 @@ namespace AirTrafficController
         }
         public void setVerticalAcceleration(int verticalAcceleration)
         {
-            this.verticalAcceleration = verticalAcceleration;
+            this.verticalAcceleration = MathHelper.Clamp(verticalAcceleration, Game1.minMaxVerticalAcceleration[0], Game1.minMaxVerticalAcceleration[1]);
         }
         public void setAcceleration(int acceleration)
         {
-            if(acceleration >= Game1.minMaxAcceleration[0] && acceleration <= Game1.minMaxAcceleration[1])
-            {
-                //If acceleration is an allowed numbber, proceed to change it
-                this.acceleration = acceleration;
-            }
-                //If out of bounds, ignore it
+            this.acceleration = MathHelper.Clamp(acceleration, Game1.minMaxAcceleration[0], Game1.minMaxAcceleration[1]);
         }
         public bool getAltitudeDanger()
         {

@@ -1,7 +1,7 @@
 ﻿{
-  "vendor": "Learjet",
-  "model": "85",
-  "iconName": "Learjet85",
+  "vendor": "Embraer",
+  "model": "195",
+  "iconName": "Embraer195",
   "capacity": 122,
   "maxSpeed": 890
 }
